@@ -1,9 +1,13 @@
-#header_container
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
-{
+#header_container{
     background-color: #B2BDCC;
     /*border-radius: 10px 10px 10px 10px;*/
     margin-top: 0;
+    padding: 1% 5% 1%;
 
 }
 
@@ -12,3 +16,35 @@
     font-family:"Strong Concrete";
     font-size: 400%;
   }
+
+.stats_accueil{
+    background-color:#9e8585;
+    width: 33.333333%;
+
+    display: inline;
+    float: left;
+
+    
+    
+}
+.activites_accueil{
+    background-color:#d3cae6;
+    width: 33.333333%;
+
+    display: inline;
+    float: left;
+}
+
+.classement_accueil{
+    background-color:#92c192;
+    width: 33.333333%;
+
+    display: inline;
+    float: left;
+}
+
+.titre {
+    color: white;
+    font-family:Helvetica;
+    font-size: 400%;
+}
