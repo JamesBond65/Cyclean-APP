@@ -1,0 +1,48 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container_footer{
+    
+    background-color: beige;
+    display: flex;
+    flex-wrap: nowrap;
+    
+      
+    
+}
+
+.element_dans_footer{
+    
+    width: 33.333333%;
+    margin: auto;
+    
+    
+}
+
+.gauche{
+
+    padding-left: 10%;
+    color: #B39270;
+}
+
+.central{
+    
+    justify-content: space-between;
+    text-align: center;
+    color: #B39270;
+    font-weight: 550;
+    font-family: Helvetica, Sans-Serif;
+}
+
+.droite{
+
+
+    
+    
+    background-color: blue;
+    flex-wrap: nowrap;
+    text-align: center;
+}
