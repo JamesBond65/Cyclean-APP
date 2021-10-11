@@ -1,89 +1,39 @@
-.stats_accueil{
-    /*--
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.container .box { 
+    width: 100%;
+    display:table; 
+    overflow-x:auto;
     
-
-
-    float: left;
-
-    box-sizing: border-box;
-    padding: 1% 5% 1%;*/
-
-    display: flex;
-    flex-basis: 33.33%;
-
-    flex-direction: column;
-    background-color:#9e8585;
+} 
+.container .box .box-row { 
+    display:table-row; 
     
-}
-
-.activites_accueil{
-
-    /*width: 33.333333%;*/
-
-    /*float: left; /*Aligner à gauche afin de caser d'autre chose à sa droite (S)*/
-
-    /*box-sizing: border-box; /* Pour que l'élement garde sa taille originale avec les marges du texte ci-dessous (S)*/
-    /*padding: 1% 5% 1%;*/
-
     
-    display: flex;
-    flex-basis: 33.33%;
-    flex-direction: column;
-    background-color:#d3cae6;
-
-}
-
-.classement_accueil{
-
-    /*width: 33.333333%;
-
-    float: left;
-
-    box-sizing: border-box; 
-    padding: 1% 5% 1%;*/
-
+} 
+.container .box .box-cell { 
+    display:table-cell; 
+ 
+    padding:10px; 
     
-    display: flex;
-    flex-basis: 33.33%;
-    flex-direction: column;
-    background-color:#92c192;
+} 
+
+.container .box .box-cell.box1 { 
+    background:green; 
+    color:white; 
+    text-align:center; 
+    
+    
+} 
+.container .box .box-cell.box2 { 
+    background:lightgreen; 
+    text-align:center;
+    
+} 
+.container .box .box-cell.box3 { 
+    background:lime; 
+    text-align:center;    
 }
-
-
-.center{
-    align-items: center;
-
-}
-
-
-.m{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-
-}
-
-
-
-.titre {
-    color: white;
-    font-family:Helvetica;
-    font-size: 300%;
-}
-
-.home {width: 80%;
-    height: 3px;
-    margin-top: 1%;
-    background-color:rgb(255, 255, 255);
-    border: white;
-    float: left;
-}
-
-.cyclean-trait{width: 30%;
-    height: 3px;
-    margin-top: 1%;
-    background-color:rgb(255, 255, 255);
-    border: white;
-    float: left;}
