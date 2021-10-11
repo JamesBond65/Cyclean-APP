@@ -17,40 +17,64 @@ html, body {
     font-size: 400%;
   }
 
+
+
+
+
+
+
+
+
 .stats_accueil{
     background-color:#9e8585;
     width: 33.333333%;
 
-    display: inline;
+
     float: left;
 
     box-sizing: border-box;
     padding: 1% 5% 1%;
     
-    
 }
+
+.center{
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
 .activites_accueil{
     background-color:#d3cae6;
     width: 33.333333%;
 
-    display: inline;
     float: left; /*Aligner à gauche afin de caser d'autre chose à gauche (S)*/
 
     box-sizing: border-box; /* Pour que l'élement garde sa taille originale avec les marges du texte ci-dessous (S)*/
     padding: 1% 5% 1%;
+
 }
 
 .classement_accueil{
     background-color:#92c192;
     width: 33.333333%;
 
-    display: inline;
     float: left;
 
     box-sizing: border-box; 
     padding: 1% 5% 1%;
-    
 }
+
+
+
+
+
+
+
+
+
+
 
 .titre {
     color: white;
@@ -67,7 +91,7 @@ html, body {
 }
 
 
-hr {width: 90%;
+.home {width: 110%;
     height: 3px;
     margin-top: 1%;
     background-color:rgb(255, 255, 255);
@@ -75,3 +99,9 @@ hr {width: 90%;
     float: left;
 }
 
+.cyclean-trait{width: 30%;
+    height: 3px;
+    margin-top: 1%;
+    background-color:rgb(255, 255, 255);
+    border: white;
+    float: left;}
