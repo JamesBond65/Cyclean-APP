@@ -41,9 +41,10 @@ html, body {
 .droite{
 
 
-    background-color: blue;
+    font-family: Helvetica, Sans-Serif;
     flex-wrap: nowrap;
     text-align: center;
+    color: #B39270;
     flex-grow: 1;
 }
 
@@ -56,5 +57,13 @@ html, body {
 }
 
 .box_texte_contact{
-    flex-grow: 2;
+    flex-shrink: 0.5;
+}
+
+.ogo_insta_whatsapp{
+    flex-shrink: 1;
+}
+
+.logo_facebook{
+    flex-shrink: 1;
 }
