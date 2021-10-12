@@ -10,7 +10,6 @@ html, body {
     display: flex;
     flex-wrap: nowrap;
     
-      
     
 }
 
@@ -18,6 +17,8 @@ html, body {
     
     width: 33.333333%;
     margin: auto;
+    
+    
     
     
 }
@@ -40,9 +41,29 @@ html, body {
 .droite{
 
 
-    
-    
-    background-color: blue;
+    font-family: Helvetica, Sans-Serif;
     flex-wrap: nowrap;
     text-align: center;
+    color: #B39270;
+    flex-grow: 1;
+}
+
+.flexbox_contact{
+
+    
+    text-align: center;
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+.box_texte_contact{
+    flex-shrink: 0.5;
+}
+
+.ogo_insta_whatsapp{
+    flex-shrink: 1;
+}
+
+.logo_facebook{
+    flex-shrink: 1;
 }
