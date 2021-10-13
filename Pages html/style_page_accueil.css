@@ -9,9 +9,10 @@ html, body {
 
 
 #header{
-   display: flex;
+    display: flex;
     flex-wrap:wrap;
     justify-content:space-between;
+    /*Lignes précédentes pour avoir la nav bar alignée avec le texte CYCLEAN FOR ENVIRONMENT dans la page d'accueil du login*/
     
     background-color: #B2BDCC;
     /*border-radius: 10px 10px 10px 10px;*/
@@ -39,7 +40,7 @@ html, body {
 .slogan {
     color: white;
     font-family:"Strong Concrete";
-    font-size: 300%;
+    font-size: 340%;
   }
 
 
@@ -48,60 +49,32 @@ html, body {
     justify-content: center;
 }
 
+.container-flex{
+    display: flex;
+}
+/* pour les blocs collés dans la page d'accueil*/
 
-
-
-.stats_accueil{
-
-    width: 33.33%;
-
-
-    float: left;
-
-    box-sizing: border-box;
-    padding: 1% 5% 1%;
+.couleur_stats_accueil{
 
     background-color:#9e8585;
 
-    display: flex;
-    flex-basis: auto;
-
-    flex-direction: column;
-
 }
 
-
-
-.activites_accueil{
+.couleur_activites_accueil{
     background-color:#d3cae6;
-    width: 33.33%;
 
-    float: left; 
-
-    box-sizing: border-box; 
-    padding: 1% 5% 1%;
-
-    display: flex;
-
-    flex-direction: column;
-
-
-/*Aligner à gauche afin de caser d'autre chose à gauche (S)*/
-/* Pour que l'élement garde sa taille originale avec les marges du texte ci-dessous (S)*/
 }
 
-.classement_accueil{
+.couvrir{
+    width: 33.33%;
+    padding: 1% 5% 1%;
+}
+
+.couleur_classement_accueil{
     background-color:#92c192;
     width: 33.33%;
 
-    float: left;
-
-    box-sizing: border-box; 
     padding: 1% 5% 1%;
-
-    display: flex;
-
-    flex-direction: column;
 
 }
 
