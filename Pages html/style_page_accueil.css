@@ -22,9 +22,9 @@ html, body {
 
 }
 .navigation{ /*classe car réultilisation plus tard*/
-
   text-align:right;
   padding-right:1%;
+  list-style: none;
   
 }
 
@@ -119,6 +119,7 @@ html, body {
 
     /*background-image: ;*/
     background-color: rebeccapurple;
+    width: 100%;
     display: flex;
 
     justify-content:space-around;
