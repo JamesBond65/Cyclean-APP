@@ -6,36 +6,48 @@ html, body {
     /*font-family:"";*/
 }
 
+.gris{
+    background-color: #B2BDCC;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 2.5%;
+    display: flex;
+
+    justify-content:space-between;
+
+}
+
+.navigation{ /*classe car réultilisation plus tard*/
+    text-align:right;
+    padding-right:1%;
+    list-style: none;
+  }
 
 
 #bloc_gris{
     display: flex;
-    flex-wrap:wrap;
-    justify-content:space-between;
+
+
+    /*justify-content:space-between;*/
     /*Lignes précédentes pour avoir la nav bar alignée avec le texte CYCLEAN FOR ENVIRONMENT dans la page d'accueil du login*/
     
     background-color: #B2BDCC;
     /*border-radius: 10px 10px 10px 10px;*/
+    padding-bottom: 2.5%;
+    padding-left: 1%;
+    padding-right: 1%;
 
-    padding: 1% 2.5% 1%;
 
-
-}
-.navigation{ /*classe car réultilisation plus tard*/
-  text-align:right;
-  padding-right:1%;
-  list-style: none;
-  
 }
 
 .cyclean{
 
-  width:400px;
-
-  padding-left:1%;
-  padding-bottom: 2%;
-
-}
+    width:400px;
+  
+    padding-left:1%;
+    padding-bottom: 2%;
+  
+  }
 
 
 .slogan {
@@ -46,6 +58,7 @@ html, body {
   }
 
 
+
 .center{
     display: flex;
     justify-content: center;
@@ -53,20 +66,15 @@ html, body {
 
 .container-flex{
     display: flex;
-
 }
 /* pour les blocs collés dans la page d'accueil*/
 
 .couleur_stats_accueil{
-    
-
     background-color:#9e8585;
-
 }
 
 .couleur_activites_accueil{
     background-color:#d3cae6;
-
 }
 
 .couvrir{
@@ -76,9 +84,7 @@ html, body {
 
 .couleur_classement_accueil{
     background-color:#92c192;
-    width: 33.33%;
 
-    padding: 1% 5% 1%;
 
 }
 
@@ -92,7 +98,7 @@ html, body {
 .titre2 {
     color: white;
     font-family:Helvetica;
-    font-size: 120%;
+    font-size: 110%;
     display: inline;
     margin-right: 5%;
 }
@@ -117,12 +123,17 @@ html, body {
 
 .velo-container{
 
-    /*background-image: ;*/
-    background-color: rebeccapurple;
+    background-image: url("https://storage.cloudconvert.com/tasks/2c690391-f618-4dda-ba75-f9ea513e56a9/BIKE.png?AWSAccessKeyId=cloudconvert-production&Expires=1634630253&Signature=6t0S9G6eObtJB41MPj0rg%2FVUTa4%3D&response-content-disposition=inline%3B%20filename%3D%22BIKE.png%22&response-content-type=image%2Fpng");
+
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /*background-color: rebeccapurple;*/
     width: 100%;
     display: flex;
 
     justify-content:space-around;
+    padding-bottom: 500px;
+
 }
 
 .vline{
@@ -138,4 +149,6 @@ html, body {
     /*width: 10%;*/ /*fait bugger les blocs*/
     /*height: 10%;*/
     padding-left: 5%;
+    vertical-align: middle;
+    margin-top: 50%;
 }
