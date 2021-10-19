@@ -7,15 +7,21 @@ html, body {
 
 }
 
-.gris{
+.padding_total{
     padding-left: 1%;
     padding-right: 1%;
     padding-top: 2.5%;
+}
+
+.flex_div{
+
     display: flex;
 
-    justify-content:space-between;
-
 }
+.v_center_align{
+      align-items : center; /* aligner verticallement*/
+}
+
 
 .navigation{ /*classe car réultilisation plus tard*/
     text-align:right;
@@ -29,6 +35,11 @@ html, body {
     font-family:"Strong Concrete";
     font-size: 340%;
 
+
+  }
+  
+.text-center{
+    text-align:center;
   }
   
 .titre {
@@ -62,6 +73,7 @@ html, body {
     padding-left: 2%;
     padding-right: 2%;
 
+
     align-items : center; /* aligner verticallement*/
 }
 
@@ -78,14 +90,6 @@ html, body {
     font-family:"Strong Concrete";
     font-size: 1500%;
   }
-
-  .border{
-    border-left: 3px solid white;
-
-    padding-left: 5%;
-
-    justify-content:center;
-}
 
 
 
