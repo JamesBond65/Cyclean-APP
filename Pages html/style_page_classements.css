@@ -3,24 +3,90 @@ html, body {
     padding: 0;
 }
 
+/*-----------------------------------------------------------------------HEADER--------------------------------------------*/
+
+.gris{
+    background-color: #B2BDCC;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 2.5%;
+    display: flex;
+    justify-content:space-between;
+}
+
+.navigation{ /*classe car réultilisation plus tard*/
+    text-align:right;
+    padding-right:1%;
+    list-style: none;
+  }
+
+
+.titre {
+    color: white;
+    font-family:Helvetica;
+    font-size: 250%;
+}
+
+.titre2 {
+    color: white;
+    font-family:Helvetica;
+    font-size: 110%;
+    display: inline;
+    margin-right: 5%;
+}
+
+
+/*-----------------------------------------------------------------END HEADER-------------------------------------------------*/
+
+/*---------------------------------------------------Classement des utilisateurs + image---------------------------------------*/
+
+
+.bloc_vert{
+    display: flex;
+
+    /*justify-content:space-between;*/
+    /*Lignes précédentes pour avoir la nav bar alignée avec le texte CYCLEAN FOR ENVIRONMENT dans la page d'accueil du login*/
+    background-color: #B2BDCC;
+    /*border-radius: 10px 10px 10px 10px;*/
+    padding-bottom: 2.5%;
+    padding-left: 1%;
+    padding-right: 1%;
+
+
+}
+
+.classement_des_utilisateurs{
+
+    width:400px;
+    padding-left:1%;
+    padding-bottom: 2%;
+  
+  }
+
+
+
+
+
+
+
+
+/*------------------------------------------------END Classement des utilisateurs + image-------------------------------------*/
+
+
+/*--------------------------------------------------------------------------FOOTER----------------------------------------*/
+
 
 .container_footer{
-    
+
     background-color: beige;
     display: flex;
     flex-wrap: nowrap;
-    
-    
 }
 
 .element_dans_footer{
-    
+
     width: 33.333333%;
-    margin: auto;
-    
-    
-    
-    
+    margin: auto; 
 }
 
 .gauche{
@@ -30,7 +96,7 @@ html, body {
 }
 
 .central{
-    
+
     justify-content: space-between;
     text-align: center;
     color: #B39270;
@@ -39,7 +105,6 @@ html, body {
 }
 
 .droite{
-
 
     font-family: Helvetica, Sans-Serif;
     flex-wrap: nowrap;
@@ -50,20 +115,24 @@ html, body {
 
 .flexbox_contact{
 
-    
     text-align: center;
     flex-direction: column;
     flex-grow: 2;
 }
 
 .box_texte_contact{
+
     flex-shrink: 0.5;
 }
 
 .ogo_insta_whatsapp{
+
     flex-shrink: 1;
 }
 
 .logo_facebook{
+
     flex-shrink: 1;
 }
+
+/*----------------------------------------------------------END FOOTER--------------------------------------------------------------*/
