@@ -1,3 +1,9 @@
+@font-face{
+    src : url(fonts/StrongConcrete-Bold.otf);
+    font-family: Strong Concrete;
+}
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -6,7 +12,7 @@ html, body {
 /*-----------------------------------------------------------------------HEADER--------------------------------------------*/
 
 .gris{
-    background-color: #B2BDCC;
+    background-color: #92C192;
     padding-left: 1%;
     padding-right: 1%;
     padding-top: 2.5%;
@@ -43,10 +49,11 @@ html, body {
 
 .bloc_vert{
     display: flex;
+    flex-wrap: wrap;
 
     /*justify-content:space-between;*/
     /*Lignes précédentes pour avoir la nav bar alignée avec le texte CYCLEAN FOR ENVIRONMENT dans la page d'accueil du login*/
-    background-color: #B2BDCC;
+    background-color: #92C192;
     /*border-radius: 10px 10px 10px 10px;*/
     padding-bottom: 2.5%;
     padding-left: 1%;
@@ -60,17 +67,43 @@ html, body {
     width:400px;
     padding-left:1%;
     padding-bottom: 2%;
-  
+   }
+
+  .slogan {
+    /*background-color: beige;*/
+    width: 40%;
+    color: white;
+    font-family:"Strong Concrete";
+    font-size: 250%;
+    margin-left: 5%;
+    margin-bottom: 17%;
+    margin-top: 12%;
+    letter-spacing: 3px;
+    transform: scaleY(1.1);
+    
   }
 
+  .image_empreinte{
+      width: 49%;
+      text-align: right;
+      /*background-color: azure;*/
+      margin-top: 5%;
+      margin-right: 5%;
+  }
 
+  .classement-trait{
+    margin-left: 5%;
+    background-color: #92C192;
+    width: 90%;
+    height: 3px;
+    margin-top: 1%;
+    background-color:rgb(255, 255, 255);
+    border: white;
 
-
-
-
-
-
+}
 /*------------------------------------------------END Classement des utilisateurs + image-------------------------------------*/
+
+
 
 
 /*--------------------------------------------------------------------------FOOTER----------------------------------------*/
