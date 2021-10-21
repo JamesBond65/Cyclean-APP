@@ -20,6 +20,8 @@ html, body {
 }
 .v_center_align{
       align-items : center; /* aligner verticallement*/
+      vertical-align: middle;
+
 }
 
 
@@ -85,16 +87,27 @@ html, body {
     justify-content: space-around;
 }
 
+.center{
+    justify-content: center;
+}
+
+
+
 .stats{
     color: white;
     font-family:"Strong Concrete";
     font-size: 1500%;
+    line-height: 0px;
   }
-
 
 
 /* lignes verticales MAIS CENTREES ensuite*/
 .vline {
     border-left: 3px solid white;
-    height: 500px;
+    height: 600px;
   }
+
+.margin-sides{
+    margin-left: 8%;
+    margin-right: 8%;
+}
