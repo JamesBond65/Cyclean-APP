@@ -1,6 +1,26 @@
 body{
     background-color: #B2BDCC;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+header.header{
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+    margin : 0px;
+    color: brown;
+    font-size: large;
+    
+    
+
+}
+
+.a{
+    font-weight: 300px;
+}
+
 
 
 
@@ -35,4 +55,6 @@ input{
     border: #B2BDCC;
     background-color: #B2BDCC;
    }
+
+
 
