@@ -6,42 +6,40 @@ html, body {
     /*font-family:"";*/
 }
 
-.gris{
-    background-color: #B2BDCC;
+.padding_total{
     padding-left: 1%;
     padding-right: 1%;
     padding-top: 2.5%;
-    display: flex;
-
-    justify-content:space-between;
-
 }
+
+                                /*Partie principale de la page (dans l'ordre)*/
+ /*---------------------------------------------------------------------------------------------------*/
+
 
 .navigation{ /*classe car réultilisation plus tard*/
     text-align:right;
-    padding-right:1%;
     list-style: none;
   }
 
-
-#bloc_gris{
-    display: flex;
-
-
-    /*justify-content:space-between;*/
-    /*Lignes précédentes pour avoir la nav bar alignée avec le texte CYCLEAN FOR ENVIRONMENT dans la page d'accueil du login*/
-    
-    background-color: #B2BDCC;
-    /*border-radius: 10px 10px 10px 10px;*/
-    padding-bottom: 2.5%;
-    padding-left: 1%;
-    padding-right: 1%;
-
-
+.navigation a {
+    /*Enlever surlignage bleu pour les liens de la barre de nav*/
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
-.cyclean{
+.navigation > li> a> h2 {
+    /*Personnaliser le texte dans la barre de nav*/
+    color: white;
+    font-family:Helvetica;
+    font-size: 110%;
+    display: inline;
+    margin-right: 5%;
+  }
 
+
+
+  
+#cyclean{
     width:400px;
   
     padding-left:1%;
@@ -50,25 +48,46 @@ html, body {
   }
 
 
-.slogan {
-    color: white;
-    font-family:"Strong Concrete";
-    font-size: 340%;
-    margin-bottom: 17%;
-  }
-
-
-
-.center{
+#bloc_gris{
     display: flex;
-    justify-content: center;
+
+    /*Lignes précédentes pour avoir la nav bar alignée avec le texte CYCLEAN FOR ENVIRONMENT dans la page d'accueil du login*/
+    
+    background-color: #B2BDCC;
+    padding-bottom: 2.5%;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
-.container-flex{
-    display: flex;
-}
-/* pour les blocs collés dans la page d'accueil*/
 
+.velo-container{
+
+    background-image: url("https://images.unsplash.com/photo-1556316384-12c35d30afa4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80");
+
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    
+    
+    display: flex;
+
+    justify-content:space-around;
+    padding-bottom: 500px;
+
+}
+
+ /*---------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+                                    /* Les 3 blocs de la page d'accueil*/
+ /*---------------------------------------------------------------------------------------------------*/
 .couleur_stats_accueil{
     background-color:#9e8585;
 }
@@ -84,9 +103,29 @@ html, body {
 
 .couleur_classement_accueil{
     background-color:#92c192;
-
-
 }
+ /*---------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+                                            /*Différents types d'écriture*/
+ /*---------------------------------------------------------------------------------------------------*/
+
+
+
+ .slogan {
+    color: white;
+    font-family:"Strong Concrete";
+    font-size: 340%;
+    margin-bottom: 17%;
+  }
 
 
 .titre {
@@ -102,7 +141,53 @@ html, body {
     display: inline;
     margin-right: 5%;
 }
+ /*---------------------------------------------------------------------------------------------------*/
 
+
+
+
+
+
+
+ 
+
+                                            /*ATTRIBUTS*/
+ /*---------------------------------------------------------------------------------------------------*/
+
+.space{
+    justify-content:space-between;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.gris{
+    background-color: #B2BDCC;
+ }
+
+.container-flex{
+    display: flex;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+ /*---------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+                                        /*Différents traits*/
+ /*---------------------------------------------------------------------------------------------------*/
 
 .home {
     width: 110%;
@@ -122,23 +207,9 @@ html, body {
     float: left;
 }
 
-
-.velo-container{
-
-    background-image: url("https://images.unsplash.com/photo-1556316384-12c35d30afa4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80");
-
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    /*background-color: rebeccapurple;*/
-    width: 100%;
-    display: flex;
-
-    justify-content:space-around;
-    padding-bottom: 500px;
-
-}
-
 .border{
+    /*Barres verticales dans la partie vélo*/
+
     margin-top: 3%;
     border-left: 2px solid white;
     /*width: 10%;*/ /*fait bugger les blocs*/

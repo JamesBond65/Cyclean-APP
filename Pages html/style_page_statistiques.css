@@ -4,31 +4,105 @@ html, body {
     
     color: white;
     background-color:#9e8585;
-
 }
 
+
+/*Propriétés de marges*/
+/*----------------------------------------*/
 .padding_total{
     padding-left: 1%;
     padding-right: 1%;
     padding-top: 2.5%;
 }
 
-.flex_div{
+.margin-sides{
+    margin-left: 8%;
+    margin-right: 8%;
+}
+.padding-sides{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+/*----------------------------------------*/
+
+
+
+
+
+
+
+                                /*Partie principale de la page (dans l'ordre)*/
+ /*---------------------------------------------------------------------------------------------------*/
+
+ .navigation{ /*classe car réultilisation plus tard*/
+    text-align:right;
+    list-style: none;
+  }
+  .navigation a {
+    /*Enlever surlignage bleu pour les liens de la barre de nav*/
+    color: #FFFFFF;
+    text-decoration: none;
+}
+  .navigation > li> a> h2 {
+    color: white;
+    font-family:Helvetica;
+    font-size: 110%;
+    display: inline;
+    margin-right: 5%;
+  }
+
+
+
+
+
+ .bloc_marron{
 
     display: flex;
 
+    padding-bottom: 2.5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    
+    align-items : center; /* aligner verticallement*/
 }
-.v_center_align{
-      align-items : center; /* aligner verticallement*/
-      vertical-align: middle;
 
+ 
+ .grid{
+    display: grid;
+    width: 100%;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto); /*comme auto auto auto*/
+
+
+    grid-row-gap: 5%;
+    padding-bottom: 2.5%;
+
+    grid-auto-flow: row; /*afin de centrer le grid*/
+    justify-items: center; /*afin de centrer le grid*/
+    align-items : center; /* aligner verticallement*/
 }
 
+ /*---------------------------------------------------------------------------------------------------*/
 
-.navigation{ /*classe car réultilisation plus tard*/
-    text-align:right;
-    padding-right:1%;
-    list-style: none;
+
+
+
+
+
+
+
+
+
+
+                                            /*Différents types d'écriture*/
+ /*---------------------------------------------------------------------------------------------------*/
+
+.stats{
+    color: white;
+    font-family:"Strong Concrete";
+    font-size: 1100%;
+    line-height: 0px;
   }
 
 
@@ -36,13 +110,8 @@ html, body {
     color: white;
     font-family:"Strong Concrete";
     font-size: 340%;
-
-
   }
-  
-.text-center{
-    text-align:center;
-  }
+
   
 .titre {
     color: white;
@@ -58,27 +127,16 @@ html, body {
     margin-right: 5%;
 }
 
-
-.cyclean-trait{
-    width: 80%;
-    height: 3px;
-    margin-top: 1%;
-    background-color:rgb(255, 255, 255);
-    border: white;
-
-
+  
+.text-center{
+    text-align:center;
 }
 
-.bloc_marron{
-    display: flex;
-    padding-bottom: 2.5%;
-    padding-left: 2%;
-    padding-right: 2%;
+ /*---------------------------------------------------------------------------------------------------*/
 
 
-    align-items : center; /* aligner verticallement*/
-}
-
+                                            /*ATTRIBUTS*/
+ /*---------------------------------------------------------------------------------------------------*/
 .space{
     justify-content:space-between;
 }
@@ -89,25 +147,43 @@ html, body {
 
 .center{
     justify-content: center;
+    
 }
 
 
-
-.stats{
-    color: white;
-    font-family:"Strong Concrete";
-    font-size: 1500%;
-    line-height: 0px;
-  }
+.v_center_align{
+    align-items : center; /* aligner verticallement*/
+    vertical-align: middle;
+}
 
 
-/* lignes verticales MAIS CENTREES ensuite*/
+.container-flex{
+    display: flex;
+}
+ /*---------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+        /* Différentes lignes*/
+/*----------------------------------------*/
+
+
+/* lignes verticales MAIS CENTREES par la suite*/
 .vline {
     border-left: 3px solid white;
-    height: 600px;
+    height: 400px;
   }
 
-.margin-sides{
-    margin-left: 8%;
-    margin-right: 8%;
+/* ligne horizontale principale*/
+.cyclean-trait{
+    width: 80%;
+    height: 3px;
+    margin-top: 1%;
+    background-color:rgb(255, 255, 255);
+    border: white;
+
 }
+ /*----------------------------------------*/

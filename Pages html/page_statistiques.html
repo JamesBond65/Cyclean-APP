@@ -10,25 +10,34 @@
 
     <body>
 
-        <div class="flex_div space padding_total">
 
-                <nav style="padding-left:1%;"><img src="images/LogoBlanc.png " width="200px"></nav>
+
+
+
+        <header class="container-flex space padding_total">
+
+                <nav><img src="images/LogoBlanc.png " width="200px"></nav>
     
                 <nav>
                     <ul class="navigation">
                         <li><img src="images/Langages.png" width="30px"><br></li>
-    
-                        <li><a href="page_accueil.html"><h2 class="titre2">Accueil</h2> <br></a></li>
-                        <li><a href="page_statistiques.html"><h2 class="titre2">Stats</h2> <br></a></li>
-                        <li><a href="page_social.html"><h2 class="titre2">Social</h2> <br></a></li>
-                        <li><a href="page_classement.html"><h2 class="titre2">Classement</h2> <br></a></li>
-                        <li><h2 class="titre2">FAQ</h2> <br></li>
-                        <li> <h2 class="titre2">Paramètres</h2><br></li>
-                        <li><h2 class="titre2">Déconnexion</h2></li>
+                        <li><a href="page_accueil.html"><h2 >Accueil</h2> <br></a></li>
+                        <li><a href="page_statistiques.html"><h2 >Stats</h2> <br></a></li>
+                        <li><a href="page_social.html"><h2 >Social</h2> <br></a></li>
+                        <li><a href="page_classement.html"><h2 >Classement</h2> <br></a></li>
+                        <li><a href="page_faq.html"><h2>FAQ</h2><br></a></li>
+                        <li><a href="page_parametres.html"><h2 >Paramètres</h2><br></a></li>
+                        <li><a href="page_deconnexion.html"><h2>Déconnexion</h2></a></li>
                     </ul>
                 </nav>
  
-             </div>
+            </header>
+            
+
+
+
+
+
 
             <section class="bloc_marron space"> 
             
@@ -37,63 +46,73 @@
                     EN TEMPS REEL </h1>
 
                 
-                <img src="images/Stats.png" width="550px">   
+                <img src="images/Stats.png" width="350px">   
 
             </section>
             
             <hr class="cyclean-trait" style="margin-bottom:200px;">
 
 
-            <section class="bloc_marron center"> 
-                <img src="images/graph.png" width="550px">   
+
+
+
+            <!-- LES STATS -->
+            <!-- ------------------------------------------------------------ -->
+
+            <section class="grid center"> 
+
+                <!-- Ligne 1 -->
+
+                <img src="images/graph.png" width="350px">   
 
                 <div class="vline margin-sides"></div>
 
 
-                <div class="v_center_align">
-                    <div class="flex_div v_center_align">
+                <div class="">  <!--v_center_align avant-->
+                    <div class="container-flex v_center_align">
                         <h1 class="stats text-center">86</h1> 
                         <h1 class="slogan text-center">db</h1>
                     </div>
                     
-                    <h1 class="titre text-center">Durant votre dernier trajet,<br> vous avez subit 86db en moyenne.</h1>
+                    <h1 class="titre2 text-center">Durant votre dernier trajet,<br> vous avez subit 86db en moyenne.</h1>
 
                 </div>
 
-            </section>
-            
-            
-            <section class="bloc_marron center"> 
+
+
+                <!-- Ligne 2 -->
               
-                <div class="flex_div v_center_align">
+                <div class=""> <!--v_center_align avant-->
                   <h1 class="stats">85</h1>
-                  <h1 class="slogan text-center">Polluant principal<br>Pm 2,5</h1>
+                  <h1 class="titre2 text-center">Polluant principal<br>Pm 2,5</h1>
                 </div>
                 
                 <div class="vline margin-sides"></div>
                 
-                <div class="flex_div">
-                  <img src="images/Plan_travail.png" width="550px">  
+                <div class="container-flex">
+                  <img src="images/Plan_travail.png" width="350px">  
                 </div>
                 
-            </section>
-            
-            <section class="bloc_marron center">
-                <img src="images/HEART.png" width="550px">  
+                <img src="images/HEART.png" width="350px">  
                 <div class="vline margin-sides"></div>
 
 
-                <div class="v_center_align">
-                    <div class="flex_div v_center_align">
+                <!-- Ligne 3 -->
+
+
+                <div class="">
+                    <div class="container-flex"> <!--v_center_align avant-->
                         <h1 class="stats text-center">70</h1> 
                         <h1 class="slogan text-center">bpm</h1>
                     </div>
                     
-                    <h1 class="titre text-center">Durant votre dernier trajet,<br> Votre coeur battait à une fréquence moyenne de 70 bpm.</h1>
+                    <h1 class="titre2 text-center">Durant votre dernier trajet, votre coeur battait à<br> une fréquence moyenne de 70 bpm.</h1>
 
                 </div>
               
             </section>
+
+            <!-- ------------------------------------------------------------ -->
             
                           
     </body>
