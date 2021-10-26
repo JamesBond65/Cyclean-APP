@@ -96,25 +96,36 @@ a {
  /*---------------------------------------------------------------------------------------------------*/
 .couleur_stats_accueil{
     background-color:#9e8585;
-
 }
+a.couleur_stats_accueil:hover{
+    background-color:#b29999;
+    transition: 0.8s;
+}
+
+
 
 .couleur_activites_accueil{
     background-color:#d3cae6;
-
+}
+a.couleur_activites_accueil:hover{
+    background-color:#e7defa;
+    transition: 0.8s;
 }
 
 .couleur_classement_accueil{
     background-color:#92c192;
-
 }
+a.couleur_classement_accueil:hover{
+    background-color:#a6d5a6;
+    transition: 0.8s;
+}
+
 
 .flex-3box{
     flex-grow:1;
     flex-basis: 29%; /*Taille initiale*/
     padding-left: 2%;
     padding-right: 2%;
-    z-index:1;
 
 }
  /*---------------------------------------------------------------------------------------------------*/
@@ -186,6 +197,10 @@ a {
 
 .wrap{
     flex-wrap: wrap;
+}
+
+.index1{
+    z-index:1;
 }
 
 
