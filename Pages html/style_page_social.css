@@ -1,0 +1,51 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    
+    color: white;
+    background-color:#d3cae6;
+}
+
+
+        /*Propriétés de marges*/
+/*----------------------------------------*/
+.padding_total{
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 2.5%;
+}
+/*----------------------------------------*/
+
+
+                                /*Partie principale de la page (dans l'ordre)*/
+ /*---------------------------------------------------------------------------------------------------*/
+
+ .navigation{ /*classe car réultilisation plus tard*/
+    text-align:right;
+    list-style: none;
+  }
+  
+.navigation a {
+    /*Enlever surlignage bleu pour les liens de la barre de nav*/
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.navigation > li> a> h2 {
+    /*Personnaliser le texte dans la barre de nav*/
+    color: white;
+    font-family:Helvetica;
+    font-size: 110%;
+    display: inline;
+    margin-right: 5%;
+  }
+ /*---------------------------------------------------------------------------------------------------*/
+
+
+.container-flex{
+    display: flex;
+}
+
+.space{
+    justify-content:space-between;
+}
