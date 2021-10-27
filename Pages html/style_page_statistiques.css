@@ -43,13 +43,38 @@ html, body {
     color: #FFFFFF;
     text-decoration: none;
 }
-  .navigation > li> a> h2 {
+
+.navigation > li> a {
+    /*Personnaliser le texte dans la barre de nav*/
     color: white;
     font-family:Helvetica;
     font-size: 110%;
+    font-weight: bold;
     display: inline;
-    margin-right: 5%;
+
+
   }
+        /*Animation CSS pour la barre de navigation*/
+/*------------------------------------------------------------------*/
+.navigation > li> a::after {
+    background-color:white;
+    content:""; /*Contenu invisible*/
+    height:2px;
+    width:15px;
+
+    position:absolute;
+    right: 2%;
+
+
+    transform-origin:left center;
+    transition: transform .2s ease-in-out,color .2s ease-in-out; /*pour le dégradé entrant*/
+    transform:scaleX(0) /*Commence sans rien*/
+}
+.navigation > li> a:hover::after {
+    transform:scaleX(1) /*Commence l'animation après hover*/
+   }
+/*------------------------------------------------------------------*/
+
 
 
 
