@@ -154,21 +154,25 @@ html, body {
     flex-wrap: nowrap;
     background-color: #92C192;
     width: 100%;
-    
+    margin-top: 8%;
     margin-bottom: 5%;
 }
 
 .emplacement_profil{
     width: 20%;
-    margin-left: 8%;
+    margin-left: 10%;
     margin-top: 2%;
 }
 
+
+
 .emplacement_informations{
+    width: 15%;
     display: flex;
     flex-direction: column;
     font-size: x-large;
-    
+    margin-left: 5%;
+    margin-bottom: 2%;
     
     
 }
@@ -177,9 +181,31 @@ html, body {
     height: 25%;
     font-family: Helvetica, Sans-Serif;
     margin-top: 25%;
+    margin-top: 20%;
    
 }
 
+.mes_informations{
+    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+
+}
+
+.rectangle{
+    width: 80% ;
+   margin-top: 1%;
+    height:25%;
+    background-color: #92C192;
+    border: 10px;
+    border: solid;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    border-color: #84af84;;
+   
+
+}  
 
 
 /*-----------------------------------------------------END Classement personnel---------------------------------------------*/
