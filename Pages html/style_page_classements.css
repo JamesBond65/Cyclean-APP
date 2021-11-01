@@ -124,7 +124,7 @@ html, body {
     margin-right: 1%;
     margin-left: 1%;
     width: 17%;
-    
+ 
 }
 
 .utilisateur_cote{
@@ -145,8 +145,44 @@ html, body {
     margin-bottom: 5%;
 }
 
+/*-------------------------------------------------------------END BLOC PODIUM-----------------------------------------------*/
+
+/*----------------------------------------------------------Classement personnel---------------------------------------------*/
+
+.classement_personnel{
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #92C192;
+    width: 100%;
+    
+    margin-bottom: 5%;
+}
+
+.emplacement_profil{
+    width: 20%;
+    margin-left: 8%;
+    margin-top: 2%;
+}
+
+.emplacement_informations{
+    display: flex;
+    flex-direction: column;
+    font-size: x-large;
+    
+    
+    
+}
+
+.categorie{
+    height: 25%;
+    font-family: Helvetica, Sans-Serif;
+    margin-top: 25%;
+   
+}
 
 
+
+/*-----------------------------------------------------END Classement personnel---------------------------------------------*/
 
 
 
@@ -155,7 +191,7 @@ html, body {
 
 .container_footer{
 
-    background-color: beige;
+    background-color: white;
     display: flex;
     flex-wrap: nowrap;
 }
@@ -168,15 +204,17 @@ html, body {
 
 .gauche{
 
-    padding-left: 10%;
-    color: #B39270;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    padding-left: 8%;
+    color: #92C192;
 }
 
 .central{
 
     justify-content: space-between;
     text-align: center;
-    color: #B39270;
+    color: #92C192;
     font-weight: 550;
     font-family: Helvetica, Sans-Serif;
 }
@@ -186,7 +224,7 @@ html, body {
     font-family: Helvetica, Sans-Serif;
     flex-wrap: nowrap;
     text-align: center;
-    color: #B39270;
+    color: #92C192;
     flex-grow: 1;
 }
 
@@ -200,9 +238,10 @@ html, body {
 .box_texte_contact{
 
     flex-shrink: 0.5;
+    margin-bottom: 2%;
 }
 
-.ogo_insta_whatsapp{
+.logo_insta_whatsapp{
 
     flex-shrink: 1;
 }
