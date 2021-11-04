@@ -106,34 +106,6 @@ html, body {
 /*------------------------------------------------END Classement des utilisateurs + image-------------------------------------*/
 
 
-/*---------------------------------------------BLOC Profil utilisateurs-------------------------------------------*/
-
-.profil_utilisateurs{
-    margin-top: 3%;
-    display: flex;
-    flex-wrap: nowrap;
-    background-color: #92C192;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 1%;
-    
-}
-
-.logo_utilisateurs{
-
-    margin-right: 1%;
-    margin-left: 1%;
-    width: 17%;
- 
-}
-
-.utilisateur_cote{
-    margin-top: 4%;
-}
-
-/*-------------------------------------------------END Profil utilisateurs--------------------------------------*/
-
-
 
 /*-------------------------------------------------------------BLOC PODIUM---------------------------------------------------*/
 
@@ -141,8 +113,55 @@ html, body {
 .bloc_podium{
     display: flex;
     background-color: #92C192;
-    justify-content: center;
+    flex-wrap: nowrap;
     margin-bottom: 5%;
+    margin-top: 5%;
+    
+}
+
+.section_contenu{
+    margin-left: 2%;
+    width: 24%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+.un_deux_trois{
+    
+    margin-left: 25%;
+    font-size: 1000%;
+    font-family:"Strong Concrete";
+    color: #92C192;
+    background-color: white;
+    width: 55%;
+}
+
+.trait{
+    width: 3%;
+    background-color: white;
+    margin-left: 1%;
+}
+
+.pseudos{
+    height: 33.33333%;
+    margin-top: 15%;
+    font-size: 400%;
+    font-family: Helvetica, Sans-Serif; 
+    font-weight: bolder;
+    margin-left: 20%;
+
+}
+
+.points_cyclean{
+    height: 33.33333%;
+    margin-top: 15%;
+    margin-left: 15%;
+    font-size: 400%;
+    font-family:"Strong Concrete";
+    font-weight: bolder;
+
 }
 
 /*-------------------------------------------------------------END BLOC PODIUM-----------------------------------------------*/
