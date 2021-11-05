@@ -232,68 +232,19 @@ html, body {
 
 
 /*--------------------------------------------------------------------------FOOTER----------------------------------------*/
-
-
 .container_footer{
+    padding-top: 15px;
 
     background-color: white;
     display: flex;
     flex-wrap: nowrap;
-}
-
-.element_dans_footer{
-
-    width: 33.333333%;
-    margin: auto; 
-}
-
-.gauche{
-
-    margin-top: 1%;
-    margin-bottom: 3%;
-    padding-left: 8%;
-    color: #92C192;
-}
-
-.central{
-
     justify-content: space-between;
-    text-align: center;
+}
+
+.vert{
     color: #92C192;
-    font-weight: 550;
-    font-family: Helvetica, Sans-Serif;
-}
-
-.droite{
-
-    font-family: Helvetica, Sans-Serif;
-    flex-wrap: nowrap;
+    vertical-align: center;
     text-align: center;
-    color: #92C192;
-    flex-grow: 1;
+    font-weight: 1000;
 }
-
-.flexbox_contact{
-
-    text-align: center;
-    flex-direction: column;
-    flex-grow: 2;
-}
-
-.box_texte_contact{
-
-    flex-shrink: 0.5;
-    margin-bottom: 2%;
-}
-
-.logo_insta_whatsapp{
-
-    flex-shrink: 1;
-}
-
-.logo_facebook{
-
-    flex-shrink: 1;
-}
-
 /*----------------------------------------------------------END FOOTER--------------------------------------------------------------*/
