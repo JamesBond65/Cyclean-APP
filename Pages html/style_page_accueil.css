@@ -91,18 +91,44 @@ a {
 
 .velo-container{
 
-    background-image: url("images/BIKE_2.png");
+    background-image: url("images/BIKE_4.png");
 
-    background-size: cover;
+    background-size: 100%;
+
     background-repeat: no-repeat;
    
     
     
     display: flex;
     justify-content:space-around;
-
+    width:100%;
+    padding-bottom: 15%;
 
 }
+
+
+/*----------------FOOTER-------------------*/
+.container_footer{
+    padding-top: 2%;
+    padding-bottom: 1.5%;
+
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.texte_footer{
+    color: #B4BDCB;
+    vertical-align: center;
+    text-align: center;
+    font-weight: 1000;
+}
+/*-------------END FOOTER-------------------*/
+
+
+
+
 
  /*---------------------------------------------------------------------------------------------------*/
 
@@ -269,7 +295,7 @@ a.couleur_classement_accueil:hover{
 .border{
     /*Barres verticales dans la partie vélo*/
 
-    border-left: 3px solid white;
+    border-left: 4px solid white;
     padding-left: 2%;
     margin-top: 10%;
 }
