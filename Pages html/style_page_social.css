@@ -65,6 +65,26 @@ html, body {
 
 
 
+/*----------------FOOTER-------------------*/
+.container_footer{
+    padding-top: 2%;
+    padding-bottom: 1.5%;
+
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.texte_footer{
+    color: #d3cae6;
+    vertical-align: center;
+    text-align: center;
+    font-weight: 1000;
+}
+/*-------------END FOOTER-------------------*/
+
+
   
  /*---------------------------------------------------------------------------------------------------*/
 
