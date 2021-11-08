@@ -1,0 +1,132 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    color: #727272;
+}
+
+header {
+    background-color: blueviolet;
+}
+
+.padding_total{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+
+                                            /*Différents types d'écriture*/
+ /*---------------------------------------------------------------------------------------------------*/
+ .slogan {
+    color: white;
+    font-family:"Strong Concrete";
+    font-size: 400%;
+    background-color: blueviolet;
+  }
+
+  
+.titre {
+    font-family:Helvetica;
+    font-size: 250%;
+}
+
+.titre2 {
+    font-weight: bold;
+    font-family:Helvetica;
+    font-size: 110%;
+}
+
+  /*---------------------------------------------------------------------------------------------------*/
+
+
+                               /*Partie principale de la page (dans l'ordre)*/
+ /*---------------------------------------------------------------------------------------------------*/
+
+
+ .navigation{ /*classe car réultilisation plus tard*/
+    text-align:right;
+    list-style: none;
+
+  }
+
+.navigation a {
+    /*Enlever surlignage bleu pour les liens de la barre de nav*/
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.navigation > li> a {
+    /*Personnaliser le texte dans la barre de nav*/
+    color: white;
+    font-family:Helvetica;
+    font-size: 90%;
+    font-weight: bold;
+    display: inline;
+
+
+  }
+        /*Animation CSS pour la barre de navigation*/
+/*------------------------------------------------------------------*/
+.navigation > li> a::after {
+    background-color:white;
+    content:""; /*Contenu invisible*/
+    height:2px;
+    width:15px;
+
+    position:absolute;
+    right: 2%;
+
+
+    transform-origin:left center;
+    transition: transform .2s ease-in-out,color .2s ease-in-out; /*pour le dégradé entrant*/
+    transform:scaleX(0) /*Commence sans rien*/
+}
+.navigation > li> a:hover::after {
+    transform:scaleX(1) /*Commence l'animation après hover*/
+   }
+/*------------------------------------------------------------------*/
+.container-flex{
+    display: flex;
+}
+
+.space{
+    justify-content:space-between;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid black;
+    width: 80%;
+    height: 5px;
+}   
+
+
+.container-flex{
+    display: flex;
+}
+
+
+.grid{
+    display: grid;
+    width: 100%;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto); /*comme auto auto auto*/
+
+
+    grid-row-gap: 5%;
+    padding-bottom: 2.5%;
+
+    grid-auto-flow: row; /*afin de centrer le grid*/
+    justify-items: center; /*afin de centrer le grid*/
+    align-items : center; /* aligner verticallement*/
+}
+
+.center{
+    justify-content: center;
+    
+}
+
+.fixed{
+    position: fixed;
+    width: 100%;
+}

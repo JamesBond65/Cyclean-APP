@@ -23,15 +23,14 @@ html, body {
     font-family: Helvetica;
     font-size: 110%;
     display: inline;
-    margin-right: 5%;
+
 }
 
         /*Propriétés de marges*/
 /*----------------------------------------*/
 .padding_total{
-    padding-left: 1%;
+    padding-left: 3%;
     padding-right: 1%;
-    padding-top: 2.5%;
 }
 /*----------------------------------------*/
 
@@ -55,7 +54,7 @@ html, body {
     /*Personnaliser le texte dans la barre de nav*/
     color: white;
     font-family:Helvetica;
-    font-size: 110%;
+    font-size: 90%;
     font-weight: bold;
     display: inline;
 
