@@ -1,1 +1,1 @@
-Steven : Changer de langue, Déplacer traits animation navbar, retouche image vélo du bas, changer certains h1 en p
+Steven : Changer de langue, Déplacer traits animation navbar, retouche image vélo du bas
