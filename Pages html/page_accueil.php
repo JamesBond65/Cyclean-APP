@@ -17,6 +17,7 @@
     
                 <nav style="margin-right: 2.5%;">
                     <ul class="navigation">
+                        <li><img src="images/Langages.png" width="30px"><br></li>
                         <li><a href="page_accueil.php">Accueil<br></a></li>
                         <li><a href="page_statistiques.php">Stats <br></a></li>
                         <li><a href="page_social.php">Social<br></a></li>
