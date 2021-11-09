@@ -21,13 +21,13 @@
             <nav style="margin-right: 2.5%;">
                 <ul class="navigation">
                     <li><img src="images/Langages.png" width="30px"><br></li>
-                    <li><a href="page_accueil.html">Accueil<br></a></li>
-                    <li><a href="page_statistiques.html">Stats <br></a></li>
-                    <li><a href="page_social.html">Social<br></a></li>
-                    <li><a href="page_classement.html">Classement <br></a></li>
-                    <li><a href="page_faq.html">FAQ<br></a></li>
-                    <li><a href="page_parametres.html">Paramètres<br></a></li>
-                    <li><a href="page_deconnexion.html">Déconnexion<br></a></li>
+                    <li><a href="page_accueil.php">Accueil<br></a></li>
+                    <li><a href="page_statistiques.php">Stats <br></a></li>
+                    <li><a href="page_social.php">Social<br></a></li>
+                    <li><a href="page_classement.php">Classement <br></a></li>
+                    <li><a href="page_faq.php">FAQ<br></a></li>
+                    <li><a href="page_parametres.php">Paramètres<br></a></li>
+                    <li><a href="page_deconnexion.php">Déconnexion<br></a></li>
                 </ul>
             </nav>
 
