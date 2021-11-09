@@ -10,3 +10,5 @@ Armand: Faire la partie activités/social HTML/CSS.
           - Nom et prénom (et peut-être pseudo)
           
           - Résumé d'une ou plusieurs stats intéressante du parcours concerné (un gros texte un peu comme celles dans les Stats)
+
+LOGO CLIQUABLE RETOUR A LA PAGE D'ACCUEIL
