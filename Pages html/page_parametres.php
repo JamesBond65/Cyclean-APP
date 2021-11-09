@@ -31,7 +31,7 @@
         </header>
 
 
-        <section class="grid center" style="padding-top: 20%;">
+        <section class="grid center" style="padding-top: 250px;padding-bottom: 550px;">
 
             <!-- Ligne 1 -->
 
@@ -48,10 +48,10 @@
                     <input type="text" placeholder="Adresse e-mail...">             
                     <hr>
 
-                    <input type="text" placeholder="Mot de passe...">                                          
+                    <input type="password" placeholder="Mot de passe...">                                          
                     <hr>
 
-                    <input type="text" placeholder="Confirmer mot de passe...">           
+                    <input type="password" placeholder="Confirmer mot de passe...">           
                     <hr>
                     <input type="submit" name="profile_form" id="profile_form" value="confirmer">
                 </form>
@@ -62,19 +62,16 @@
                 <h1 class="titre">Interface<hr></h1>
                 
 
-                <form method="post" class="post">
+                <form method="post" id="post_tick">
                             
-                    <input type="checkbox"> Pollution sonore
-                    <hr>
+                    <input type="checkbox"> Pollution sonore<hr>
 
-                    <input type="checkbox"> Fréquence cardiaque   
-                    <hr>
+                    <input type="checkbox"> Fréquence cardiaque<hr>
 
-                    <input type="checkbox"> Qualité de l'air           
-                    <hr>
+                    <input type="checkbox"> Qualité de l'air <hr>
 
-                    <input type="checkbox"> Autre
-                    <hr>
+                    <input type="checkbox"> Autre<hr>
+
                     <input type="submit" name="interface_form" id="interface_form" value="confirmer">
                 </form>
             
@@ -100,13 +97,65 @@
                 </form>
             
             </div>
-
-
-
-
-
-
         </section>
+
+
+
+
+
+
+
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="container_footer fixed" style="bottom: 0;">                
+            <div style="padding-left: 5%;">
+                <img src="images/images_footer/Blanc/LogoGris.png" width="65px"><br>
+
+                <p class="texte_footer" style="margin-top: 0px;">
+                    Cyclean 
+                </p>
+                
+            </div>
+
+
+                    
+
+
+
+
+            <p class="texte_footer">
+                © GREEN SENSE 2021<br>
+                ALL RIGHTS RESERVED
+            </p>
+
+
+                
+
+
+
+
+            <div style="margin-right: 5%;">
+
+                <p class="texte_footer" style="margin-bottom: 0px; margin-top: 0px;">
+                Contacts
+                </p>
+                
+                <div>
+                    <div class="logo_insta_whatsapp">
+                        <img src="images/images_footer/Blanc/instaF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <img src="images/images_footer/Blanc/WhatsappF.png" width="20px"><br>
+                        <img src="images/images_footer/Blanc/TwitterF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <img src="images/images_footer/Blanc/Mail.F.png" width="20px">
+                    </div>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/images_footer/Blanc/facebookF.png " width="20px">
+                </div>
+            </div>
+
+    </footer>
 
 
 

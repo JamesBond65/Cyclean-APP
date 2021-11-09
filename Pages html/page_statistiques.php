@@ -39,14 +39,14 @@
 
 
 
-        <section class="bloc_marron space"> 
+        <section class="bloc_marron space wrap"> 
         
             <h1 class="slogan padd_left">
                 STATISTIQUES <br>
                 EN TEMPS REEL </h1>
 
             
-            <img src="images/Stats.png" width="350px">   
+            <img src="images/Stats.png" class="" style="margin-top: -100px;margin-right: 150px;" width="600px">   
 
         </section>
         
