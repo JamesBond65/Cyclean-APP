@@ -13,22 +13,17 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
-header.header{
+header{
     display: flex;
     justify-content: center;
     background-color: antiquewhite;
-    margin : 0px;
-    color: brown;
+    margin : 0px;    
     font-size: 100px;
     text-align: center;
     
-    
-    
-    
-    
-
 }
 
 .titre{
@@ -47,24 +42,29 @@ header.header{
 }
 
 
-
-
-
-.conteneur{
-    display: flex;
+section{
+    display:flex;
     flex-direction: column;
-    
-    justify-content: center;
     align-items: center;
-    height: 800px;
+    justify-content: center;
+    margin-bottom: 2%;
 }
 
+
+
 .element_1{
+    
     background-color:#B2BDCC;
-    height: 50%;
+    height: 40%;
     width: 20%;
+    margin-top: 2%;
     
     
+    
+}
+
+.oublié{
+    align-items: center;
 }
 
 hr {
@@ -81,49 +81,38 @@ input{
     border: #B2BDCC;
     background-color: #B2BDCC;
     font-size: 110%;
-   }
-
-
-
-
-   button {
-    display: inline-block;
-    background-color: #ececec;
-    border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #B2BDCC;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 28%;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    }
-
-    button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-    }
-
     
-    button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-    }
-    button:hover {
-    background-color: #3f56db;
-    }
-    button:hover span {
-    padding-right: 25px;
-    }
-    button:hover span:after {
-    opacity: 1;
-    right: 0;
-    }
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    
+}
+      
+.no-outline:focus {
+    outline: none;
+}
+    
+
+
+   
+
+
+/*----------------FOOTER-------------------*/
+.container_footer{
+    padding-top: 2%;
+    padding-bottom: 1.5%;
+
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+}
+
+.texte_footer{
+    color: #B4BDCB;
+    vertical-align: center;
+    text-align: center;
+    font-weight: 1000;
+}
