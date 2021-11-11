@@ -4,10 +4,11 @@
 }
 
 
+
 html, body {
     margin: 0;
     padding: 0;
-        
+
     color: white;
     background-color:#92C192;
 }
@@ -165,17 +166,27 @@ html, body {
     display: flex;
     flex-direction: column;
     width: 100%;
+    background-color: aqua;
+    
     
 }
 
+
+
+
 .un_deux_trois{
+    
     
     margin-left: 25%;
     font-size: 1000%;
     font-family:"Strong Concrete";
     color: #92C192;
     background-color: white;
-    width: 55%;
+    /*width: 55%;*/
+    /*margin-top: 15%;*/
+    justify-items: center;
+    height: auto;
+    min-height: 25%;
 }
 
 .trait{
@@ -186,17 +197,22 @@ html, body {
 
 .pseudos{
     height: 33.33333%;
-    margin-top: 15%;
+    /*margin-top: 12%;*/
     font-size: 400%;
     font-family: Helvetica, Sans-Serif; 
     font-weight: bolder;
     margin-left: 20%;
+    
 
+}
+.zoom_pseudo_points{
+
+    margin-top: 2%;
 }
 
 .points_cyclean{
     height: 33.33333%;
-    margin-top: 15%;
+    /*margin-top: 12%;*/
     margin-left: 15%;
     font-size: 400%;
     font-family:"Strong Concrete";
