@@ -1,54 +1,98 @@
 <!DOCTYPE html>
 
+<?php session_start(); 
+
+if (!empty($_SESSION)){
+    echo $_SESSION['creation_compte']; //Message si l'on vient de créer un compte
+}
+
+?>
 
 
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
         <title>Cyclean - Connexion</title>
-        <link rel="stylesheet" href="style_page_sign_in.css">
+        <link rel="stylesheet" href="style_page_sign_in.css?v=<?php echo time(); ?>">
     </head>
 
 
     <body>
+        
+        <?php include 'database.php';
+            global $db;?>
+
         <header>
             <img src="images/images_footer/Blanc/LogoGris.png" width="100px">
             <div class="titre">CYCLEAN</div>
-
-            
         </header>
         
 
         
 
         <section>
-            
-            <div class="element_1">
-                    <input type="text" class="no-outline" placeholder="Pseudo ...">
-                    <hr>
-                    <input type="text" class="no-outline" placeholder="Prénom ...">
-                    <hr>
-                    <input type="text" class="no-outline" placeholder="Nom...">
-                    <hr>
-                        
-                    <input type="text" class="no-outline" placeholder="Adresse e-mail...">             
-                    <hr>
-                        
-                    <input type="password" class="no-outline" name="pwd" placeholder="Mot de passe" />                                          
-                    <hr>
-                        
-                    <input type="password" class="no-outline" placeholder="Confirmer mot de passe...">           
-                    <hr>
-                        
-            </div>
 
-            <p class="oublié">Mot de passe oublié ?</p> 
-            
-            <button>
-                <input type="submit" name="profile_form" id="profile_form" value="confirmer">
-                    
-            </button>
-                    
+                
+            <form class="element_1" method="post">
+                    <input type="text" name="connexion_pseudo" id="connexion_pseudo" class="no-outline" placeholder="Pseudo ...">
+                    <hr>
+                        
+                    <input type="password" name="connexion_password" id="connexion_password" class="no-outline" name="pwd" placeholder="Mot de passe" />                                          
+                    <hr>
+
+                    <input type="submit" name="connexion_form" id="connexion_form" value="Login">
+
+                        
+            </form>
+
+            <p class="oublié">Mot de passe oublié ?</p>
+                
+
+
+            <?php 
+                if(isset($_POST['connexion_form'])){
+                    extract ($_POST);
+
+                    if(!empty($connexion_password) && !empty($connexion_pseudo)){
+
+
+                        $q = $db->prepare("SELECT * FROM utilisateurs WHERE pseudo = :pseudo");
+
+                        $q->execute(['pseudo' => $connexion_pseudo]);
+
+                        $resultat = $q->fetch(); //Convertit le résultat en un tableau
+
+                        if ($resultat){ //Si le compte existe
+
+                            $password_compte= $resultat['password'];
+
+                            if ($connexion_password == $password_compte){
+
+                                $_SESSION['id'] = $resultat['id'];
+                                $_SESSION['pseudo'] = $resultat['pseudo'];
+                                $_SESSION['Nom'] = $resultat['Nom'];
+                                $_SESSION['Prénom'] = $resultat['Prénom'];
+                                $_SESSION['Prénom'] = $resultat['Prénom'];
+                                $_SESSION['email'] = $resultat['email'];
+                                $_SESSION['APropos'] = $resultat['APropos'];
+                                
+                                header('Location: page_accueil.php');
+                            }
+                            else{
+                                echo "Le mot de passe est incorrect.";
+                            }
+
+                        }
+                        else{
+                            echo "le compte portant le pseudo " . $connexion_pseudo . " n'existe pas.";
+                        }
+
+                    }
+                    else{
+                        echo "Veuillez remplir toutes les cases.";
+                    }
+                }
+            ?>            
 
                 
 
@@ -65,7 +109,7 @@
                 <img src="images/images_footer/Blanc/LogoGris.png" width="65px"><br>
 
                 <p class="texte_footer" style="margin-top: 0px;">
-                        Cyclean 
+                    Cyclean 
                 </p>
                 
             </div>

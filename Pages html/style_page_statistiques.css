@@ -36,12 +36,9 @@ html, body {
  .navigation{ /*classe car réultilisation plus tard*/
     text-align:right;
     list-style: none;
+
   }
-  .navigation a {
-    /*Enlever surlignage bleu pour les liens de la barre de nav*/
-    color: #FFFFFF;
-    text-decoration: none;
-}
+
 
 .navigation > li> a {
     /*Personnaliser le texte dans la barre de nav*/
@@ -50,10 +47,41 @@ html, body {
     font-size: 90%;
     font-weight: bold;
     display: inline;
+    text-decoration: none;
+
+    position: relative;
 
 
   }
         /*Animation CSS pour la barre de navigation*/
+
+/*------------------------------------------------------------------*/
+.navigation > li> a::after {
+    background-color:white;
+    content:""; /*Contenu invisible*/
+    height:2px;
+    width:15px;
+
+    position:absolute;
+    top: 50%;
+    right: -19px;
+
+    display: block;
+
+
+
+
+    transform-origin:left center;
+    transition: transform .2s ease-in-out,color .2s ease-in-out; /*pour le dégradé temporel entrant*/
+    transform:scaleX(0) /*Commence sans rien*/
+}
+.navigation > li> a:hover::after {
+    transform:scaleX(1) /*Commence l'animation après hover*/
+   }
+/*------------------------------------------------------------------*/
+
+
+
 
 
 /*----------------FOOTER-------------------*/
@@ -74,29 +102,6 @@ html, body {
     font-weight: 1000;
 }
 /*-------------END FOOTER-------------------*/
-
-
-
-/*------------------------------------------------------------------*/
-.navigation > li> a::after {
-    background-color:white;
-    content:""; /*Contenu invisible*/
-    height:2px;
-    width:15px;
-
-    position:absolute;
-    right: 2%;
-
-
-    transform-origin:left center;
-    transition: transform .2s ease-in-out,color .2s ease-in-out; /*pour le dégradé entrant*/
-    transform:scaleX(0) /*Commence sans rien*/
-}
-.navigation > li> a:hover::after {
-    transform:scaleX(1) /*Commence l'animation après hover*/
-   }
-/*------------------------------------------------------------------*/
-
 
 
 

@@ -1,22 +1,22 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
         <title>Cyclean - Paramètres</title>
-        <link rel="stylesheet" href="style_page_parametres.css">
+        <link rel="stylesheet" href="style_page_parametres.css?v=<?php echo time(); ?>">
     </head>
 
     <body>
         <header class="fixed">
-            <header class="container-flex space padding_total">
+            <header class="container-flex space gris padding_total">
 
-                <nav style="padding-top: 2%;"><img src="images/LogoBlanc.png " width="50px"></nav>
+                <nav style="padding-top: 2%;"><a href="page_accueil.php"><img src="images/LogoBlanc.png " width="50px"></a></nav>
 
                 <nav style="margin-right: 2.5%;">
                     <ul class="navigation">
                         <li><img src="images/Langages.png" width="30px"><br></li>
-                        <li><a href="page_accueil.php">Accueil<br></a></li>
                         <li><a href="page_statistiques.php">Stats <br></a></li>
                         <li><a href="page_social.php">Social<br></a></li>
                         <li><a href="page_classement.php">Classement <br></a></li>
@@ -25,13 +25,14 @@
                         <li><a href="page_deconnexion.php">Déconnexion<br></a></li>
                     </ul>
                 </nav>
+
             </header>
 
-            <h1 class="slogan" style="margin-top: -75px;">Paramètres</h1>
+            <h1 class="slogan" style="margin-top: -75px;">Paramètres </h1>
         </header>
 
 
-        <section class="grid center" style="padding-top: 250px;padding-bottom: 550px;">
+        <section class="grid center" style="padding-top: 180px;padding-bottom: 650px;">
 
             <!-- Ligne 1 -->
 
@@ -41,19 +42,31 @@
                 
 
                 <form method="post" class="post">
-                            
-                    <input type="text" placeholder="Prénom NOM...">
-                    <hr>
 
-                    <input type="text" placeholder="Adresse e-mail...">             
-                    <hr>
+                    Nouveau nom:<br>
+                    <input type="text" placeholder="<?= $_SESSION['Nom'];?>" size="30">
+                    <br>
 
-                    <input type="password" placeholder="Mot de passe...">                                          
-                    <hr>
+                    Nouveau prénom:<br>
+                    <input type="text" placeholder="<?= $_SESSION['Prénom'];?>" size="30">
+                    <br>
+                    
+                    A propos de moi:<br>
+                    <textarea id="story" name="story" style="resize:none"
+                    rows="5" cols="33"> <?=$_SESSION['APropos']?> </textarea><br> 
 
-                    <input type="password" placeholder="Confirmer mot de passe...">           
-                    <hr>
-                    <input type="submit" name="profile_form" id="profile_form" value="confirmer">
+                    Nouvelle adresse mail:<br>
+                    <input type="text" placeholder="<?= $_SESSION['email'];?>" size="30">
+                    <br>
+                    Nouveau mot de passe:<br>
+                    <input type="password" placeholder="Nouveau mot de passe..." size="30">                                          
+                    <br>
+                    Confirmer le nouveau mot de passe:<br>
+                    <input type="password" placeholder="Confirmer le mot de passe..." size="30">           
+                    <br>
+
+
+                    <input type="submit" name="profile_form" id="profile_form" value="confirmer" size="30">
                 </form>
             
             </div>

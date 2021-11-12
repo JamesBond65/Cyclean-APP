@@ -1,24 +1,38 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
         <title>Cyclean - Accueil</title>
-        <link rel="stylesheet" href="style_page_accueil.css">
+        <link rel="stylesheet" href="style_page_accueil.css?v=<?php echo time(); ?>">
     </head>
 
 
     <body>
 
+        <?php
+
+
+            if (isset($_SESSION['pseudo'])) {
+            ?>
+            <p style="color: black;">Connexion réussie et ID:    
+            <?php echo $_SESSION['id'];
+            } 
+
+            else {
+                header('Location: page_accueil_visiteur.php');
+            }
+        ?>
+
 
         <header class="container-flex space gris padding_total">
 
-                <nav style="padding-top: 2%;"><img src="images/LogoBlanc.png " width="50px"></nav>
+                <nav style="padding-top: 2%;"><a href="page_accueil.php"><img src="images/LogoBlanc.png " width="50px"></a></nav>
     
                 <nav style="margin-right: 2.5%;">
                     <ul class="navigation">
                         <li><img src="images/Langages.png" width="30px"><br></li>
-                        <li><a href="page_accueil.php">Accueil<br></a></li>
                         <li><a href="page_statistiques.php">Stats <br></a></li>
                         <li><a href="page_social.php">Social<br></a></li>
                         <li><a href="page_classement.php">Classement <br></a></li>
@@ -39,7 +53,7 @@
 
            <section id="bloc_gris" class="wrap" style="margin-top: -70px;">
 
-                <div id="cyclean" style="margin-top: -60px;">
+                <div id="cyclean" style="margin-top: -25px;">
                         
                     <h1 class="slogan" style="padding-bottom: 50px;">
                         CYCLEAN
@@ -119,7 +133,7 @@
 
             <div class="border">
 
-                <h1 class="titre"> À propos</h1>
+                <a href="page_apropos.php"><h1 class="titre"> À propos</h1></a>
             
                 <h2 class="titre2"> À propos du produit cyclean</h2>
                 <p><br></p>
@@ -128,7 +142,7 @@
             
             <div class="border">
 
-                <h1 class="titre"> Paramètres</h1>
+                <a href="page_parametres.php"><h1 class="titre">Paramètres</h1></a>
 
                 <h2 class="titre2">Modifier les paramètres de son compte</h2>
 

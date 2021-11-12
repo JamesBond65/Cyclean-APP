@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>Cyclean - Accueil</title>
-        <link rel="stylesheet" href="style_page_accueil.css">
+        <link rel="stylesheet" href="style_page_accueil.css?v=<?php echo time(); ?>">
     </head>
 
 
@@ -15,15 +15,14 @@
         </div>
 
 
-        <header class="container-flex space padding_total gris" style="padding-bottom: 5%;">
+        <header class="container-flex space gris padding_total" style="padding-bottom: 200px">
 
-                <nav><img src="images/LogoBlanc.png " width="200px"></nav>
+                <nav style="padding-top: 2%;"><img src="images/LogoBlanc.png " width="50px"></nav>
     
-                <nav style="margin-right: 2.5%;margin-top: -2.5%;">
+                <nav style="margin-right: 2.5%;">
                     <ul class="navigation">
-                        <li><a href="http://localhost/inscription.php">S'inscrire<br></a></li>
-                        <li><a href="http://localhost/connexion.php">Se connecter<br></a></li>
-
+                        <li><a href="inscription.php">S'inscrire<br></a></li>
+                        <li><a href="page_sign_in.php">Se connecter<br></a></li>
                     </ul>
                 </nav>
  

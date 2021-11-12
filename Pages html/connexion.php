@@ -31,7 +31,7 @@ global $db;
         extract ($_POST);
 
         if(!empty($connexion_password) && !empty($connexion_pseudo)){
-            $q = $db->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
+            $q = $db->prepare("SELECT * FROM Utilisateurs WHERE pseudo = :pseudo");
 
             $q->execute(['pseudo' => $connexion_pseudo]);
 

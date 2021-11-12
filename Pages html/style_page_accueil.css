@@ -21,18 +21,12 @@ a {
                                 /*Partie principale de la page (dans l'ordre)*/
  /*---------------------------------------------------------------------------------------------------*/
 
-
-.navigation{ /*classe car réultilisation plus tard*/
+ .navigation{ /*classe car réultilisation plus tard*/
     text-align:right;
     list-style: none;
 
   }
 
-.navigation a {
-    /*Enlever surlignage bleu pour les liens de la barre de nav*/
-    color: #FFFFFF;
-    text-decoration: none;
-}
 
 .navigation > li> a {
     /*Personnaliser le texte dans la barre de nav*/
@@ -41,10 +35,14 @@ a {
     font-size: 90%;
     font-weight: bold;
     display: inline;
+    text-decoration: none;
+
+    position: relative;
 
 
   }
         /*Animation CSS pour la barre de navigation*/
+
 /*------------------------------------------------------------------*/
 .navigation > li> a::after {
     background-color:white;
@@ -53,11 +51,16 @@ a {
     width:15px;
 
     position:absolute;
-    right: 2%;
+    top: 50%;
+    right: -19px;
+
+    display: block;
+
+
 
 
     transform-origin:left center;
-    transition: transform .2s ease-in-out,color .2s ease-in-out; /*pour le dégradé entrant*/
+    transition: transform .2s ease-in-out,color .2s ease-in-out; /*pour le dégradé temporel entrant*/
     transform:scaleX(0) /*Commence sans rien*/
 }
 .navigation > li> a:hover::after {

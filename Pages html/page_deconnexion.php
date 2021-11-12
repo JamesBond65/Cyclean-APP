@@ -6,6 +6,6 @@
 
     $_SESSION = array();
 
-    header('Location: accueil_visiteur.php');
+    header('Location: page_accueil_visiteur.php');
 
 ?>

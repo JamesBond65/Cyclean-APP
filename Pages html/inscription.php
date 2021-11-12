@@ -49,7 +49,7 @@ global $db;
 
 
                 // Recherche d'email' dans la base de donnée
-                $requete_email = $db->prepare("SELECT email FROM users WHERE email = :email");
+                $requete_email = $db->prepare("SELECT email FROM Utilisateurs WHERE email = :email");
                 $requete_email->execute(['email' => $email]);
 
                 $somme_email = $requete_email->rowCount();
@@ -57,13 +57,13 @@ global $db;
                 if ($somme_email == 0){
 
                     // Recherche de pseudo dans la base de donnée
-                    $requete_pseudo= $db->prepare("SELECT pseudo FROM users WHERE pseudo = :pseudo");
+                    $requete_pseudo= $db->prepare("SELECT pseudo FROM Utilisateurs WHERE pseudo = :pseudo");
                     $requete_pseudo->execute(['pseudo' => $pseudo]);
 
                     $somme_pseudo = $requete_pseudo->rowCount();
 
                     if ($somme_pseudo == 0){
-                        $q = $db->prepare("INSERT INTO users(pseudo,Nom,Prénom,email,password) VALUES(:pseudo,:nom,:prenom,:email,:password)");
+                        $q = $db->prepare("INSERT INTO Utilisateurs(pseudo,Nom,Prénom,email,password) VALUES(:pseudo,:nom,:prenom,:email,:password)");
                         
                         
                         $q->execute([
