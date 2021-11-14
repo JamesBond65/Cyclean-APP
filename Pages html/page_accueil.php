@@ -6,43 +6,20 @@
         <meta charset="UTF-8" />
         <title>Cyclean - Accueil</title>
         <link rel="stylesheet" href="style_page_accueil.css?v=<?php echo time(); ?>">
+
+        <!-- Importation du fichier header-->
+        <script src="jquery.js"></script>
+        <script> 
+        $(function(){
+            $("#header").load("contenu/header.html"); 
+        });
+        </script> 
     </head>
 
 
     <body>
 
-        <?php
-
-
-            if (isset($_SESSION['pseudo'])) {
-            ?>
-            <p style="color: black;">Connexion réussie et ID:    
-            <?php echo $_SESSION['id'];
-            } 
-
-            else {
-                header('Location: page_accueil_visiteur.php');
-            }
-        ?>
-
-
-        <header class="container-flex space gris padding_total">
-
-                <nav style="padding-top: 2%;"><a href="page_accueil.php"><img src="images/LogoBlanc.png " width="50px"></a></nav>
-    
-                <nav style="margin-right: 2.5%;">
-                    <ul class="navigation">
-                        <li><img src="images/Langages.png" width="30px"><br></li>
-                        <li><a href="page_statistiques.php">Stats <br></a></li>
-                        <li><a href="page_social.php">Social<br></a></li>
-                        <li><a href="page_classement.php">Classement <br></a></li>
-                        <li><a href="page_faq.php">FAQ<br></a></li>
-                        <li><a href="page_parametres.php">Paramètres<br></a></li>
-                        <li><a href="page_deconnexion.php">Déconnexion<br></a></li>
-                    </ul>
-                </nav>
- 
-            </header>
+    <header id="header" class="gris"></header>
 
 
 
@@ -80,15 +57,15 @@
         
         <section class="container-flex wrap center">
 
-            <a href="page_statistiques.php" class="couleur_stats_accueil flex-3box index1">
+            <a href="page_mon-profil.php" class="couleur_stats_accueil flex-3box index1">
 
-                <h1 class="titre">Mes Statistiques<hr class="home"></h1>
+                <h1 class="titre">Mon profil<hr class="home"></h1>
                 
     
                 <img src="images/Stats.png" width="300px" class="center-img">                    
 
 
-                <h2 class="titre2">Voir ses statistiques en temps réel ➔</h2>                
+                <h2 class="titre2">Voir ses statistiques en temps réel ➔</h2>
             </a>
 
 

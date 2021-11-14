@@ -3,8 +3,16 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
-        <title>Cyclean - Statistiques</title>
+        <title>Cyclean - Mon profil</title>
         <link rel="stylesheet" href="style_page_statistiques.css?v=<?php echo time(); ?>">
+
+        <!-- Importation du fichier header-->
+        <script src="jquery.js"></script>
+        <script> 
+            $(function(){
+                $("#header").load("contenu/header.html"); 
+            });
+        </script> 
     </head>
 
 
@@ -14,35 +22,14 @@
 
 
 
-        <header class="container-flex space gris padding_total">
-
-            <nav style="padding-top: 2%;"><a href="page_accueil.php"><img src="images/LogoBlanc.png " width="50px"></a></nav>
-
-            <nav style="margin-right: 2.5%;">
-                <ul class="navigation">
-                    <li><img src="images/Langages.png" width="30px"><br></li>
-                    <li><a href="page_statistiques.php">Stats <br></a></li>
-                    <li><a href="page_social.php">Social<br></a></li>
-                    <li><a href="page_classement.php">Classement <br></a></li>
-                    <li><a href="page_faq.php">FAQ<br></a></li>
-                    <li><a href="page_parametres.php">Paramètres<br></a></li>
-                    <li><a href="page_deconnexion.php">Déconnexion<br></a></li>
-                </ul>
-            </nav>
-
-        </header>
-            
-
-
-
-
+        <header id="header"></header>
 
 
         <section class="bloc_marron space wrap"> 
         
             <h1 class="slogan padd_left">
-                STATISTIQUES <br>
-                EN TEMPS REEL </h1>
+                Mon profil <br>
+                 </h1>
 
             
             <img src="images/Stats.png" class="" style="margin-top: -100px;margin-right: 150px;" width="600px">   
@@ -127,9 +114,6 @@
             </p>
             
         </div>
-
-
-                
 
 
 

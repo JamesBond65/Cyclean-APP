@@ -1,0 +1,135 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    
+    color: white;
+    background-color: white;
+    /*font-family:"";*/
+}
+
+
+.margin_total{
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-bottom: 50%;
+}
+
+.gris{
+    background-color:#B2BDCC;
+}
+
+.padding_total{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+a {
+    /*Enlever surlignage bleu pour les liens de la barre de nav*/
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+                                /*Partie principale de la page (dans l'ordre)*/
+ /*---------------------------------------------------------------------------------------------------*/
+
+ .navigation{ /*classe car réultilisation plus tard*/
+    text-align:right;
+    list-style: none;
+
+  }
+
+
+.navigation > li> a {
+    /*Personnaliser le texte dans la barre de nav*/
+    color: white;
+    font-family:Helvetica;
+    font-size: 90%;
+    font-weight: bold;
+    display: inline;
+    text-decoration: none;
+
+    position: relative;
+
+
+  }
+        /*Animation CSS pour la barre de navigation*/
+
+/*------------------------------------------------------------------*/
+.navigation > li> a::after {
+    background-color:white;
+    content:""; /*Contenu invisible*/
+    height:2px;
+    width:15px;
+
+    position:absolute;
+    top: 50%;
+    right: -19px;
+
+    display: block;
+
+
+
+
+    transform-origin:left center;
+    transition: transform .2s ease-in-out,color .2s ease-in-out; /*pour le dégradé temporel entrant*/
+    transform:scaleX(0) /*Commence sans rien*/
+}
+.navigation > li> a:hover::after {
+    transform:scaleX(1) /*Commence l'animation après hover*/
+   }
+/*------------------------------------------------------------------*/
+
+                                            /*ATTRIBUTS*/
+ /*---------------------------------------------------------------------------------------------------*/
+
+ .space{
+    justify-content:space-between;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.gris{
+    background-color: #B2BDCC;
+ }
+
+.container-flex{
+    display: flex;
+}
+
+.box{
+    background-color:#97a3b6;
+    box-shadow: 0 8px 6px -6px black;
+    border-radius: 5px;
+    margin-bottom:20px;
+  }
+
+.separation{
+    background-color:white;
+    width: 80%;
+    height: 1px;
+    border: none;
+    
+}
+
+.slogan_titre{
+
+    color: white;
+    font-family:"Strong Concrete";
+    font-size: 400%;
+
+}
+
+.slogan {
+    color: white;
+    font-family:"Strong Concrete";
+    font-size: 200%;
+  }
+
+  .vertical_center_flex{ /*Aligner verticalement dans une flexbox*/
+    align-items: center;
+  }
+

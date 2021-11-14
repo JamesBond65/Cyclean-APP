@@ -5,27 +5,26 @@
         <meta charset="UTF-8">
         <title>Page des classements</title>
         <link rel="stylesheet" href="style_page_classements.css?v=<?php echo time(); ?>">
+
+        <!-- Importation du fichier header-->
+        <script src="jquery.js"></script>
+        <script> 
+            $(function(){
+                $("#header").load("contenu/header.html"); 
+            });
+        </script> 
     </head>
 
+
+    
     <body>
        
-    <header class="container-flex space gris padding_total">
+        <header id="header"></header>
 
-        <nav style="padding-top: 2%;"><a href="page_accueil.php"><img src="images/LogoBlanc.png " width="50px"></a></nav>
 
-        <nav style="margin-right: 2.5%;">
-            <ul class="navigation">
-                <li><img src="images/Langages.png" width="30px"><br></li>
-                <li><a href="page_statistiques.php">Stats <br></a></li>
-                <li><a href="page_social.php">Social<br></a></li>
-                <li><a href="page_classement.php">Classement <br></a></li>
-                <li><a href="page_faq.php">FAQ<br></a></li>
-                <li><a href="page_parametres.php">Paramètres<br></a></li>
-                <li><a href="page_deconnexion.php">Déconnexion<br></a></li>
-            </ul>
-        </nav>
 
-    </header>
+
+
 
        <!--Classement des utilisateurs + image-->
 

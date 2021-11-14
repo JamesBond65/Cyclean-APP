@@ -6,33 +6,27 @@
         <meta charset="UTF-8" />
         <title>Cyclean - Paramètres</title>
         <link rel="stylesheet" href="style_page_parametres.css?v=<?php echo time(); ?>">
+
+        <!-- Importation du fichier header-->
+        <script src="jquery.js"></script>
+        <script> 
+        $(function(){
+            $("#header").load("contenu/header.html"); 
+        });
+        </script>
     </head>
 
     <body>
         <header class="fixed">
-            <header class="container-flex space gris padding_total">
-
-                <nav style="padding-top: 2%;"><a href="page_accueil.php"><img src="images/LogoBlanc.png " width="50px"></a></nav>
-
-                <nav style="margin-right: 2.5%;">
-                    <ul class="navigation">
-                        <li><img src="images/Langages.png" width="30px"><br></li>
-                        <li><a href="page_statistiques.php">Stats <br></a></li>
-                        <li><a href="page_social.php">Social<br></a></li>
-                        <li><a href="page_classement.php">Classement <br></a></li>
-                        <li><a href="page_faq.php">FAQ<br></a></li>
-                        <li><a href="page_parametres.php">Paramètres<br></a></li>
-                        <li><a href="page_deconnexion.php">Déconnexion<br></a></li>
-                    </ul>
-                </nav>
-
-            </header>
+            
+            <header id="header" class="gris"></header>
 
             <h1 class="slogan" style="margin-top: -75px;">Paramètres </h1>
+            
         </header>
 
 
-        <section class="grid center" style="padding-top: 180px;padding-bottom: 650px;">
+        <section class="grid center" style="padding-top: 180px;padding-bottom: 700px;">
 
             <!-- Ligne 1 -->
 
@@ -125,7 +119,7 @@
 
         <footer class="container_footer fixed" style="bottom: 0;">                
             <div style="padding-left: 5%;">
-                <img src="images/images_footer/Blanc/LogoGris.png" width="65px"><br>
+                <img src="images/LogoBlanc.png " width="65px"><br>
 
                 <p class="texte_footer" style="margin-top: 0px;">
                     Cyclean 
@@ -158,13 +152,13 @@
                 
                 <div>
                     <div class="logo_insta_whatsapp">
-                        <img src="images/images_footer/Blanc/instaF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src="images/images_footer/Blanc/WhatsappF.png" width="20px"><br>
-                        <img src="images/images_footer/Blanc/TwitterF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src="images/images_footer/Blanc/Mail.F.png" width="20px">
+                        <img src="images/images_footer/Blanc_Blanc/instaF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <img src="images/images_footer/Blanc_Blanc/WhatsappF.png" width="20px"><br>
+                        <img src="images/images_footer/Blanc_Blanc/TwitterF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <img src="images/images_footer/Blanc_Blanc/Mail.F.png" width="20px">
                     </div>
 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/images_footer/Blanc/facebookF.png " width="20px">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/images_footer/Blanc_Blanc/facebookF.png " width="20px">
                 </div>
             </div>
 

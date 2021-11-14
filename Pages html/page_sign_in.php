@@ -1,13 +1,5 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
-
-<?php session_start(); 
-
-if (!empty($_SESSION)){
-    echo $_SESSION['creation_compte']; //Message si l'on vient de créer un compte
-}
-
-?>
-
 
 <html lang="fr">
     <head>
@@ -19,6 +11,13 @@ if (!empty($_SESSION)){
 
     <body>
         
+        <?
+        if (!empty($_SESSION)){
+            echo $_SESSION['creation_compte']; //Message si l'on vient de créer un compte
+        }
+
+        ?>
+
         <?php include 'database.php';
             global $db;?>
 
@@ -47,6 +46,7 @@ if (!empty($_SESSION)){
 
             <p class="oublié">Mot de passe oublié ?</p>
                 
+
 
 
             <?php 

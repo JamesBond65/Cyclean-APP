@@ -172,6 +172,7 @@ a.couleur_classement_accueil:hover{
 
 
 .flex-3box{
+    align-items: center;
     flex-grow:1;
     flex-basis: 29%; /*Taille initiale*/
     padding-left: 2%;

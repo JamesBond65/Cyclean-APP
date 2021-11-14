@@ -5,7 +5,7 @@ html, body {
 }
 
 header {
-    background-color: blueviolet;
+    background-color: #B2BDCC;
 }
 
 .padding_total{
@@ -93,7 +93,7 @@ header {
     padding-top: 2%;
     padding-bottom: 1.5%;
 
-    background-color: blueviolet;
+    background-color: #B2BDCC;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
