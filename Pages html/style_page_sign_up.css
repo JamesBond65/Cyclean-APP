@@ -1,3 +1,45 @@
-.body{
+body{
     background-color: white;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    
+}
+
+
+
+input{
+    justify-content: center;
+    border: white;
+    background-color: white;
+    font-size: 110%;
+    
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    
+   
+}
+
+.no-outline:focus {
+    outline: none;
+}
+
+.button{
+    align-items: center;
+}
+    
+.image{
+    display: block;
+    margin-right: 0%;
+    
+}
+
+.box{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40%;
+    width: 20%;
 }
