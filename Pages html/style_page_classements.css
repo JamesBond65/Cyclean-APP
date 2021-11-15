@@ -221,7 +221,16 @@ html, body {
     margin-bottom: 5%;
 }
 
-.emplacement_profil{
+.informations_personelles{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    width: 100%;
+    
+    text-align: center;
+}
+
+.photo_de_profil{
     width: 20%;
     margin-left: 10%;
     margin-top: 2%;
@@ -230,41 +239,56 @@ html, body {
 
 
 .emplacement_informations{
-    width: 15%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
     font-size: x-large;
-    margin-left: 5%;
-    margin-bottom: 2%;
+    margin-left: 0%;
+    margin-bottom: 0%;
+    height: 15%;
     
     
 }
 
-.categorie{
-    height: 25%;
+.titres{
+    /*height: 0%;*/
     font-family: Helvetica, Sans-Serif;
-    margin-top: 25%;
-    margin-top: 20%;
+    margin-top: 0%;
+    margin-top: 0%;
+    width: 25%;
    
 }
 
-.mes_informations{
-    margin-left: 1%;
+.boites{
+    height: 80%;
+    margin-left: 0%;
     display: flex;
-    flex-direction: column;
-    width: 70%;
+    flex-wrap: wrap;
+
+    
 
 }
 
-.rectangle{
-    width: 80% ;
-   margin-top: 1%;
-    height:25%;
+.rectangles{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+    margin-left: 4.5%;
+    
+}
+
+
+
+.rectangles_titres{
+    width: 90% ;
+    margin-top: 5%;
+    height:20%;
     background-color: #92C192;
     border: 10px;
     border: solid;
     border-radius: 5px;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
     border-color: #84af84;;
    
 
