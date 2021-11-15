@@ -8,9 +8,27 @@ body{
     
 }
 
+.page_entiere{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
 .logo{
-    
-    margin-top: 0%;
+    margin-top: 1%;
+    margin-left: 1% ;
+    width: 20%;
+
+}
+
+.box{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40%;
+    width: 20%;
+    margin-top: 20%;
+    font-size: large;
 }
 
 input{
@@ -18,11 +36,11 @@ input{
     border: white;
     background-color: white;
     font-size: 110%;
-    
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
     border-bottom-style: hidden;
+    font-size: larger;
     
    
 }
@@ -35,15 +53,9 @@ input{
 .image{
     display: block;
     margin-right: 0%;
-    
-    
+    width: 40%;
+    margin-left: 0%;
+    text-align: end;
 }
 
 
-.box{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 40%;
-    width: 20%;
-}
