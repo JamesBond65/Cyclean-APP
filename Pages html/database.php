@@ -4,14 +4,14 @@
  define("HOST","localhost");
  define("DB_NAME","siteweb");
  define("USER","root");
- define("PASS","" );    
+ define("PASS","root");    
 
  try{
-  $db = new PDO("mysql:host=" . HOST . ";dbname=" . DB_NAME, USER, PASS);
+  $db = new PDO("mysql:host=" . HOST . ";port=3306;dbname=" . DB_NAME, USER, PASS);
   $db->setAttribute(PDO::ERRMODE_EXCEPTION, 'ATTR_ERRMODE');
  }
 
- catch(PDOEXeption $e){
+ catch(PDOException $e){
   echo $e;
  }
 ?>
