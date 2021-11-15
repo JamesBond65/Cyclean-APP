@@ -114,55 +114,129 @@
 
          <section class="classement_personnel">
                 
-            <div class="emplacement_profil">
+            <div class="photo_de_profil">
                 <img src="images/Profil utilisateurs/Emplacement profil.png" width="250px" >
             </div>
 
+            <div class="informations_personelles">
+               
+                <div class="emplacement_informations" >
+                                            
+                    <div class="titres" >
+                            Pseudo
+                        </div>
+
+                        <div class="titres">
+                            Cy Point
+                        </div>
+
+                        <div class="titres">
+                            Classement
+                        </div>
+
+                        <div class="titres">
+                            Meilleure stat
+                        </div>
+
+
+                </div>
+
+
+                <div class="boites" >
+                    
+                    <div class="rectangles">
+                        
+                        <div class="rectangles_titres">
+
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                    </div>
+
+                    <div class="rectangles">
+                        
+                        <div class="rectangles_titres">
+
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                        <div class="rectangles_titres">
+                            
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                    </div>
+
+                    <div class="rectangles">
+                        
+                        <div class="rectangles_titres">
+
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                    </div>
+
+                    <div class="rectangles">
+                        
+                        <div class="rectangles_titres">
+
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                        </div>
+
+                    </div>
+                    
+                    
+
+
+                </div>
+            </div>
                 
-             <div class="emplacement_informations" >
-                            
-                <div class="categorie" >
-                    Pseudo
-                </div>
-
-                 <div class="categorie">
-                    Cy Point
-                </div>
-
-                <div class="categorie">
-                    Classement
-                </div>
-
-                <div class="categorie">
-                    Meilleure stat
-                </div>
-
-            </div>
+             
 
 
-            <div class="mes_informations">
-                            
-                <div class="rectangle">
-
-                </div>
-
-                <div class="rectangle">
-                                
-                </div>
-                <div class="rectangle">
-
-                </div>
-
-                <div class="rectangle">
-
-                </div>
-
-
-            </div>
-
-
-
-            
 
         </section>
 
@@ -181,20 +255,10 @@
                 </div>
 
 
-                     
-
-
-
-
                 <p class="texte_footer">
                     © GREEN SENSE 2021<br>
                     ALL RIGHTS RESERVED
                 </p>
-
-
-                    
-
-
 
 
                 <div style="margin-right: 5%;">
