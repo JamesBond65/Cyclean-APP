@@ -10,16 +10,9 @@
 
 
     <body>
-        
-        <?
-        if (!empty($_SESSION)){
-            echo $_SESSION['creation_compte']; //Message si l'on vient de créer un compte
-        }
-
-        ?>
-
         <?php include 'database.php';
-            global $db;?>
+            global $db;
+            ?>
 
         <header>
             <img src="images/images_footer/Blanc/LogoGris.png" width="100px">
