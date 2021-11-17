@@ -17,6 +17,11 @@
     </head>
 
     <body>
+        <?php include 'database.php';
+        global $db;
+        ?>
+
+
         <header class="fixed">
             
             <header id="header" class="gris"></header>
@@ -38,11 +43,11 @@
                 <form method="post" class="post">
 
                     Nouveau nom:<br>
-                    <input type="text" placeholder="<?= $_SESSION['Nom'];?>" size="30">
+                    <input type="text" name="nom" id="nom" placeholder="<?= $_SESSION['Nom'];?>" size="30">
                     <br>
 
                     Nouveau prénom:<br>
-                    <input type="text" placeholder="<?= $_SESSION['Prénom'];?>" size="30">
+                    <input type="text" name="prenom" id="prenom" placeholder="<?= $_SESSION['prenom'];?>" size="30">
                     <br>
                     
                     A propos de moi:<br>
@@ -50,19 +55,147 @@
                     rows="5" cols="33"> <?=$_SESSION['APropos']?> </textarea><br> 
 
                     Nouvelle adresse mail:<br>
-                    <input type="text" placeholder="<?= $_SESSION['email'];?>" size="30">
+                    <input type="text" name="email" id="email" placeholder="<?= $_SESSION['email'];?>" size="30">
                     <br>
                     Nouveau mot de passe:<br>
-                    <input type="password" placeholder="Nouveau mot de passe..." size="30">                                          
+                    <input type="password" name="password" id="password" placeholder="Nouveau mot de passe..." size="30">                                          
                     <br>
                     Confirmer le nouveau mot de passe:<br>
-                    <input type="password" placeholder="Confirmer le mot de passe..." size="30">           
+                    <input type="password" name="cpassword" id="cpassword" placeholder="Confirmer le mot de passe..." size="30">           
                     <br>
 
 
                     <input type="submit" name="profile_form" id="profile_form" value="confirmer" size="30">
                 </form>
-            
+              
+
+                <?php
+                    if(isset($_POST['profile_form'])){
+                        extract ($_POST);
+
+                        if (!empty($nom) || !empty($prenom) || !empty($story) || !empty($email) || (!empty($password) && !empty($cpassword)) ) {
+                            // !empty($email) verif
+                            $q = $db->prepare("SELECT * FROM utilisateurs WHERE email = :email");
+
+                            $q->execute(['email' => $email]);
+
+                            $resultat = $q->fetch(); //Convertit le résultat en un tableau
+
+                            if ($resultat){  //Si le compte existe
+                                echo "l'adresse mail est déjà utilisée pour un autre compte";
+                            }
+                            else{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                if ( ( (!empty($password) and !empty($cpassword) ) && $cpassword == $password ) or (empty($password) and empty($cpassword)) ) {
+                                    
+                                    $q = $db->prepare("UPDATE utilisateurs SET  
+                                    Nom = CASE
+                                            WHEN length(:nom)>0 THEN :nom 
+                                            ELSE Nom END,
+                                    prenom = CASE
+                                            WHEN :prenom IS NOT NULL AND length(:prenom)>0 THEN :prenom 
+                                            ELSE prenom END,
+
+                                    APropos = CASE
+                                            WHEN :apropos IS NOT NULL AND length(:apropos)>0 THEN :apropos
+                                            ELSE APropos END,
+
+                                    email = CASE
+                                            WHEN :email IS NOT NULL AND length(:email)>0 THEN :email
+                                            ELSE email END,
+
+                                    password = CASE
+                                            WHEN :password IS NOT NULL AND length(:password)>0 THEN :password
+                                            ELSE password END
+                                                                            
+                                       WHERE id=:id");
+
+
+
+
+                                    $donnees=[
+
+                                        'nom' => $nom,
+                                        'prenom' => $prenom,
+                                        'apropos' => $story,
+
+                                        'email' => $email,
+
+                                        'password' => $password,
+
+
+
+                                        'id' => $_SESSION['id']
+
+                                    ];
+
+                                    $q->execute($donnees);
+
+                                }
+                                else {
+                                    echo 'les mdp remplis ne correspondent pas';
+                                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            }
+                        }
+                        else{
+                            echo "Veuillez remplir les champs obligatoires";
+                        }
+                    }
+                    ?>
+
             </div>
             
             <div>
