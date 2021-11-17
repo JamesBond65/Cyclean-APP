@@ -1,4 +1,4 @@
-Steven : Changer de langue, Déplacer traits animation navbar, retouche image vélo du bas, grid wrap page STATS, message en JS lorsque les paramètres ont été modifiés ;
+Steven : Changer de langue, Déplacer traits animation navbar, retouche image vélo du bas, grid wrap vertical page STATS, message en JS lorsque les paramètres ont été modifiés ;
 vérification connexion et inscription (non vide et autre caractéristiques) en HTML pas en PHP 
 
 
