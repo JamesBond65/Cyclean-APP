@@ -23,8 +23,6 @@
         
 
         <section>
-
-                
             <form class="element_1" method="post">
                     <input type="text" name="connexion_pseudo" id="connexion_pseudo" class="no-outline" placeholder="Pseudo ...">
                     <hr>
@@ -64,8 +62,8 @@
                                 $_SESSION['id'] = $resultat['id'];
                                 $_SESSION['pseudo'] = $resultat['pseudo'];
                                 $_SESSION['Nom'] = $resultat['Nom'];
-                                $_SESSION['Prénom'] = $resultat['Prénom'];
-                                $_SESSION['Prénom'] = $resultat['Prénom'];
+                                $_SESSION['prenom'] = $resultat['prenom'];
+                                $_SESSION['prenom'] = $resultat['prenom'];
                                 $_SESSION['email'] = $resultat['email'];
                                 $_SESSION['APropos'] = $resultat['APropos'];
                                 

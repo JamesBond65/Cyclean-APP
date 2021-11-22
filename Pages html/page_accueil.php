@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+if (empty($_SESSION['id'])){
+    header('Location: page_accueil_visiteur.php');
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -19,7 +25,7 @@
 
     <body>
 
-    <header id="header" class="gris"></header>
+        <header id="header" class="gris"></header>
 
 
 
@@ -28,25 +34,25 @@
 
 
 
-           <section id="bloc_gris" class="wrap" style="margin-top: -70px;">
+        <section id="bloc_gris" class="wrap" style="margin-top: -70px;">
 
-                <div id="cyclean" style="margin-top: -25px;">
-                        
-                    <h1 class="slogan" style="padding-bottom: 50px;">
-                        CYCLEAN
-                        FOR
-                        ENVIRONMENT</h1>
-
-                    <hr class="cyclean-trait">
-
-                    <h2 class="titre2">L'équipe  ➔ </h2>
-                    <h2 class="titre2">News  ➔ </h2>
+            <div id="cyclean" style="margin-top: -25px;">
                     
-                </div>
+                <h1 class="slogan" style="padding-bottom: 50px;">
+                    CYCLEAN
+                    FOR
+                    ENVIRONMENT</h1>
 
-                <img src="images/VELOFINAL-5.png" width="900px" style="z-index:0;right: 0;margin-bottom: -10%;overflow:hidden;"> 
+                <hr class="cyclean-trait">
 
-             </section>
+                <h2 class="titre2">L'équipe  ➔ </h2>
+                <h2 class="titre2">News  ➔ </h2>
+                
+            </div>
+
+            <img src="images/VELOFINAL-5.png" width="900px" style="z-index:0;right: 0;margin-bottom: -10%;overflow:hidden;"> 
+
+            </section>
 
 
 

@@ -63,7 +63,7 @@ global $db;
                     $somme_pseudo = $requete_pseudo->rowCount();
 
                     if ($somme_pseudo == 0){
-                        $q = $db->prepare("INSERT INTO Utilisateurs(pseudo,Nom,Prénom,email,password) VALUES(:pseudo,:nom,:prenom,:email,:password)");
+                        $q = $db->prepare("INSERT INTO Utilisateurs(pseudo,Nom,prenom,email,password) VALUES(:pseudo,:nom,:prenom,:email,:password)");
                         
                         
                         $q->execute([

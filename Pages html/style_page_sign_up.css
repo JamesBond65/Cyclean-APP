@@ -1,3 +1,5 @@
+html{ height:100%}
+
 body{
     background-color: white;
     display:flex;
@@ -5,6 +7,7 @@ body{
     align-items: center;
     margin: 0;
     padding: 0;
+    height: 100%;
     
 }
 
@@ -12,6 +15,7 @@ body{
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
+    height: 100%;
 }
 
 .logo{
@@ -51,12 +55,15 @@ input{
 
 
 .image{
-    display: block;
-    margin-right: 0%;
-    width: 40%;
+
+    /* The image used */
+    background-image:url("images/image_sign_in.png");
+
+    background-size: 30% 100%;
+    background-repeat: no-repeat;
     
-    margin-left: 0%;
-    text-align: end;
+    background-position: right;
+
 }
 
 
