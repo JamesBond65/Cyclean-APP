@@ -41,16 +41,45 @@ if (empty($_SESSION['id'])){
             
             <img src="images/Stats.png" class="imgtop" style="margin-right: 150px;" width="500px">
 
+            
+        <div class="boite_utilisateur1">
+
+
         </section>
+
+
+
         
         <hr class="cyclean-trait" style="margin-bottom:200px;">
 
 
 
 
-
         <!-- LES STATS -->
         <!-- ------------------------------------------------------------ -->
+
+        <section class="container-flex v_center_align" style="flex-basis:100%;justify-content:space-around;margin-bottom:150px;">
+
+        
+            <a href="page_mon-profil.php" style="margin-left:2%;">
+                <img src="images/Profil.png" class="Image_Profil1">
+            </a>
+
+            <div class="boite_utilisateur1 container-flex" style="flex-basis:80%;justify-content:space-around;">
+                <div>
+                    <p style="text-align:center;" class="Pseudo"><?= $_SESSION['pseudo']?></p>
+                    <p style="text-align:center;"class="Prenom titre"><?= $_SESSION['prenom']?> <?= $_SESSION['Nom']?></p>
+                </div>
+
+                <p style="text-align:center;" ><span class="titre">A Propos de moi:</span><br>
+                <?= $_SESSION['APropos']?>
+                </p>
+
+            </div>
+
+
+        </section>
+
 
         <section class="grid center" style="padding-bottom: 200px;"> 
 

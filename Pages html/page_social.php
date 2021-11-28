@@ -34,6 +34,8 @@
       <div class="social_trait"></div>
     </section>
 
+
+
     <!-- liste utilisateurs -->
 
     <li class="liste_utilisateurs">
@@ -87,6 +89,15 @@
         </div>
       </section>
     </li>
+
+
+
+
+
+
+
+
+    
 
     <!-- FOOTER -->
 
