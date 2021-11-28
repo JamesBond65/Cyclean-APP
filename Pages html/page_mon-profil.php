@@ -1,3 +1,10 @@
+<?php session_start(); 
+
+if (empty($_SESSION['id'])){
+    header('Location: page_accueil_visiteur.php');
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -32,7 +39,7 @@
                  </h1>
 
             
-            <img src="images/Stats.png" class="" style="margin-top: -100px;margin-right: 150px;" width="600px">   
+            <img src="images/Stats.png" class="imgtop" style="margin-right: 150px;" width="500px">
 
         </section>
         
@@ -49,13 +56,14 @@
 
             <!-- Ligne 1 -->
 
-            <img src="images/graph.png" width="350px">   
+            <img src="images/graph.png" width="300px">
 
             <div class="vline margin-sides"></div>
+            <hr class="special-cyclean-trait">
 
 
-            <div class="">  <!--v_center_align avant-->
-                <div class="container-flex v_center_align">
+            <div class="special-margin">  <!--v_center_align avant-->
+                <div class="container-flex v_center_align ">
                     <h1 class="stats text-center">86</h1> 
                     <h1 class="slogan text-center">db</h1>
                 </div>
@@ -66,27 +74,47 @@
 
 
 
+
+
+
+
+
+
+
             <!-- Ligne 2 -->
             
-            <div class=""> <!--v_center_align avant-->
+            <div > <!--v_center_align avant-->
                 <h1 class="stats">85</h1>
                 <h1 class="titre2 text-center">Polluant principal<br>Pm 2,5</h1>
             </div>
             
             <div class="vline margin-sides"></div>
+            <hr class="special-cyclean-trait">
             
-            <div class="container-flex">
-                <img src="images/Plan_travail.png" width="350px">  
+            <div class="container-flex special-margin">
+                <img src="images/Plan_travail.png" width="300px">  
             </div>
+
+
             
-            <img src="images/HEART.png" width="350px">  
-            <div class="vline margin-sides"></div>
+
+
+
+
+
+
+
+
+
 
 
             <!-- Ligne 3 -->
 
+            <img src="images/HEART.png" width="300px">  
+            <div class="vline margin-sides"></div>
+            <hr class="special-cyclean-trait ">
 
-            <div class="">
+            <div class="special-margin">
                 <div class="container-flex"> <!--v_center_align avant-->
                     <h1 class="stats text-center">70</h1> 
                     <h1 class="slogan text-center">bpm</h1>
@@ -95,17 +123,57 @@
                 <h1 class="titre2 text-center">Durant votre dernier trajet, votre coeur battait à<br> une fréquence moyenne de 70 bpm.</h1>
 
             </div>
+
+
+
+
+
+
+            
+
+
+
+
             
         </section>
+
+        <section class="container-flex" style="padding-bottom:40px;">  
+            <div class="fbasis50 moyenne-box-padd" style="background-color:#927879;">
+            <h1 class="moyenne">Moyenne du dernier mois </h1>
+
+            </div>
+            
+            <div class="fbasis50 moyenne-box-padd" style="background-color:#b69797;">
+            <h1 class="moyenne">Moyenne de l'année </h1>
+                
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+        <div class="padd_left" style="width:20%;padding-bottom:20px;float:right;text-align:right;padding-right:5%">
+            <a href="page_statistiques.php" style="color: white;text-decoration: none;"><h1 class="titre">Détail des trajets</h1></a>
+            <hr style="color: white;">
+        </div>
+
 
         <!-- ------------------------------------------------------------ -->
 
 
 
 
+
+
+
     <!-- FOOTER -->
 
-    <footer class="container_footer">                
+    <footer class="container_footer" style="clear: right">                
         <div style="padding-left: 5%;">
             <img src="images/images_footer/Marron/LogoMarron.png" width="65px"><br>
 

@@ -57,7 +57,7 @@
                         
                 </div>
 
-                <img src="images/VELOFINAL-5.png" width="900px"> 
+                <img src="images/VELOFINAL-5.png" class="imgtop" width="900px"> 
 
                 
 

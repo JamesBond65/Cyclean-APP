@@ -28,7 +28,7 @@
 
 
 
-        <section class="margin_total gris padding_total" >
+        <section class="margin_total gris padding_total_body">
 
                     
             <?php include 'database.php';

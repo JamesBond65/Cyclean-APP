@@ -19,9 +19,14 @@ html, body {
 }
 
 .padding_total{
+    padding-left: 3%;
+    padding-right: 1%;
+}
+
+.padding_total_body{
     padding-left: 10%;
     padding-right: 10%;
-}
+    }
 
 a {
     /*Enlever surlignage bleu pour les liens de la barre de nav*/
