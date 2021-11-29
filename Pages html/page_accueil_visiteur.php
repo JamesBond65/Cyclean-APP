@@ -21,7 +21,7 @@
     
                 <nav style="margin-right: 2.5%;">
                     <ul class="navigation">
-                        <li><a href="inscription.php">S'inscrire<br></a></li>
+                        <li><a href="page_sign_up.php">S'inscrire<br></a></li>
                         <li><a href="page_sign_in.php">Se connecter<br></a></li>
                     </ul>
                 </nav>

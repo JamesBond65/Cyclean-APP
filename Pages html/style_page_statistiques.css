@@ -142,40 +142,18 @@ html, body {
 }
 
 
-.boite_utilisateur1 {
-    border-radius: 25px;
-    align-items: center;
-    background-color: #927879;
-  }
-
   .Image_Profil1 {
     border-radius: 100%;
     width: 150px;
     height: 150px;
-    transition: box-shadow 0.3s;
-  }
-  
-  .Image_Profil1:hover {
+
     box-shadow: 0 0 33px rgba(33, 33, 33, 0.4);
   }
 
-  
-.text_1 {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    margin-left: 5%;
-    margin-top: 15px;
-    padding-right: 15%;
-  }
-  .text_2 {
-    display: flex;
-    flex-direction: row;
-  }
 
 
-@media screen and (max-width: 650px) {
-    .imgtop {
+@media screen and (max-width: 700px) {
+    .imgtop { /*réutiliser pour toutes les pages avec imgtop*/
         display: none; /*Image du haut supprimée*/
     }
 
@@ -190,7 +168,7 @@ html, body {
     }
   }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 700px) {
     .special-cyclean-trait{
         display: none; /*Traits Horizontaux supprimés*/
     }
@@ -231,6 +209,8 @@ html, body {
 .Pseudo{
     font-family: "Strong Concrete";
     font-size: 36px;
+    margin:0;
+    padding:0;
 }
 
 .slogan {

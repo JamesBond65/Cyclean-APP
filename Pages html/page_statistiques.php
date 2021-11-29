@@ -67,7 +67,7 @@ if (empty($_SESSION['id'])){
 
              <script>
                 // SCRIPT AFIN DE FAIRE DEROULER LES STATS POUR CHAQUE TRAJET DIFFERENT (EN PARAMETRE)
-
+                
                 var open = new Array(60).fill(false);                
 
                 var call = function(Number,elementId,ImageId)
