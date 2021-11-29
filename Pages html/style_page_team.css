@@ -1,19 +1,99 @@
-/* GENERAL */
-*
-{
-    margin: 0;
-    padding: 0;
-}
+/*------------------------------------------------------HEADER--------------------------------------------*/
 
-@font-face
-{
+@font-face{
     src : url(fonts/StrongConcrete-Bold.otf);
     font-family: Strong Concrete;
 }
 
-/* HEADER */
 
-h1
+html, body {
+    margin: 0;
+    padding: 0;
+        
+    color: white;
+    background-color:#B4BDCB;
+}
+
+.titre {
+    color: white;
+    font-family:Helvetica;
+    font-size: 250%;
+}
+
+.titre2 {
+    color: white;
+    font-family: Helvetica;
+    font-size: 110%;
+    display: inline;
+
+}
+
+        /*Propriétés de marges*/
+/*----------------------------------------*/
+.padding_total{
+    padding-left: 3%;
+    padding-right: 1%;
+}
+/*----------------------------------------*/
+
+
+/*-----------------------------------------------------------------------HEADER--------------------------------------------*/
+
+
+ .navigation{ /*classe car réultilisation plus tard*/
+    text-align:right;
+    list-style: none;
+
+  }
+
+
+.navigation > li> a {
+    /*Personnaliser le texte dans la barre de nav*/
+    color: white;
+    font-family:Helvetica;
+    font-size: 90%;
+    font-weight: bold;
+    display: inline;
+    text-decoration: none;
+
+    position: relative;
+
+
+  }
+        /*Animation CSS pour la barre de navigation*/
+
+/*------------------------------------------------------------------*/
+.navigation > li> a::after {
+    background-color:white;
+    content:""; /*Contenu invisible*/
+    height:2px;
+    width:15px;
+
+    position:absolute;
+    top: 50%;
+    right: -19px;
+
+    display: block;
+
+
+
+
+    transform-origin:left center;
+    transition: transform .2s ease-in-out,color .2s ease-in-out; /*pour le dégradé temporel entrant*/
+    transform:scaleX(0) /*Commence sans rien*/
+}
+.navigation > li> a:hover::after {
+    transform:scaleX(1) /*Commence l'animation après hover*/
+   }
+/*------------------------------------------------------------------*/
+
+
+
+
+
+/*-----------------------------------------------------------------END HEADER-------------------------------------------------*/
+
+.h1
 {
     color: white;
     font-family:"Strong Concrete";
@@ -24,7 +104,6 @@ h1
     padding-bottom: 60px;
 
 
-    
 }
 
 #Logoblanc1
