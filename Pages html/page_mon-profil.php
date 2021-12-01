@@ -47,24 +47,81 @@ if (empty($_SESSION['id'])){
                 
 
                 // Recherche de la moyenne de fréquence cardiaque du dernier trajet
-                $q_moyenneF = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
-                $q_moyenneF -> execute(['id' => $_SESSION['id'],'capteur' => 'FrequenceC', 'numderniertrajet' => $dernierTrajet]);
-                
-                $moyenneFreqcArray = $q_moyenneF->fetch();
-                $moyenneFreqc = $moyenneFreqcArray[0];
 
-                echo $moyenneFreqc; 
+                                
+                // $q_moyenneF = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
+                // $q_moyenneF -> execute(['id' => $_SESSION['id'],'capteur' => 'FrequenceC', 'numderniertrajet' => $dernierTrajet]);
+
+                // $moyenneFreqcArray = $q_moyenneF->fetch();
+                // $moyenneFreqc = $moyenneFreqcArray[0];
+
+                // echo $moyenneFreqc; 
+
+                $q_DTrajetF = $db->prepare("SELECT ValeurMesure from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
+                $q_DTrajetF -> execute(['id' => $_SESSION['id'],'capteur' => 'FrequenceC', 'numderniertrajet' => $dernierTrajet]);
+                
+                $DTrajetFArray = $q_DTrajetF->fetchAll();
+
+                $DTrajetF = $DTrajetFArray[0];
+
+                echo " Mesure frequence dernier trajet: ".$DTrajetF[0];
+
+                $DataDTrajetFArray = [];
+
+                for($i = 0; $i < count($DTrajetFArray); $i++){
+                    array_push($DataDTrajetFArray, $DTrajetFArray[$i][0]);
+                }
+
+                $DataDTrajetFArray = array_filter($DataDTrajetFArray);                
+                echo " ARRAY AVEC LES MESURESSSSS: ";
+                print_r($DataDTrajetFArray);
+
+                $moyenneFreqc = array_sum($DataDTrajetFArray)/count($DataDTrajetFArray);
+                $moyenneFreqc =ceil($moyenneFreqc);
+                echo " d'où la Moyenne en fréquence cardiaque: ".$moyenneFreqc.". ";
+
+
+
+
+
+
+
+
+
+
+
 
 
                 // Recherche de la moyenne de fréquence sonore du dernier trajet
-                $q_moyenneS = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
-                $q_moyenneS -> execute(['id' => $_SESSION['id'],'capteur' => 'Sonore', 'numderniertrajet' => $dernierTrajet]);
+                $q_DTrajetS = $db->prepare("SELECT ValeurMesure from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
+                $q_DTrajetS -> execute(['id' => $_SESSION['id'],'capteur' => 'Sonore', 'numderniertrajet' => $dernierTrajet]);
                 
-                $moyenneSArray = $q_moyenneS->fetch();
-                $moyenneS = $moyenneSArray[0];
+                $DTrajetSArray = $q_DTrajetS->fetchAll();
+                $DTrajetS = $DTrajetSArray[0];
 
-                echo $moyenneS;?><br> <?php
 
+                ?><br><br>
+                <?php
+
+                echo " Mesure intensité sonore dernier trajet: ".$DTrajetS[0];
+
+                $DataDTrajetSArray = [];
+
+                for($i = 0; $i < count($DTrajetSArray); $i++){
+                    array_push($DataDTrajetSArray, $DTrajetSArray[$i][0]);
+                }
+
+                $DataDTrajetSArray = array_filter($DataDTrajetSArray);                
+                echo " ARRAY AVEC LES MESURESSSSS: ";
+                print_r($DataDTrajetSArray);
+
+                $moyenneS = array_sum($DataDTrajetSArray)/count($DataDTrajetSArray);
+                $moyenneS = ceil($moyenneS);
+                echo " d'où la Moyenne en intensité sonore: ".$moyenneS.". ";
+                
+
+                ?><br><br>
+                <?php
 
                 
 
@@ -212,35 +269,44 @@ if (empty($_SESSION['id'])){
 
             <!-- Ligne 1 -->
 
-
-
             <div style="width:500px;background-color:white;">
 
-                <?php 
-                    
-                
-                ?>
 
-                <canvas id="myChart"></canvas>
+                
+            
+                <?php 
+
+                function ArrayToJavascript($Data){
+                    $DataStr = '[';
+
+                    for($i = 0; $i < count($Data); $i++){
+
+                        $DataStr = $DataStr."'".$Data[$i]."'";
+
+                        if($i != count($Data)-1){
+                            $DataStr = $DataStr.',';
+                        }
+                    }
+                    $DataStr = $DataStr.']';
+                    return $DataStr;
+                }?>
+
+
+
+
+                <canvas id="myChartSonore"></canvas>
+
 
                 <script>
+                    const labels = <?= ArrayToJavascript(range(1,count($DataDTrajetSArray)));?>; // Transforme l'array php en array javascript
 
-                    const labels = [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    ];
-                    
                     const data = {
                     labels: labels,
                     datasets: [{
-                        label: 'My First dataset',
+                        label: 'Intensité sonore en fonction du "temps"',
                         backgroundColor: 'rgb(158, 133, 133)',
                         borderColor: 'rgb(158, 133, 133)',
-                        data: [0, 10, 5, 2, 20, 30, 45],
+                        data: <?= ArrayToJavascript($DataDTrajetSArray);?>, // Données sur les mesures du dernier trajet
                     }]
                     };
 
@@ -250,13 +316,20 @@ if (empty($_SESSION['id'])){
                     options: {}
                     };
 
-                    const myChart = new Chart(
-                        document.getElementById('myChart'),
+                    const myChartSonore = new Chart(
+                        document.getElementById('myChartSonore'),
                         config
                     );
-                </script>
 
+                </script>
             </div>
+            
+
+
+
+
+
+
 
 
 
@@ -313,8 +386,43 @@ if (empty($_SESSION['id'])){
 
 
             <!-- Ligne 3 -->
+            <div style="width:500px;background-color:white;">
+            <!-- Graphe qui contient les données de fréquence cardiaque du dernier trajet -->
 
-            <img src="images/graph.png" width="300px">
+
+                <canvas id="myChartFreq"></canvas>
+
+                <script>
+
+                    const labels2 = <?= ArrayToJavascript(range(1,count($DataDTrajetFArray))); ?>; // Transforme l'array php en array javascript
+                    
+                    const data2 = {
+                    labels: labels2,
+                    datasets: [{
+                        label: 'Fréquence cardiaque en fonction du "temps"',
+                        backgroundColor: 'rgb(158, 133, 133)',
+                        borderColor: 'rgb(158, 133, 133)',
+                        data: <?= ArrayToJavascript($DataDTrajetFArray) ?>, // Données sur les mesures du dernier trajet
+                    }]
+                    };
+
+                    const config2 = {
+                        type: 'line',
+                        data: data2,
+                        options: {}
+                    };
+
+                    const myChartFreq = new Chart(
+                        document.getElementById('myChartFreq'),
+                        config2
+                    );
+
+                </script>
+                
+            </div>
+
+
+
             <div class="vline margin-sides"></div>
             <hr class="special-cyclean-trait ">
 

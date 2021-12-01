@@ -71,15 +71,15 @@
                     
                     <p style="align-items: center;">
                     <?php      
-                    
-                    $q1 = $db->prepare("SELECT pseudo FROM utilisateurs WHERE id = :id");
+                        
+                        $q1 = $db->prepare("SELECT pseudo FROM utilisateurs WHERE id = :id");
 
-                    $q1 -> execute(['id' => $liste_id[$i]]);
-        
-                    $resultat_id = $q1->fetch(); //Convertit le résultat en un tableau
+                        $q1 -> execute(['id' => $liste_id[$i]]);
+            
+                        $resultat_id = $q1->fetch(); //Convertit le résultat en un tableau
 
-                    $pseudo_demandeur = $resultat_id[0];
-                    echo $pseudo_demandeur;
+                        $pseudo_demandeur = $resultat_id[0];
+                        echo $pseudo_demandeur;
                     
                     ?></p>
 
