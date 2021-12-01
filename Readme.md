@@ -10,3 +10,5 @@ armand:
     boite utilisateur pading trait de separation avec le texte (ce dernier ne s'ajuste pas en fonction du text)
     footer, design a revoir
 
+Mouhamed : Probleme ajustement des logos des réseaux,du trait de séparation aussi
+Ajout de couleur de la div de p et positionnement du graph 
