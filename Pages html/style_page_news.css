@@ -1,0 +1,77 @@
+/*General*/
+
+font-face{
+    src : url(fonts/StrongConcrete-Bold.otf);
+    font-family: Strong Concrete;
+}
+
+
+/*header*/
+
+h1
+{
+    color: white;
+    font-family:"Strong Concrete";
+    font-size: 340%;
+    padding-left: 2%;
+    margin-bottom: 17%;
+    margin: 20px;
+    padding-bottom: 60px;
+
+
+}
+
+p
+{
+    
+    color: white;
+    font-weight: bold;
+    font-family:Helvetica;
+    font-size: 12px;
+    display: inline;
+    height: 5%;
+    width: 5%;
+    margin: auto;
+
+}
+
+.graph
+{
+    margin-right: 20px;
+
+}
+
+.titre2 {
+    color: white;
+    font-weight: bold;
+    font-family:Helvetica;
+    font-size: 110%;
+    display: inline;
+    margin-right: 5%;
+
+    
+}
+
+
+.news-trait{
+    width: 50%;
+    height: 3px;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    background-color:rgb(255, 255, 255);
+    border: white;
+    float: left;
+}
+
+.item1
+{
+    background-color: #b4bdcb;
+}
+
+.logo_insta_whatsapp
+{
+    justify-content: center;
+    padding-bottom: 20px;
+    letter-spacing: 25px;
+    
+}
