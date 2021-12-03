@@ -12,4 +12,4 @@ armand:
 
 Mouhamed : Page News: positionnement logo blanc dans le background blanc à droite
                        border bottom à la fin 
-           Page Teams: positionnement logo
+           ;Page Teams: positionnement logo
