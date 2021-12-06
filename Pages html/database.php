@@ -1,10 +1,10 @@
 
 <?php
 
- define("HOST","localhost");
- define("DB_NAME","siteweb");
- define("USER","root");
- define("PASS","root");    
+ define("HOST","leomelki.fr");
+ define("DB_NAME","armandb");
+ define("USER","armandb");
+ define("PASS","#Kj1q47v");    
 
  try{
   $db = new PDO("mysql:host=" . HOST . ";port=3306;dbname=" . DB_NAME, USER, PASS);
