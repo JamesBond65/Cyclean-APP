@@ -294,6 +294,10 @@ h1{
     vertical-align: middle;
 }
 
+.color{
+    background-color:#927879;
+}
+
 
 .container-flex{
     display: flex;
