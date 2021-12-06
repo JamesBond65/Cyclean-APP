@@ -1,5 +1,12 @@
-
-     /*Propriétés de marges*/
+html,body{
+    padding:0;
+    margin:0;
+}
+    
+    
+    
+    
+    /*Propriétés de marges*/
 /*----------------------------------------*/
 .padding_total{
     padding-left: 3%;
@@ -90,24 +97,6 @@ h2
 
 }
 
-.team
-{
-    
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    
-}
-#logo
-{
-    max-height: 200px;
-    max-width: 200px;
-    margin-right: 200px;
-    margin-top: 20px;
-    
-}
-
 
 
 
@@ -135,4 +124,14 @@ p
 
 }
 
+#post{
+    display:flex;
+    justify-content: space-between;
+}
 
+
+#logo{
+    position: absolute;
+    bottom:0;
+    right:0;
+}
