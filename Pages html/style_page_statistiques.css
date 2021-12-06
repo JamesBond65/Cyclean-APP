@@ -7,7 +7,6 @@ html, body {
 }
 
 
-
 /*Propriétés de marges*/
 /*----------------------------------------*/
 .padding_total{
@@ -23,12 +22,6 @@ html, body {
     padding-left: 10%;
     padding-right: 10%;
 }
-
-.special-margin{
-    margin-bottom:300px;
-}
-
-
 /*----------------------------------------*/
 
 
@@ -142,50 +135,6 @@ html, body {
     align-items : center; /* aligner verticallement*/
 }
 
-
-  .Image_Profil1 {
-    border-radius: 100%;
-    width: 150px;
-    height: 150px;
-
-    box-shadow: 0 0 33px rgba(33, 33, 33, 0.4);
-  }
-
-
-
-@media screen and (max-width: 700px) {
-
-    .imgtop { /*réutiliser pour toutes les pages avec imgtop*/
-        display: none; /*Image du haut supprimée*/
-    }
-
-    .vline{
-        display: none; /*Traits Verticaux supprimés*/
-    }
-
-    .grid{
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(9, auto); /*comme auto auto auto*/
-        margin-bottom: 600px;
-    }
-  }
-
-@media screen and (min-width: 700px) {
-    .special-cyclean-trait{
-        display: none; /*Traits Horizontaux supprimés*/
-    }
-
-    .special-margin{
-        margin-bottom:0; /*Reset lorsqu'on revient à la normale*/
-    }
-
-}
-
-.moyenne-box-padd{
-    padding-left:4%;
-    padding-bottom:100px;
-    padding-top:20px;
-}
  /*---------------------------------------------------------------------------------------------------*/
 
 
@@ -204,16 +153,10 @@ html, body {
 .stats{
     color: white;
     font-family:"Strong Concrete";
-    font-size: 800%;
+    font-size: 1100%;
+    line-height: 0px;
   }
 
-
-.Pseudo{
-    font-family: "Strong Concrete";
-    font-size: 36px;
-    margin:0;
-    padding:0;
-}
 
 .slogan {
     color: white;
@@ -232,10 +175,6 @@ html, body {
     font-size: 250%;
 }
 
-h1{
-    margin:0;
-}
-
 .titre2 {
     color: white;
     font-family:Helvetica;
@@ -244,32 +183,10 @@ h1{
     margin-right: 5%;
 }
 
-.moyenne{
-    color: white;
-    font-family:"Strong Concrete";
-    font-size: 130%;
-}
-
   
 .text-center{
     text-align:center;
 }
-
-
-.imgflip_right{
-    transform: rotate(0deg);
-    transition: transform 0.3s linear;
-}
-
-.imgflip_down{
-    transform: rotate(90deg);
-    transition: transform 0.3s linear;
-}
-
-
-
-
-
 
  /*---------------------------------------------------------------------------------------------------*/
 
@@ -289,6 +206,7 @@ h1{
     
 }
 
+
 .v_center_align{
     align-items : center; /* aligner verticallement*/
     vertical-align: middle;
@@ -302,19 +220,6 @@ h1{
 .wrap{
     flex-wrap: wrap;
 }
-
-.fbasis50{
-    flex-basis:50%;
-}
-
-.padd_inside{
-    padding:1%;
-}
-
-.arrondi{
-    border-radius: 9px;
-}
-
  /*---------------------------------------------------------------------------------------------------*/
 
 
@@ -340,13 +245,5 @@ h1{
     background-color:rgb(255, 255, 255);
     border: white;
 
-}
-
-.special-cyclean-trait{
-    width: 80%;
-    height: 3px;
-    margin-top: 1%;
-    background-color:rgb(255, 255, 255);
-    border: white;
 }
  /*----------------------------------------*/

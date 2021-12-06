@@ -14,17 +14,16 @@
             global $db;
             ?>
 
-        <section class="page_entiere image">
-            
-            <a href="page_accueil_visiteur.php" class="logo">
-                <img src="images/images_footer/Blanc/LogoGris.png" width="100px">  
-            </a>
-            
+        <header>
+            <img src="images/images_footer/Blanc/LogoGris.png" width="100px">
+            <div class="titre">CYCLEAN</div>
+        </header>
+        
 
-            <div class="box" style="padding-right: 700px;">
-            
+        
 
-            <form method="post">
+        <section>
+            <form class="element_1" method="post">
                     <input type="text" name="connexion_pseudo" id="connexion_pseudo" class="no-outline" placeholder="Pseudo ...">
                     <hr>
                         
@@ -37,12 +36,6 @@
             </form>
 
             <p class="oublié">Mot de passe oublié ?</p>
-
-            </div>
-
-
-
-
                 
 
 
@@ -70,6 +63,7 @@
                                 $_SESSION['pseudo'] = $resultat['pseudo'];
                                 $_SESSION['Nom'] = $resultat['Nom'];
                                 $_SESSION['prenom'] = $resultat['prenom'];
+                                $_SESSION['prenom'] = $resultat['prenom'];
                                 $_SESSION['email'] = $resultat['email'];
                                 $_SESSION['APropos'] = $resultat['APropos'];
                                 
@@ -95,6 +89,61 @@
 
             
         </section>
+
+            
+
+            
+        <!-- FOOTER -->
+
+        <footer class="container_footer">                
+            <div style="padding-left: 5%;">
+                <img src="images/images_footer/Blanc/LogoGris.png" width="65px"><br>
+
+                <p class="texte_footer" style="margin-top: 0px;">
+                    Cyclean 
+                </p>
+                
+            </div>
+
+
+                    
+
+
+
+
+            <p class="texte_footer">
+                © GREEN SENSE 2021<br>
+                ALL RIGHTS RESERVED
+            </p>
+
+
+                    
+
+
+
+
+            <div style="margin-right: 5%;">
+
+                <p class="texte_footer" style="margin-bottom: 0px; margin-top: 0px;">
+                Contacts
+                </p>
+                    
+                <div>
+                    <div class="logo_insta_whatsapp">
+                        <img src="images/images_footer/Blanc/instaF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <img src="images/images_footer/Blanc/WhatsappF.png" width="20px"><br>
+                        <img src="images/images_footer/Blanc/TwitterF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <img src="images/images_footer/Blanc/Mail.F.png" width="20px">
+                    </div>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/images_footer/Blanc/facebookF.png " width="20px">
+                </div>
+            </div>
+
+    </footer>    
+
+        
+
 
     </body>
 </html>

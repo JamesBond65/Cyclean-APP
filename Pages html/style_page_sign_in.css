@@ -1,69 +1,129 @@
-html{ height:100%}
+/*police*/
+@font-face{
+    src : url(fonts/StrongConcrete-Bold.otf);
+    font-family: Strong Concrete;
+}
+
+
 
 body{
-    background-color: white;
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
+    background-color: #B2BDCC;
     margin: 0;
     padding: 0;
-    height: 100%;
+    /*box-sizing: border-box;*/
+    
     
 }
 
-.page_entiere{
+header{
+    
     display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    background-color: white;
+    margin : 0px;    
+    font-size: 100px;
+    text-align: center; 
+    
 }
 
-.logo{
+.logo_header{
     margin-top: 1%;
-    margin-left: 1% ;
-    width: 20%;
+    margin-left: 1%;
+}
+
+.titre{
+    
+    width: 100%;
+    height: 90px;
+    font-family: "Strong Concrete";
+    font-size: 130%;
+    color: #B2BDCC;
+    padding: 0;
+    letter-spacing: 40px;
+    display: flex;
+    flex-direction: column;
 
 }
 
-.box{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.titre_display{
+    margin-top: 1%;
+}
+
+
+section{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+
+
+
+.element_1{
+    
+    background-color:#B2BDCC;
     height: 40%;
     width: 20%;
-    margin-top: 20%;
-    font-size: large;
+    margin-top: 3%;
+    
+    
 }
 
+.oublié{
+    align-items: center;
+    
+
+}
+
+hr {
+    border: none;
+    border-top: 1px solid white;
+    color:white;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+
+}
+
+
 input{
-    justify-content: center;
-    border: white;
-    background-color: white;
+    border: #B2BDCC;
+    background-color: #B2BDCC;
     font-size: 110%;
+    
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
     border-bottom-style: hidden;
-    font-size: larger;
     
-   
 }
 
+.confirme{
+    margin-bottom: 3%;
+}
+      
 .no-outline:focus {
     outline: none;
 }
-
-
-.image{
-
-    /* The image used */
-    background-image:url("images/image_sign_in.png");
-
-    background-size: 30% 100%;
-    background-repeat: no-repeat;
     
-    background-position: right;
+
+
+/*----------------FOOTER-------------------*/
+.container_footer{
+    padding-top: 2%;
+    padding-bottom: 1.5%;
+
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 
 }
 
-
+.texte_footer{
+    color: #B4BDCB;
+    vertical-align: center;
+    text-align: center;
+    font-weight: 1000;
+}
