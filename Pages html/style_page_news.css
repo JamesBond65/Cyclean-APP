@@ -1,0 +1,82 @@
+font-face {
+    src: url(fonts/StrongConcrete-Bold.otf);
+    font-family: Strong Concrete;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #b4bdcb;
+  }
+  
+  /*header*/
+  .header {
+    margin: 0 5%;
+    border-bottom: 3px solid #fff;
+    width: fit-content;
+  }
+  
+  .header .logo {
+    padding: 5px;
+    width: 50px;
+  }
+  
+  .header .header__content {
+    margin: 30px 0;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  
+  .header .title {
+    color: white;
+    font-family: "Strong Concrete";
+    font-size: 3rem;
+  }
+  
+  .header .nav__socials {
+    padding-left: 100px;
+  }
+  
+  .header .nav__socials .nav__item {
+    padding-right: 50px;
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+/*Reste de la page */
+
+/*header*/
+ 
+
+.article_container {
+    margin: 20px 5%;
+    background: #b0baca;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .article_container .article_content {
+    color: #fff;
+    font-weight: bold;
+    font-family: helvetica;
+    font-size: small;
+  }
+  
+  .article_container .graph {
+    width: 200px;
+    margin-top: 10px;
+    margin-right: 100px;
+    align-self: flex-end;
+   
+  }
+  
+  
+

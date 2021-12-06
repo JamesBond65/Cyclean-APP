@@ -50,7 +50,7 @@ if (empty($_SESSION['id'])){
                 
             </div>
 
-            <img src="images/VELOFINAL-5.png" width="900px" style="z-index:0;right: 0;margin-bottom: -10%;overflow:hidden;"> 
+            <img src="images/VELOFINAL-5.png" class="imgtop" width="900px" style="z-index:0;right: 0;margin-bottom: -10%;overflow:hidden;"> 
 
             </section>
 
