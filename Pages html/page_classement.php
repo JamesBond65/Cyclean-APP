@@ -34,7 +34,7 @@
                 CLASSEMENT<br> DES UTILISATEURS</h1>
 
             <div class="image_empreinte">
-                <img src="images/Empreinte.png" width="100%">
+                <img src="images/Empreinte.png" width="500px">
            </div>
             
            <div class="classement-trait"></div>

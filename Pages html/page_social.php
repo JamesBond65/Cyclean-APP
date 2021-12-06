@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Cyclean - Social</title>
-    <link rel="stylesheet" href="style_page_social.css" />
+    <link rel="stylesheet" href="style_page_social.css?v=<?php echo time(); ?>" />
 
     <!-- Importation du fichier header-->
     <script src="jquery.js"></script>
@@ -23,7 +23,7 @@
     <section class="bloc_violet">
       <div class="sous_bloc">
         <h1 class="slogan">
-          ACTIVITES<br />
+          ACTIVITES<br>
           DES UTILISATEURS
         </h1>
 
@@ -33,6 +33,8 @@
       </div>
       <div class="social_trait"></div>
     </section>
+
+
 
     <!-- liste utilisateurs -->
 
@@ -87,6 +89,15 @@
         </div>
       </section>
     </li>
+
+
+
+
+
+
+
+
+    
 
     <!-- FOOTER -->
 
