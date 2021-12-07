@@ -1,4 +1,10 @@
-html{ height:100%}
+@font-face{
+    src : url(fonts/StrongConcrete-Bold.otf);
+    font-family: Strong Concrete;
+}
+
+
+html{ height:100%;}
 
 body{
     background-color: white;
@@ -8,6 +14,7 @@ body{
     margin: 0;
     padding: 0;
     height: 100%;
+
     
 }
 
@@ -60,10 +67,18 @@ input{
     background-image:url("images/image_sign_in.png");
 
     background-size: 30% 100%;
-    background-repeat: no-repeat;
+    background-repeat:no-repeat repeat ;
     
     background-position: right;
 
 }
 
+
+
+@media screen and (max-width: 1000px) {
+    .image{ 
+
+    }
+
+}
 

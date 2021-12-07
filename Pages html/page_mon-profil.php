@@ -61,7 +61,6 @@ if (empty($_SESSION['id'])){
                     $dernierTrajet = $dernierTrajetArray[0];
                     global $dernierTrajet;
 
-                    echo $dernierTrajet; 
 
 
 
@@ -76,7 +75,6 @@ if (empty($_SESSION['id'])){
 
                     $DTrajetF = $DTrajetFArray[0];
 
-                    echo " Mesure frequence dernier trajet: ".$DTrajetF[0];
 
                 // Création Liste contenant uniquement les données
                     $DataDTrajetFArray = [];
@@ -87,18 +85,15 @@ if (empty($_SESSION['id'])){
 
                     $DataDTrajetFArray = array_filter($DataDTrajetFArray);            
 
-                echo " ARRAY AVEC LES MESURESSSSS: ";
-                print_r($DataDTrajetFArray);
 
                 
                 // Calcul de la moyenne de cette liste de données
                     $moyenneFreqc = array_sum($DataDTrajetFArray)/count($DataDTrajetFArray);
                     $moyenneFreqc =ceil($moyenneFreqc);
-                    echo " d'où la Moyenne en fréquence cardiaque: ".$moyenneFreqc.". ";
 
 
-                    ?><br><br>
-                    <?php
+
+
 
 
 
@@ -115,7 +110,7 @@ if (empty($_SESSION['id'])){
                     
                     $DTrajetSArray = $q_DTrajetS->fetchAll();
                     $DTrajetS = $DTrajetSArray[0];
-                    echo " Mesure intensité sonore dernier trajet: ".$DTrajetS[0];
+
 
 
 
@@ -128,18 +123,16 @@ if (empty($_SESSION['id'])){
                     }
 
                     $DataDTrajetSArray = array_filter($DataDTrajetSArray);                
-                    echo " ARRAY AVEC LES MESURESSSSS: ";
-                    print_r($DataDTrajetSArray);
+
 
 
                 // Calcul de la moyenne de cette liste de données
                     $moyenneS = array_sum($DataDTrajetSArray)/count($DataDTrajetSArray);
                     $moyenneS = ceil($moyenneS);
-                    echo " d'où la Moyenne en intensité sonore: ".$moyenneS.". ";
+
                 
 
-                ?><br><br>
-                <?php
+
 
 
 
@@ -157,9 +150,9 @@ if (empty($_SESSION['id'])){
 
                 // On commence par définir le mois précédent
                     $endDate = date('Y-m-d H:i:s');
-                    echo " Mois précedent entre ".$endDate;
+
                     $startDate = date("Y-m-d H:i:s",strtotime("-1 month"));
-                    echo " et ".$startDate."... ";
+
 
 
 
@@ -173,9 +166,6 @@ if (empty($_SESSION['id'])){
                     $moisyenneF = $moisyenneFArray[0];
 
 
-                    echo "  Moisyenne Cardiaque:".$moisyenneF;
-
-                
                 
                 
                 // Moyenne en fréquence sonore
@@ -186,11 +176,11 @@ if (empty($_SESSION['id'])){
 
                     $moisyenneSArray = $q_moisyenneS->fetch(); //Convertit le résultat en une liste
                     $moisyenneS = $moisyenneSArray[0];
-                    echo " Moisyenne Sonore:".$moisyenneS;
 
 
 
-                ?><br> <?php
+
+
 
 
 
@@ -205,9 +195,9 @@ if (empty($_SESSION['id'])){
 
                 // On commence par définir l'année précédente
                     $endDateY = date('Y-m-d H:i:s');
-                    echo " Année Précente entre ".$endDateY;
+
                     $startDateY = date("Y-m-d H:i:s",strtotime("-1 year"));
-                    echo " et ".$startDateY."... ";
+
 
 
                 // Moyenne de l'année en FREQUENCE CARDIAQUE
@@ -218,7 +208,7 @@ if (empty($_SESSION['id'])){
 
                     $YmoyenneFArray = $q_YmoyenneF->fetch(); //Convertit le résultat en une liste
                     $YmoyenneF = $YmoyenneFArray[0];
-                    echo "  Moyenne Cardiaque année:".$YmoyenneF;
+
 
 
                 // Moyenne de l'année en intensité SONORE
@@ -229,7 +219,7 @@ if (empty($_SESSION['id'])){
 
                     $YmoyenneSArray = $q_YmoyenneS->fetch(); //Convertit le résultat en une liste
                     $YmoyenneS = $YmoyenneSArray[0];
-                    echo "  Moyenne Sonore année:".$YmoyenneS;
+
 
                 ?>
 
@@ -237,10 +227,10 @@ if (empty($_SESSION['id'])){
         <header id="header"></header>
 
 
-        <section class="bloc_marron space wrap"> 
+        <section class="bloc_marron space"> 
         
-            <h1 class="slogan padd_left">
-                Mon profil <br>
+            <h1 class="slogan_pourc padd_left">
+                Mon profil
                  </h1>
 
             
@@ -248,8 +238,6 @@ if (empty($_SESSION['id'])){
 
             
         <div class="boite_utilisateur1">
-
-
         </section>
 
 
@@ -272,7 +260,7 @@ if (empty($_SESSION['id'])){
 
             <div class="text-center" style="justify-content:space-around;">
                 <div style="padding-bottom:80px;">
-                    <h1 class="slogan"><?= $_SESSION['pseudo']?><br></h1>
+                    <h1 class="slogan_pourc"><?= $_SESSION['pseudo']?><br></h1>
 
                     <h2 class="titre2"><?= $_SESSION['prenom']?> <?= $_SESSION['Nom']?></h2>
                 </div>
@@ -286,14 +274,40 @@ if (empty($_SESSION['id'])){
 
         </section>
 
+        <hr class="cyclean-trait" style="margin-bottom:400px;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h1 class="slogan_pourc" style="padding-bottom: 2.5%;padding-left: 3.2%;padding-right: 2%;">
+                Dernier Trajet<br>
+            </h1>
+        
         <hr class="cyclean-trait" style="margin-bottom:200px;">
 
 
-        <section class="grid center" style="padding-bottom: 200px;"> 
+        <section class="grid center" style="padding-bottom: 300px;"> 
 
             <!-- Ligne 1 -->
 
-            <div style="width:500px;background-color:white;">
+            <div class="graph">
 
 
 
@@ -391,7 +405,7 @@ if (empty($_SESSION['id'])){
 
 
             <!-- Ligne 3 -->
-            <div style="width:500px;background-color:white;">
+            <div class="graph">
             <!-- Graphe qui contient les données de fréquence cardiaque du dernier trajet -->
 
 

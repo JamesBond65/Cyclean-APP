@@ -1,3 +1,8 @@
+@font-face{
+  src : url(fonts/StrongConcrete-Bold.otf);
+  font-family: Strong Concrete;
+}
+
 html,
 body {
   margin: 0;

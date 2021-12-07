@@ -6,24 +6,18 @@
 
 
 
-body{
+html,body{
     background-color: #B2BDCC;
     margin: 0;
     padding: 0;
-    /*box-sizing: border-box;*/
-    
-    
+    /*box-sizing: border-box;*/   
 }
 
 header{
-    
     display: flex;
-    justify-content: center;
-    background-color: white;
-    margin : 0px;    
-    font-size: 100px;
+    background-color: white; 
+    font-size: 4.5vw;
     text-align: center; 
-    
 }
 
 .logo_header{
@@ -91,12 +85,10 @@ input{
     border: #B2BDCC;
     background-color: #B2BDCC;
     font-size: 110%;
-    
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
     border-bottom-style: hidden;
-    
 }
 
 .confirme{
@@ -119,7 +111,6 @@ input{
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-
 }
 
 .texte_footer{

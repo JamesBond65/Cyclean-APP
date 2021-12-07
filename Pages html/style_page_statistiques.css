@@ -1,11 +1,22 @@
+@font-face{
+    src : url(fonts/StrongConcrete-Bold.otf);
+    font-family: Strong Concrete;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     
     color: white;
     background-color:#9e8585;
+
 }
 
+h2{    font-size: 500px;}
+
+p,h2{
+    font-size: 130%;
+}
 
 
 /*Propriétés de marges*/
@@ -151,9 +162,14 @@ html, body {
     box-shadow: 0 0 33px rgba(33, 33, 33, 0.4);
   }
 
+  .graph{
+    background-color:white;
+    width:93%;
+  }
 
 
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 1000px) {
 
     .imgtop { /*réutiliser pour toutes les pages avec imgtop*/
         display: none; /*Image du haut supprimée*/
@@ -168,9 +184,10 @@ html, body {
         grid-template-rows: repeat(9, auto); /*comme auto auto auto*/
         margin-bottom: 600px;
     }
-  }
+}
 
-@media screen and (min-width: 700px) {
+
+@media screen and (min-width: 1000px) {
     .special-cyclean-trait{
         display: none; /*Traits Horizontaux supprimés*/
     }
@@ -178,7 +195,6 @@ html, body {
     .special-margin{
         margin-bottom:0; /*Reset lorsqu'on revient à la normale*/
     }
-
 }
 
 .moyenne-box-padd{
@@ -218,8 +234,14 @@ html, body {
 .slogan {
     color: white;
     font-family:"Strong Concrete";
-    font-size: 340%;
+    font-size:3vw;
   }
+
+.slogan_pourc{
+        color: white;
+        font-family:"Strong Concrete";
+        font-size:300%;
+}
 
 .padd_left{
     padding-left: 1.2%;
@@ -239,9 +261,9 @@ h1{
 .titre2 {
     color: white;
     font-family:Helvetica;
-    font-size: 110%;
+    font-size: 140%;
     display: inline;
-    margin-right: 5%;
+
 }
 
 .moyenne{
@@ -292,6 +314,7 @@ h1{
 .v_center_align{
     align-items : center; /* aligner verticallement*/
     vertical-align: middle;
+    text-align: center;
 }
 
 .color{
