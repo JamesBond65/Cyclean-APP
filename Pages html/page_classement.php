@@ -116,7 +116,7 @@
          <?php
         include_once 'database.php';
 
-        $sql = "SELECT * FROM amis ORDER BY Points";
+        $sql = "SELECT * FROM amis ORDER BY Points DESC";
         $requete = $db->query($sql);
         $liste_amis = $requete->fetchAll();
 
@@ -128,7 +128,7 @@
                 
             }
         ?>
-        
+
 
          <section class="classement_personnel">
                 
