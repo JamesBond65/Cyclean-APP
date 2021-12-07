@@ -112,6 +112,24 @@
        
         <!----------------------------Classement personnel------------------------->
 
+
+         <?php
+        include_once 'database.php';
+
+        $sql = "SELECT * FROM amis ORDER BY Points";
+        $requete = $db->query($sql);
+        $liste_amis = $requete->fetchAll();
+
+
+       foreach ($liste_amis as $amis) {
+            
+                $tableau_pseudos[] = $amis['Pseudo'];
+                $tableau_points[] = $amis['Points'];
+                
+            }
+        ?>
+        
+
          <section class="classement_personnel">
                 
             <div class="photo_de_profil">
@@ -148,18 +166,25 @@
                         
                         <div class="rectangles_titres">
 
+                            <?php echo $tableau_pseudos[0]; ?>
 
                         </div>
 
                         <div class="rectangles_titres">
 
-                        </div>
-
-                        <div class="rectangles_titres">
+                        <?php echo $tableau_pseudos[1]; ?>
 
                         </div>
 
                         <div class="rectangles_titres">
+
+                        <?php echo $tableau_pseudos[2]; ?>
+
+                        </div>
+
+                        <div class="rectangles_titres">
+
+                            <?php echo $tableau_pseudos[3]; ?>
 
                         </div>
 
@@ -169,18 +194,25 @@
                         
                         <div class="rectangles_titres">
 
+                            <?php echo $tableau_points[0];?>
 
                         </div>
 
                         <div class="rectangles_titres">
 
+                            <?php echo $tableau_points[1];?>
+
                         </div>
 
                         <div class="rectangles_titres">
+
+                            <?php echo $tableau_points[2];?>
                             
                         </div>
 
                         <div class="rectangles_titres">
+
+                            <?php echo $tableau_points[3];?>
 
                         </div>
 
