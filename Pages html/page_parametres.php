@@ -1,18 +1,24 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
+<html lang="fr" id="d">
+    <head><meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, width=device-width">
+
         <title>Cyclean - Paramètres</title>
         <link rel="stylesheet" href="style_page_parametres.css?v=<?php echo time(); ?>">
 
         <!-- Importation du fichier header-->
         <script src="jquery.js"></script>
         <script> 
-        $(function(){
-            $("#header").load("contenu/header.html"); 
-        });
+            $(function(){
+                $("#header").load("contenu/header.html"); 
+            });
+        </script>
+        <script> 
+            $(function(){
+                $("#header2").load("contenu/header.html"); 
+            });
         </script>
     </head>
 
@@ -21,223 +27,401 @@
         global $db;
         ?>
 
+        <header class="container-flex">
 
-        <header class="fixed">
-            
-            <header id="header" class="gris"></header>
 
-            <h1 class="slogan" style="margin-top: -75px;">Paramètres </h1>
-            
+            <header class="fixed margin_spec" style="width:100%;min-width:100%">
+                
+                <header id="header" class="gris"></header>
+
+
+                <h1 class="slogan" style="padding:0;margin:0;">Paramètres </h1>
+                
+            </header>
+
+            <header class="fixed" style="width:100%;min-width:100%">
+                
+                <header id="header2" class="gris"></header>
+
+
+                <h1 class="slogan" style="padding:0;margin:0;">Paramètres </h1>
+                
+            </header>
         </header>
 
+        
+        <script>
+            function slide(direction){
+            if(direction == 'left'){
+                document.getElementById('d').scrollLeft -= 10000;
+            } else {
+                document.getElementById('d').scrollLeft += 10000;
+            }
+        }
 
-        <section class="grid center" style="padding-top: 180px;padding-bottom: 700px;">
 
-            <!-- Ligne 1 -->
+        </script>
+
+        <div class="flex_phone">
+            <button type="button" onclick="slide('left')"  class="arrow_position left button_fixed"><img src="images/fleche_bleu.png" style="transform: rotate(180deg);" class="arrow_img" alt=""></button>
+            <button type="button" onclick="slide('right')" class="arrow_position right button_fixed"><img src="images/fleche_bleu.png" class="arrow_img" alt=""></button>
+        </div>
+
+        <section class="container-flex"  id="big_container">
+
+            <section class="container-flex margin_spec" style="justify-content:space-around;min-width:100%;width:100%;">
 
 
-            <div>
-                <h1 class="titre">Profile<hr></h1>
-                
 
-                <form method="post" class="post">
 
-                    Nouveau nom:<br>
-                    <input type="text" name="nom" id="nom" placeholder="<?= $_SESSION['Nom'];?>" size="30">
-                    <br>
+                    <div class="partie">
+                        <h1 class="titre">Profile<hr></h1>
+                        
 
-                    Nouveau prénom:<br>
-                    <input type="text" name="prenom" id="prenom" placeholder="<?= $_SESSION['prenom'];?>" size="30">
-                    <br>
+                        <div style="float:left;">
+
+                            Nouveau nom:<br>
+                            <form action="" method="post" class="container-flex space v_center_align">
+                                <input type="text" class="no-outline" name="nom" id="nom" placeholder="<?= $_SESSION['Nom'];?>" size="10" style="margin-bottom:10px;">                       
+                                <button name="post_nom" value="done"><img src="images/fleche_bleu.png" width="15px" style="" ></button>
+                            </form>
+                            <hr>
+
+                            Nouveau prénom:<br>
+                            <form action="" method="post" class="container-flex space v_center_align">
+                                <input type="text" class="no-outline" name="prenom" id="prenom" placeholder="<?= $_SESSION['prenom'];?>" size="10" style="margin-bottom:10px;">                       
+                                <button name="post_prenom" value="done"><img src="images/fleche_bleu.png" width="15px" style="" ></button>
+                            </form>
+                            <hr>
+                            
+                            A propos de moi:<br>
+                            <form action="" method="post" class="container-flex space v_center_align">
+                                <textarea id="story" name="story" style="resize:none"
+                                rows="3" cols="20"> <?=$_SESSION['APropos']?>
+                                </textarea>
+                                <button name="post_apropos" value="done"><img src="images/fleche_bleu.png" width="15px" style="" ></button>
+                            </form><br> 
+
+                            Nouvelle adresse mail:<br>
+                            <form action="" method="post" class="container-flex space v_center_align">
+                                <input type="text" class="no-outline" name="email" id="email" placeholder="<?= $_SESSION['email'];?>" size="10" style="margin-bottom:10px;">                       
+
+                                <button name="post_email" value="done"><img src="images/fleche_bleu.png" width="15px" style="" ></button>
+                            </form><hr>
+
+                            Nouveau mot de passe:<br>
+                            <form action="" method="post">
+                                <input type="password" class="no-outline" name="password" id="password"  size="10" style="margin-bottom:10px;">                       
+                                <hr><br>
+
+                                <div  class="container-flex space v_center_align">
+                                <input type="password" class="no-outline" name="cpassword" id="cpassword"  size="10" style="margin-bottom:10px;">                       
+                                <button name="post_password" value="done"><img src="images/fleche_bleu.png" width="15px" style="" ></button>
+                                </div>
+                            </form><hr>
+                        </div>
                     
-                    A propos de moi:<br>
-                    <textarea id="story" name="story" style="resize:none"
-                    rows="5" cols="33"> <?=$_SESSION['APropos']?> </textarea><br> 
 
-                    Nouvelle adresse mail:<br>
-                    <input type="text" name="email" id="email" placeholder="<?= $_SESSION['email'];?>" size="30">
-                    <br>
-                    Nouveau mot de passe:<br>
-                    <input type="password" name="password" id="password" placeholder="Nouveau mot de passe..." size="30">                                          
-                    <br>
-                    Confirmer le nouveau mot de passe:<br>
-                    <input type="password" name="cpassword" id="cpassword" placeholder="Confirmer le mot de passe..." size="30">           
-                    <br>
+                        <?php
 
+                            if(isset($_POST['post_nom'])){
+                                extract ($_POST);
+                                if (!empty($nom)){
 
-                    <input type="submit" name="profile_form" id="profile_form" value="confirmer" size="30">
-                </form>
-              
+                                    $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
+                                    $q->execute(['id' => $_SESSION['id']]);
+                                    $resultat = $q->fetch(); //Convertit le résultat en un tableau
 
-                <?php
-                    if(isset($_POST['profile_form'])){
-                        extract ($_POST);
+                                    if ($resultat){  //Si le compte existe
 
-                        if (!empty($nom) || !empty($prenom) || !empty($story) || !empty($email) || (!empty($password) && !empty($cpassword)) ) {
-                            // !empty($email) verif
-                            $q = $db->prepare("SELECT * FROM utilisateurs WHERE email = :email");
+                                        $q2 = $db->prepare("UPDATE utilisateurs SET Nom = :nom WHERE id=:id");
+                                        $q2->execute(['nom' => $nom,'id' => $_SESSION['id']]);
 
-                            $q->execute(['email' => $email]);
-
-                            $resultat = $q->fetch(); //Convertit le résultat en un tableau
-
-                            if ($resultat){  //Si le compte existe
-                                echo "l'adresse mail est déjà utilisée pour un autre compte";
-                            }
-                            else{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                if ( ( (!empty($password) and !empty($cpassword) ) && $cpassword == $password ) or (empty($password) and empty($cpassword)) ) {
+                                        $_SESSION['Nom'] = $nom;
+                                    }
                                     
-                                    $q = $db->prepare("UPDATE utilisateurs SET  
-                                    Nom = CASE
-                                            WHEN length(:nom)>0 THEN :nom 
-                                            ELSE Nom END,
-                                    prenom = CASE
-                                            WHEN :prenom IS NOT NULL AND length(:prenom)>0 THEN :prenom 
-                                            ELSE prenom END,
-
-                                    APropos = CASE
-                                            WHEN :apropos IS NOT NULL AND length(:apropos)>0 THEN :apropos
-                                            ELSE APropos END,
-
-                                    email = CASE
-                                            WHEN :email IS NOT NULL AND length(:email)>0 THEN :email
-                                            ELSE email END,
-
-                                    password = CASE
-                                            WHEN :password IS NOT NULL AND length(:password)>0 THEN :password
-                                            ELSE password END
-                                                                            
-                                       WHERE id=:id");
-
-
-
-
-                                    $donnees=[
-
-                                        'nom' => $nom,
-                                        'prenom' => $prenom,
-                                        'apropos' => $story,
-
-                                        'email' => $email,
-
-                                        'password' => $password,
-
-
-
-                                        'id' => $_SESSION['id']
-
-                                    ];
-
-                                    $q->execute($donnees);
+                                    else{
+                                        trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
+                                    }
 
                                 }
-                                else {
-                                    echo 'les mdp remplis ne correspondent pas';
-                                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                             }
-                        }
-                        else{
-                            echo "Veuillez remplir les champs obligatoires";
-                        }
-                    }
-                    ?>
 
-            </div>
+                            if(isset($_POST['post_prenom'])){
+                                extract ($_POST);
+                                if (!empty($prenom)){
+
+                                    $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
+                                    $q->execute(['id' => $_SESSION['id']]);
+                                    $resultat = $q->fetch(); //Convertit le résultat en un tableau
+
+                                    if ($resultat){  //Si le compte existe
+
+                                        $q2 = $db->prepare("UPDATE utilisateurs SET prenom = :prenom WHERE id=:id");
+                                        $q2->execute(['prenom' => $prenom,'id' => $_SESSION['id']]);
+
+                                        $_SESSION['prenom'] = $prenom;
+                                    }
+                                    
+                                    else{
+                                        trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
+                                    }
+
+                                }
+                            }
+
+                            if(isset($_POST['post_apropos'])){
+                                extract ($_POST);
+                                if (!empty($story)){
+
+                                    $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
+                                    $q->execute(['id' => $_SESSION['id']]);
+                                    $resultat = $q->fetch(); //Convertit le résultat en un tableau
+
+                                    if ($resultat){  //Si le compte existe
+
+                                        $q2 = $db->prepare("UPDATE utilisateurs SET APropos = :apropos WHERE id=:id");
+                                        $q2->execute(['apropos' => $story,'id' => $_SESSION['id']]);
+
+                                        $_SESSION['APropos'] = $story;
+                                    }
+                                    
+                                    else{
+                                        trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
+                                    }
+
+                                }
+                            }
+
+                            if(isset($_POST['post_email'])){
+                                extract ($_POST);
+                                if (!empty($email)){
+
+                                    $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
+                                    $q->execute(['id' => $_SESSION['id']]);
+                                    $resultat = $q->fetch(); //Convertit le résultat en un tableau
+
+                                    if ($resultat){  //Si le compte existe
+
+
+                                        $q3 = $db->prepare("SELECT * FROM utilisateurs WHERE email = :email");
+
+                                        $q3->execute(['email' => $email]);
+
+                                        $resultat_email = $q3->fetch(); //Convertit le résultat en un tableau 
+
+  
+                                        if ($resultat_email){
+                                            // Texte pour dire que l'adresse est déjà utilisée
+                                        }
+                                        //Si l'adresse mail n'est pas utilisée
+                                        else{
+
+
+                                            $q2 = $db->prepare("UPDATE utilisateurs SET  email = :email WHERE id=:id");
+                                            $q2->execute(['email' => $email ,'id' => $_SESSION['id']]);
+    
+                                            $_SESSION['email'] = $email;
+
+                                         }
+
+                                    }
+
+                                    else{
+                                        trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
+                                    }
+                                }
+                            }
+
+                            if(isset($_POST['post_apropos'])){
+                                extract ($_POST);
+                                if (!empty($story)){
+
+                                    $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
+                                    $q->execute(['id' => $_SESSION['id']]);
+                                    $resultat = $q->fetch(); //Convertit le résultat en un tableau
+
+                                    if ($resultat){  //Si le compte existe
+
+                                        $q2 = $db->prepare("UPDATE utilisateurs SET APropos = :apropos WHERE id=:id");
+                                        $q2->execute(['apropos' => $story,'id' => $_SESSION['id']]);
+
+                                        $_SESSION['APropos'] = $story;
+                                    }
+                                    
+                                    else{
+                                        trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
+                                    }
+
+                                }
+                            }
+
+                            if(isset($_POST['post_password'])){
+                                extract ($_POST);
+                                if (((!empty($password) and !empty($cpassword)) && $cpassword == $password)){
+
+                                    $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
+                                    $q->execute(['id' => $_SESSION['id']]);
+                                    $resultat = $q->fetch(); //Convertit le résultat en un tableau
+
+                                    if ($resultat){  //Si le compte existe
+
+                                            
+                                        $q2 = $db->prepare("UPDATE utilisateurs SET password = :password WHERE id=:id");
+                                        $q2->execute(['password' => $password,'id' => $_SESSION['id']]);
+
+                                        $_SESSION['password'] = $password;
+
+                                        }
+
+                                    
+                                    else{
+                                        trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
+                                    }
+
+                                }
+                                else{
+                                    echo "vide ou correspond pas";
+                                }
+                            }
+                            ?>
+
+                    </div>
+                    
+                    <div class="partie">
+                        <h1 class="titre">Interface<hr></h1>
+                        
+
+                        <form method="post" id="post_tick">
+                                    
+                            <input type="checkbox"> Pollution sonore<hr>
+
+                            <input type="checkbox"> Fréquence cardiaque<hr>
+
+                            <input type="checkbox"> Qualité de l'air <hr>
+
+                            <input type="checkbox"> Autre<hr>
+
+                            <input type="submit" class="spec" name="interface_form" id="interface_form" value="confirmer">
+                        </form>
+                    
+                    </div>
+            </section>
+
             
-            <div>
-                <h1 class="titre">Interface<hr></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <section class="height-sometimes container-flex" style="justify-content:space-around;min-width:100%;width:100%">
+
                 
+                <div class="partie">
+                    <h1 class="titre">Mon compte<hr></h1>
+                    
+                    <form method="post" class="post">
+                                
+                        <input type="checkbox"> Pollution sonore
+                        <hr>
 
-                <form method="post" id="post_tick">
-                            
-                    <input type="checkbox"> Pollution sonore<hr>
+                        <input type="checkbox"> Fréquence cardiaque   
+                        <hr>
 
-                    <input type="checkbox"> Fréquence cardiaque<hr>
+                        <input type="checkbox"> Qualité de l'air           
+                        <hr>
 
-                    <input type="checkbox"> Qualité de l'air <hr>
-
-                    <input type="checkbox"> Autre<hr>
-
-                    <input type="submit" name="interface_form" id="interface_form" value="confirmer">
-                </form>
-            
-            </div>
-
-            <div>
-                <h1 class="titre">Mon compte<hr></h1>
+                        <input type="checkbox"> Autre
+                        <hr>
+                        <input type="submit" name="compte_form" id="compte_form" value="confirmer">
+                    </form>
                 
-                <form method="post" class="post">
-                            
-                    <input type="checkbox"> Pollution sonore
-                    <hr>
+                </div>
 
-                    <input type="checkbox"> Fréquence cardiaque   
-                    <hr>
+                <div class="partie">
+                    <h1 class="titre">Mon compte<hr></h1>
+                    
+                    <form method="post" class="post">
+                                
+                        <input type="checkbox"> Pollution sonore
+                        <hr>
 
-                    <input type="checkbox"> Qualité de l'air           
-                    <hr>
+                        <input type="checkbox"> Fréquence cardiaque   
+                        <hr>
 
-                    <input type="checkbox"> Autre
-                    <hr>
-                    <input type="submit" name="compte_form" id="compte_form" value="confirmer">
-                </form>
-            
-            </div>
-        </section>
+                        <input type="checkbox"> Qualité de l'air           
+                        <hr>
+
+                        <input type="checkbox"> Autre
+                        <hr>
+                        <input type="submit" name="compte_form" id="compte_form" value="confirmer">
+                    </form>
+                
+                </div>
+
+
+            </section>
+
+        </section>                    
+
 
 
 
@@ -250,15 +434,29 @@
 
         <!-- FOOTER -->
 
-        <footer class="container_footer fixed" style="bottom: 0;">                
-            <div style="padding-left: 5%;">
-                <img src="images/LogoBlanc.png " width="65px"><br>
+        <div class="container-flex">
 
-                <p class="texte_footer" style="margin-top: 0px;">
-                    Cyclean 
+            <footer class="container_footer fixed margin_spec" style="min-width:100%;width:100%">
+
+                <div style="padding-left: 5%;">
+                    <img src="images/LogoBlanc.png " width="65px"><br>
+
+                    <p class="texte_footer" style="margin-top: 0px;">
+                        Cyclean 
+                    </p>
+                    
+                </div>
+
+
+                        
+
+
+
+
+                <p class="texte_footer">
+                    © GREEN SENSE 2021<br>
+                    ALL RIGHTS RESERVED
                 </p>
-                
-            </div>
 
 
                     
@@ -266,36 +464,74 @@
 
 
 
-            <p class="texte_footer">
-                © GREEN SENSE 2021<br>
-                ALL RIGHTS RESERVED
-            </p>
+                <div style="margin-right: 5%;">
 
+                    <p class="texte_footer" style="margin-bottom: 0px; margin-top: 0px;">
+                    Contacts
+                    </p>
+                    
+                    <div>
+                        <div class="logo_insta_whatsapp">
+                            <img src="images/images_footer/Blanc_Blanc/instaF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="images/images_footer/Blanc_Blanc/WhatsappF.png" width="20px"><br>
+                            <img src="images/images_footer/Blanc_Blanc/TwitterF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="images/images_footer/Blanc_Blanc/Mail.F.png" width="20px">
+                        </div>
 
-                
-
-
-
-
-            <div style="margin-right: 5%;">
-
-                <p class="texte_footer" style="margin-bottom: 0px; margin-top: 0px;">
-                Contacts
-                </p>
-                
-                <div>
-                    <div class="logo_insta_whatsapp">
-                        <img src="images/images_footer/Blanc_Blanc/instaF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src="images/images_footer/Blanc_Blanc/WhatsappF.png" width="20px"><br>
-                        <img src="images/images_footer/Blanc_Blanc/TwitterF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <img src="images/images_footer/Blanc_Blanc/Mail.F.png" width="20px">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/images_footer/Blanc_Blanc/facebookF.png " width="20px">
                     </div>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/images_footer/Blanc_Blanc/facebookF.png " width="20px">
                 </div>
-            </div>
 
-    </footer>
+        </footer>
+
+        <footer class="container_footer fixed" style="min-width:100%;width:100%">                
+                <div style="padding-left: 5%;">
+                    <img src="images/LogoBlanc.png " width="65px"><br>
+
+                    <p class="texte_footer" style="margin-top: 0px;">
+                        Cyclean 
+                    </p>
+                    
+                </div>
+
+
+                        
+
+
+
+
+                <p class="texte_footer">
+                    © GREEN SENSE 2021<br>
+                    ALL RIGHTS RESERVED
+                </p>
+
+
+                    
+
+
+
+
+                <div style="margin-right: 5%;">
+
+                    <p class="texte_footer" style="margin-bottom: 0px; margin-top: 0px;">
+                    Contacts
+                    </p>
+                    
+                    <div>
+                        <div class="logo_insta_whatsapp">
+                            <img src="images/images_footer/Blanc_Blanc/instaF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="images/images_footer/Blanc_Blanc/WhatsappF.png" width="20px"><br>
+                            <img src="images/images_footer/Blanc_Blanc/TwitterF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="images/images_footer/Blanc_Blanc/Mail.F.png" width="20px">
+                        </div>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/images_footer/Blanc_Blanc/facebookF.png " width="20px">
+                    </div>
+                </div>
+
+        </footer>
+    </div>
+
 
 
 

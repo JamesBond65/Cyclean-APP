@@ -17,7 +17,7 @@
         <section class="page_entiere image">
             
             <a href="page_accueil_visiteur.php" class="logo">
-                <img src="images/images_footer/Blanc/LogoGris.png" width="100px">  
+                <img src="images/images_footer/Blanc/LogoGris.png" width="120px">  
             </a>
             
 
@@ -26,12 +26,13 @@
 
             <form method="post">
                     <input type="text" name="connexion_pseudo" id="connexion_pseudo" class="no-outline" placeholder="Pseudo ...">
-                    <hr>
+                    <hr><br>
                         
                     <input type="password" name="connexion_password" id="connexion_password" class="no-outline" name="pwd" placeholder="Mot de passe" />                                          
                     <hr>
 
-                    <input type="submit" name="connexion_form" id="connexion_form" value="Login">
+
+                    <input type="submit" class="button" name="connexion_form" id="connexion_form" value="S'inscrire">
 
                         
             </form>

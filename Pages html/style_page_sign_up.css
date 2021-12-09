@@ -10,13 +10,14 @@ html,body{
     background-color: #B2BDCC;
     margin: 0;
     padding: 0;
+    height: 100%;
     /*box-sizing: border-box;*/   
 }
 
 header{
     display: flex;
     background-color: white; 
-    font-size: 4.5vw;
+    font-size: 450%;
     text-align: center; 
 }
 
