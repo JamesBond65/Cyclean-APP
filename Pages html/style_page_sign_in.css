@@ -52,13 +52,22 @@ input{
     border-left-style: hidden;
     border-bottom-style: hidden;
     font-size: larger;
+    font-family: Helvetica, sans-serif;
     
    
 }
 
-
-
-
+.oublié{
+    font-family: Helvetica, sans-serif;
+    color: rgb(117,117,117);
+}
+.remplir{
+    margin-bottom: 20px;
+    font-family: Helvetica, sans-serif;
+    color: red;
+    
+  margin: 0 auto;
+}
 
 
 

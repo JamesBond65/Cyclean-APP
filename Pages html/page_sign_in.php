@@ -25,10 +25,12 @@
             
 
             <form method="post">
+                    
+
                     <input type="text" name="connexion_pseudo" id="connexion_pseudo" class="no-outline" placeholder="Pseudo ...">
                     <hr><br>
                         
-                    <input type="password" name="connexion_password" id="connexion_password" class="no-outline" name="pwd" placeholder="Mot de passe" />                                          
+                    <input type="password" name="connexion_password" id="connexion_password" class="no-outline" name="pwd" placeholder="Mot de passe ..." />                                          
                     <hr>
 
 
@@ -51,6 +53,7 @@
             <?php 
                 if(isset($_POST['connexion_form'])){
                     extract ($_POST);
+
 
                     if(!empty($connexion_password) && !empty($connexion_pseudo)){
 
@@ -87,7 +90,7 @@
 
                     }
                     else{
-                        echo "Veuillez remplir toutes les cases.";
+                        echo '<div class="remplir">'.'Veuillez remplir tous les champs'.'</div>';
                     }
                 }
             ?>            
