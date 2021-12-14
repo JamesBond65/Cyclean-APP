@@ -49,7 +49,31 @@
 
        <!----------------------------BLOC PODIUM------------------------->
        
-       
+       <?php
+
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+        include_once 'database.php';
+
+        $sql = "SELECT * FROM   utilisateurs ORDER BY CreditsCyclean DESC";
+
+        /*$sql = "SELECT * FROM 'utilisateurs' ORDER BY Points DESC";*/
+        $requete = $db->query($sql);
+        $utilisateurs = $requete->fetchall();
+
+        //$tableau_pseudos = [];
+
+       foreach ($utilisateurs as $un_utilisateur) {
+            
+            $tableau_pseudos[] = $un_utilisateur['pseudo'];
+            $tableau_points[] = $un_utilisateur['CreditsCyclean'];
+                
+            }
+
+        ?>
+
+
        <section class="bloc_podium">
         
             <div class="section_contenu" >
@@ -72,15 +96,20 @@
 
             <div class="section_contenu">
                 <div class="pseudos">
-                    Michel
+
+                    <?php echo $tableau_pseudos[0]; ?>
+
                 </div>
 
                 <div class="pseudos">
-                    Hugo
+
+                    <?php echo $tableau_pseudos[1]; ?>
+                
                 </div>
 
                 <div class="pseudos">
-                    François
+
+                    <?php echo $tableau_pseudos[2]; ?>
 
                 </div>
             </div>
@@ -89,20 +118,20 @@
                
                 <div class="points_cyclean">
 
-                    122 Cy
+                    <?php echo $tableau_points[0] . " Cy"; ?>
 
                 </div>
 
                 <div class="points_cyclean">
 
-                    100 Cy
+                    <?php echo $tableau_points[1] . " Cy"; ?>
 
                 </div>
 
                 <div class="points_cyclean">
 
-                    88 Cy
-
+                    <?php echo $tableau_points[2] . " Cy"; ?>
+                    
                 </div>
             </div>
         
@@ -111,23 +140,6 @@
         <!--------------------------END BLOC PODIUM---------------------->
        
         <!----------------------------Classement personnel------------------------->
-
-
-         <?php
-        include_once 'database.php';
-
-        $sql = "SELECT * FROM amis ORDER BY Points DESC";
-        $requete = $db->query($sql);
-        $liste_amis = $requete->fetchAll();
-
-
-       foreach ($liste_amis as $amis) {
-            
-                $tableau_pseudos[] = $amis['Pseudo'];
-                $tableau_points[] = $amis['Points'];
-                
-            }
-        ?>
 
 
          <section class="classement_personnel">
