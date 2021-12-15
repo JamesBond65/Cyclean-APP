@@ -59,17 +59,23 @@
         $sql = "SELECT * FROM   utilisateurs ORDER BY CreditsCyclean DESC";
 
         /*$sql = "SELECT * FROM 'utilisateurs' ORDER BY Points DESC";*/
+
         $requete = $db->query($sql);
         $utilisateurs = $requete->fetchall();
 
         //$tableau_pseudos = [];
 
        foreach ($utilisateurs as $un_utilisateur) {
-            
-            $tableau_pseudos[] = $un_utilisateur['pseudo'];
-            $tableau_points[] = $un_utilisateur['CreditsCyclean'];
-                
+
+            if ($un_utilisateur['amis'] == TRUE) {
+
+                $tableau_pseudos[] = $un_utilisateur['pseudo'];
+                $tableau_points[] = $un_utilisateur['CreditsCyclean'];
             }
+                
+        }
+
+        echo count($tableau_pseudos)
 
         ?>
 
@@ -104,6 +110,7 @@
                 <div class="pseudos">
 
                     <?php echo $tableau_pseudos[1]; ?>
+                    
                 
                 </div>
 
@@ -168,114 +175,92 @@
                             Meilleure stat
                         </div>
 
-
                 </div>
 
 
                 <div class="boites" >
                     
                     <div class="rectangles">
+
+                        <?php 
                         
-                        <div class="rectangles_titres">
-
-                            <?php echo $tableau_pseudos[0]; ?>
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                        <?php echo $tableau_pseudos[1]; ?>
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                        <?php echo $tableau_pseudos[2]; ?>
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                            <?php echo $tableau_pseudos[3]; ?>
-
-                        </div>
-
-                    </div>
-
-                    <div class="rectangles">
-                        
-                        <div class="rectangles_titres">
-
-                            <?php echo $tableau_points[0];?>
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                            <?php echo $tableau_points[1];?>
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                            <?php echo $tableau_points[2];?>
+                        for ($i = 0; $i < count($tableau_pseudos); $i++) {
                             
-                        </div>
+                            ?>
 
-                        <div class="rectangles_titres">
+                            <div class="rectangles_titres">
 
-                            <?php echo $tableau_points[3];?>
+                                <?php echo $tableau_pseudos[$i];?>
 
-                        </div>
+                            </div>
+
+                            <?php
+                        }?>
+                        
+
+                    </div>
+
+                    <div class="rectangles">
+
+                        <?php 
+                            
+                            for ($i = 0; $i < count($tableau_pseudos); $i++) {
+                                
+                                ?>
+
+                                <div class="rectangles_titres">
+
+                                    <?php echo $tableau_points[$i];?>
+
+                                </div>
+
+                                <?php
+                            }?>
+                             
+                        
+
+                    </div>
+
+                    <div class="rectangles">
+
+                        <?php 
+                            
+                        for ($i = 0; $i < count($tableau_pseudos); $i++) {
+                                
+                            ?>
+
+                            <div class="rectangles_titres">
+
+
+                            </div>
+
+                            <?php
+                        }?>    
+                        
 
                     </div>
 
                     <div class="rectangles">
                         
-                        <div class="rectangles_titres">
-
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                        </div>
+                        <?php 
+                            
+                        for ($i = 0; $i < count($tableau_pseudos); $i++) {
+                                    
+                            ?>
+    
+                            <div class="rectangles_titres">
+    
+    
+                            </div>
+    
+                            <?php
+                            
+                        }?>
 
                     </div>
-
-                    <div class="rectangles">
-                        
-                        <div class="rectangles_titres">
-
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                        </div>
-
-                        <div class="rectangles_titres">
-
-                        </div>
-
-                    </div>
-                    
-                    
-
 
                 </div>
+
             </div>
                 
              
