@@ -22,10 +22,6 @@
         <header id="header"></header>
 
 
-
-
-
-
        <!--Classement des utilisateurs + image-->
 
         <section class="bloc_vert">
@@ -50,32 +46,38 @@
        <!----------------------------BLOC PODIUM------------------------->
        
        <?php
-
+        session_start();
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
         include_once 'database.php';
 
-        $sql = "SELECT * FROM   utilisateurs ORDER BY CreditsCyclean DESC";
 
-        /*$sql = "SELECT * FROM 'utilisateurs' ORDER BY Points DESC";*/
+        $sql = "SELECT *FROM amis INNER JOIN utilisateurs WHERE amis.idAmi = utilisateurs.id ORDER BY CreditsCyclean DESC";
+
 
         $requete = $db->query($sql);
-        $utilisateurs = $requete->fetchall();
+        $tableau = $requete->fetchall();
 
-        //$tableau_pseudos = [];
+        /*echo $_SESSION['id'];*/
 
-       foreach ($utilisateurs as $un_utilisateur) {
+        /*$tableau_pseudos = [];*/
 
-            if ($un_utilisateur['amis'] == TRUE) {
+       foreach ($tableau as $un_utilisateur) {
+
+            if ($_SESSION['id'] == $un_utilisateur['Id']){
 
                 $tableau_pseudos[] = $un_utilisateur['pseudo'];
                 $tableau_points[] = $un_utilisateur['CreditsCyclean'];
+     
             }
+
                 
         }
 
-        echo count($tableau_pseudos)
+        /*echo count($tableau_pseudos);*/
+
+        /*echo $_SESSION['id'];*/
 
         ?>
 
@@ -103,20 +105,40 @@
             <div class="section_contenu">
                 <div class="pseudos">
 
-                    <?php echo $tableau_pseudos[0]; ?>
+                    <?php 
+                    if (isset($tableau_pseudos[0])){
+                        echo $tableau_pseudos[0];
+                    }
+                    else{
+                        echo "";
+                    }
+                    ?>
 
                 </div>
 
                 <div class="pseudos">
 
-                    <?php echo $tableau_pseudos[1]; ?>
+                    <?php 
+                    if (isset($tableau_pseudos[1])){
+                        echo $tableau_pseudos[1];
+                    }
+                    else{
+                        echo "";
+                    }
+                     ?>
                     
                 
                 </div>
 
                 <div class="pseudos">
 
-                    <?php echo $tableau_pseudos[2]; ?>
+                    <?php if (isset($tableau_pseudos[2])){
+                        echo $tableau_pseudos[2];
+                    }
+                    else{
+                        echo "";
+                    }
+                    ?>
 
                 </div>
             </div>
@@ -125,19 +147,40 @@
                
                 <div class="points_cyclean">
 
-                    <?php echo $tableau_points[0] . " Cy"; ?>
+                    <?php 
+                    if (isset($tableau_points[0])){
+                        echo $tableau_points[0] . " Cy";
+                    }
+                    else{
+                        echo "";
+                    }
+                    ?>
 
                 </div>
 
                 <div class="points_cyclean">
 
-                    <?php echo $tableau_points[1] . " Cy"; ?>
+                    <?php 
+                    if (isset($tableau_points[1])){
+                        echo $tableau_points[1] . " Cy";
+                    }
+                    else{
+                        echo "";
+                    }
+                    ?>
 
                 </div>
 
                 <div class="points_cyclean">
 
-                    <?php echo $tableau_points[2] . " Cy"; ?>
+                    <?php 
+                    if (isset($tableau_points[2])){
+                        echo $tableau_points[2] . " Cy";
+                    }
+                    else{
+                        echo "";
+                    }
+                    ?>
                     
                 </div>
             </div>
