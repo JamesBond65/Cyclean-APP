@@ -1,0 +1,118 @@
+font-face {
+    src: url(fonts/StrongConcrete-Bold.otf);
+    font-family: Strong Concrete;
+   
+
+  }
+  
+  *, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body
+{
+    font-family: Strong Concrete , cursive;
+    background-color: rgb(163, 163, 163);
+}
+
+h2 
+{
+    text-align: center;
+    padding: 35px 0;
+    font-size: 40px;
+    color: black;
+}
+
+
+.container-faq
+{
+    font-size: 20px;
+}
+
+.container-fluid {
+    width: 70%;
+    max-width: 900px;
+    min-width: 700px;
+    height: auto;
+    margin: 10px auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container-fluid h2 
+{
+    color:black;
+    position: relative;
+    width: 23rem;
+
+}
+
+.container-fluid h2::after {
+    content: "";
+    position: absolute;
+    bottom:0;
+    right: 12px;
+    width: 67px;
+    height: 2px;
+    background-color: #eee;
+}
+
+
+.accordion {
+    width:100%;
+    padding: 0 5px;
+    border: 2px solid #eee;
+    cursor: pointer;
+    border-radius: 50px;
+    display: flex;
+    margin: 10px 0;
+    align-items: center;
+    height: auto;
+
+}
+.accordion .icon 
+{
+    margin: 0 10px 0 0 ;
+    width:  30px;
+    height: 30px;
+    background: ;
+    border-radius: 50%;
+    float: left;
+    transition: all .5s ease-in;
+
+}
+.accordion h5{
+    font-size: 22px;
+    margin: 0;
+    padding: 3px 0 0 0 ;
+    font-weight: normal;
+    color: black;
+
+}
+
+.panel{
+
+    padding: 0 15px;
+    border-left: 1px solid grey;
+    margin-left: 25px;
+    font-size: 14px;
+    text-align: justify;
+    overflow: hidden;
+    max-height: 0;
+    transition: all .5s ease;
+
+}
+
+
+
+.container-question
+{
+    text-align: center;
+    padding: 20px;
+    margin: 15px;
+}
