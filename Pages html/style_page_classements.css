@@ -37,9 +37,17 @@ html, body {
 
 /*-----------------------------------------------------------------------HEADER--------------------------------------------*/
 
+.container-flex{
+    display: flex;
+}
+
+.space{
+    justify-content:space-between;
+}
+
 
  .navigation{ /*classe car réultilisation plus tard*/
-    text-align:right;
+    text-align: right;
     list-style: none;
 
   }
@@ -83,11 +91,6 @@ html, body {
 .navigation > li> a:hover::after {
     transform:scaleX(1) /*Commence l'animation après hover*/
    }
-/*------------------------------------------------------------------*/
-
-
-
-
 
 /*-----------------------------------------------------------------END HEADER-------------------------------------------------*/
 
@@ -319,11 +322,3 @@ html, body {
 }
 /*----------------------------------------------------------END FOOTER--------------------------------------------------------------*/
 
-
-.container-flex{
-    display: flex;
-}
-
-.space{
-    justify-content:space-between;
-}
