@@ -155,6 +155,11 @@ a {
   max-width: 100%;
   height: 90px;
   margin-right: 40px;
+  transition: box-shadow 0.3s;
+}
+
+.image:hover {
+  box-shadow: 0 0 33px rgba(33, 33, 33, 0.4);
 }
 .boite {
   display: flex;

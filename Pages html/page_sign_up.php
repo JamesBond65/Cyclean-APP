@@ -100,6 +100,15 @@
                                     'modele'=> 112,
                                 ]); // Attention aux différences entre différents types de guillemets
 
+                                $q = $db->prepare("SELECT id FROM utilisateurs WHERE pseudo = :pseudo");
+                                $q->execute([
+                                    'pseudo' => $pseudo
+                                ]);
+
+                                $resultat=$q->fetch()[0];
+                            
+
+
                                 // MESSAGE COMPTE CREER DANS LA PAGE SIGN IN !
 
                                 header('Location: page_sign_in.php');

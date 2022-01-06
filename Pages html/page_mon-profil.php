@@ -10,7 +10,7 @@ if (empty($_SESSION['id'])){
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
-        <title>Cyclean - Mon profil</title>
+        <title>Cyclean - Profil</title>
         <link rel="stylesheet" href="style_page_statistiques.css?v=<?php echo time(); ?>">
 
         <!-- Importation du fichier header-->
@@ -29,6 +29,53 @@ if (empty($_SESSION['id'])){
 
         <?php include 'database.php';
                 global $db;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                // CHOPE L'ID du lien, VOIR PAGE NOTIFICATIONS
+                // profil.php?id=
+                $id_actuel=$_get['id'];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 // Fonction qui a un objet de type Array en PHP renvoie une liste JAVASCRIPT
                 function ArrayToJavascript($Data){
@@ -253,8 +300,10 @@ if (empty($_SESSION['id'])){
 
         <section class="container-flex v_center_align" style="flex-basis:100%;justify-content:space-around;margin-bottom:150px;">
 
-        
-            <img src="images/Profil.png" class="Image_Profil1 vertical" style="margin-left:2%;">
+            <img src="<?php require_once('photo_profil.php'); 
+            echo get_pdp($_SESSION['id'],$_SESSION['extension']);?>" class="Image_Profil1 vertical" style="margin-left:2%;">
+
+
 
 
 
@@ -267,9 +316,15 @@ if (empty($_SESSION['id'])){
 
                 <h2 class="titre2" style="margin:0;padding:0;">A Propos de moi:</h2>
                 <p style="text-align:center;margin:0;padding:0;" ><br>
-                <?= $_SESSION['APropos']?></p>
+                <?php 
+                    // Ajoute des retours à la ligne automatiques et nl2br ceux de base.
+                    $newtext = wordwrap(nl2br($_SESSION['APropos']), 60, "<br />\n",true);
+                    echo $newtext;
+                ?></p>
 
             </div>
+
+            
 
 
         </section>

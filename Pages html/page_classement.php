@@ -53,15 +53,11 @@
         include_once 'database.php';
 
 
-        $sql = "SELECT *FROM amis INNER JOIN utilisateurs WHERE amis.idAmi = utilisateurs.id ORDER BY CreditsCyclean DESC";
+        $sql = "SELECT * FROM amis INNER JOIN utilisateurs WHERE amis.idAmi = utilisateurs.id ORDER BY CreditsCyclean DESC";
 
 
         $requete = $db->query($sql);
         $tableau = $requete->fetchall();
-
-        /*echo $_SESSION['id'];*/
-
-        /*$tableau_pseudos = [];*/
 
        foreach ($tableau as $un_utilisateur) {
 

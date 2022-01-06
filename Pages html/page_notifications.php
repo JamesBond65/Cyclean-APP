@@ -60,29 +60,80 @@
 
         <div class="container2">
           <div class="ligne">
-          <img src="images/Profil.png" class="image">
+
+          <?php      
+                          
+          $q1 = $db->prepare("SELECT pseudo,Extension FROM utilisateurs WHERE id = :id");
+
+          $q1 -> execute(['id' => $liste_id[$i]]);
+
+          $resultat_id = $q1->fetch(); //Convertit le résultat en un tableau
+
+          $pseudo_demandeur = $resultat_id[0];
+          ?> 
+
+
+
+          <a href="profil.php?id=<?=$liste_id[$i]?>"><img src="<?php require_once('photo_profil.php'); 
+            echo get_pdp($liste_id[$i],$resultat_id[1]);?>" class="image"></a>
             <div class="boite">
               <p class="text">
-                <?php      
-                          
-                $q1 = $db->prepare("SELECT pseudo FROM utilisateurs WHERE id = :id");
-
-                $q1 -> execute(['id' => $liste_id[$i]]);
-    
-                $resultat_id = $q1->fetch(); //Convertit le résultat en un tableau
-
-                $pseudo_demandeur = $resultat_id[0];
-                echo $pseudo_demandeur;?> 
+                <?=$pseudo_demandeur?>
                 veut Cyclean avec vous!
               </p>
 
 
               
-              <div class="boite_boutons">
-              <button class="button1">Accepter</button>
-              <button class="button2">Refuser</button>
+              <form method="post" class="boite_boutons">
+
+                <input type="submit" name="choix_ami<?= $i ?>" class="button1" value='accepter'>
+                <input type="submit" name="choix_ami<?= $i ?>" class="button2" value='refuser'>
+
+              </form>
+
+              <?php 
+                    if(isset($_POST['choix_ami'.$i])){
+                        extract ($_POST);
+
+                        $choix=$_POST['choix_ami'.$i];
+
+
+                        if ($choix == 'accepter'){
+
+
+                            $q4 = $db->prepare("INSERT INTO amis(Id,IdAmi) VALUES(:Id,:IdAmi)");
+                            
+                            $q4->execute([
+                                'Id'=> $liste_id[$i],
+                                'IdAmi'=> $_SESSION['id'],
+                            ]);
+
+
+                            // AUTRE SENS
+
+                            $q4 = $db->prepare("INSERT INTO amis(Id,IdAmi) VALUES(:Id,:IdAmi)");
+                            
+                            $q4->execute([
+                                'Id'=> $_SESSION['id'],
+                                'IdAmi'=> $liste_id[$i],
+                            ]);
+
+
+
+                        }
+
+                        // Supprime la demande de la base de données
+                        $q3 = $db->prepare("DELETE FROM demandesamis WHERE IdDemandeur = :id");
+
+                        $q3 -> execute(['id' => $liste_id[$i]]);
+
+                        header("Refresh:0");
+
+                    }
+                    ?>
+                    
+
             </div>
-          </div>
 
           </div>
         </div>
