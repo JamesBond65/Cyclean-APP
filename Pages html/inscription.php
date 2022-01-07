@@ -18,29 +18,32 @@ global $db;
 ?>
 
 
+<h1>Test</h1>
 
-<form  method="form">
-        <input
-          type="text"
-          name="search1"
-          id="search1"
-          placeholder="Recherche.."
+    <form  method="post">
+        <input type="search" name="pseudo" id="pseudo" placeholder="Pseudo" required><br>
+        <input type="submit" name="formsend" value="entrer">
+    </form>
 
-        >
-        <input type="submit" class="button" name="search_form" id="search_form" value="recherche">
+<?php 
+    if(isset($_POST['formsend'])){
+        extract($_POST);
 
+        $q = $db ->prepare("SELECT pseudo FROM utilisateurs WHERE pseudo = :pseudo ");
 
-</form><?php 
-        if(isset($_POST['search_form'])){
-            echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-                    extract ($_POST);
-                    $q = $db->prepare("SELECT pseudo FROM utilisateurs WHERE pseudo = :pseudo");
+        $q -> execute(['pseudo'=> $pseudo]);
+        $resultat = $q ->fetch();
 
-                    $q->execute(['pseudo' => $search1]);
+        if($resultat){
+            echo $resultat;
+        }
+        
+        else{
+            echo"le compte rechercher n'existe pas";
 
-                    $resultat = $q->fetch();
-
-                }
-        ?>       
+        }
+    }
+                
+?>       
 </body>
 </html>
