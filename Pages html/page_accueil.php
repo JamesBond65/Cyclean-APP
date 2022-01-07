@@ -17,7 +17,7 @@ if (empty($_SESSION['id'])){
         <script src="jquery.js"></script>
         <script> 
         $(function(){
-            $("#header").load("contenu/header.html"); 
+            $("#header").load("contenu/header.php"); 
         });
         </script> 
     </head>

@@ -12,12 +12,12 @@
         <script src="jquery.js"></script>
         <script> 
             $(function(){
-                $("#header").load("contenu/header.html"); 
+               $("#header").load("contenu/header.php"); 
             });
         </script>
         <script> 
             $(function(){
-                $("#header2").load("contenu/header.html"); 
+                $("#header2").load("contenu/header.php"); 
             });
         </script>
     </head>

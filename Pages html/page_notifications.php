@@ -10,7 +10,7 @@
     <script src="jquery.js"></script>
     <script>
       $(function () {
-        $("#header").load("contenu/header.html");
+        $("#header").load("contenu/header.php");
       });
     </script>
 
@@ -74,7 +74,7 @@
 
 
 
-          <a href="profil.php?id=<?=$liste_id[$i]?>"><img src="<?php require_once('photo_profil.php'); 
+          <a href="page_profil.php?id=<?=$liste_id[$i]?>"><img src="<?php require_once('photo_profil.php'); 
             echo get_pdp($liste_id[$i],$resultat_id[1]);?>" class="image"></a>
             <div class="boite">
               <p class="text">
