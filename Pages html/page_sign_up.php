@@ -12,7 +12,8 @@
 
 
     <body>
-        <header>
+        <div class="content_site">
+<header>
             <div class="logo_header">
                 <a href="page_accueil_visiteur.php"><img src="images/images_footer/Blanc/LogoGris.png" width="120px"></a>
             </div>
@@ -175,7 +176,9 @@
                 </div>
             </div>
 
-    </footer>     
+    </footer>
+        </div>
+             
 
 
     </body>
