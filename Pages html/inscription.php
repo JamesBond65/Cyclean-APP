@@ -29,6 +29,7 @@ global $db;
     if(isset($_POST['formsend'])){
         extract($_POST);
 
+<<<<<<< HEAD
         $q = $db ->prepare("SELECT pseudo FROM utilisateurs WHERE pseudo LIKE ?");
         $q -> execute(["%$pseudo%"]);
         $resultat = $q ->fetchAll();
@@ -46,5 +47,23 @@ global $db;
     }
 
 ?>   
+=======
+        $q = $db ->prepare("SELECT pseudo FROM utilisateurs WHERE pseudo = :pseudo ");
+
+        $q -> execute(['pseudo'=> $pseudo]);
+        $resultat = $q ->fetch();
+
+        if($resultat){
+            echo $resultat;
+        }
+        
+        else{
+            echo"le compte rechercher n'existe pas";
+
+        }
+    }
+                
+?>       
+>>>>>>> 5251a5019dc4efa9272be310bb1c495159b9b1d3
 </body>
 </html>

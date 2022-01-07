@@ -13,14 +13,23 @@ body {
 }
 
 /*Propriétés de marges*/
-/*----------------------------------------*/
+
+
+/*-----------------------------------------------------------------------HEADER--------------------------------------------*/
+
 .padding_total {
   padding-left: 3%;
   padding-right: 1%;
 }
-/*----------------------------------------*/
 
-/*-----------------------------------------------------------------------HEADER--------------------------------------------*/
+.container-flex {
+  display: flex;
+}
+
+.space {
+  justify-content: space-between;
+}
+
 
 .navigation {
   /*classe car réultilisation plus tard*/
@@ -150,32 +159,25 @@ body {
 }
 /*------------------------------------------------------------------*/
 
-/*----------------FOOTER-------------------*/
-.container_footer {
+
+/*--------------------------------------------------------------------------FOOTER----------------------------------------*/
+.container_footer{
   padding-top: 2%;
-  padding-bottom: 1.5%;
-  font-family: Helvetica;
-  font-weight: bold;
+  padding-bottom: 2%;
+
   background-color: white;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
 
-.texte_footer {
-  color: #b4bdcb;
+.texte_footer{
+  margin-bottom: 5px;
+  color: #B4BDCB;
   vertical-align: center;
   text-align: center;
   font-weight: 1000;
 }
-/*-------------END FOOTER-------------------*/
+/*----------------------------------------------------------END FOOTER--------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------*/
-
-.container-flex {
-  display: flex;
-}
-
-.space {
-  justify-content: space-between;
-}

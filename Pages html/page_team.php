@@ -46,6 +46,7 @@
   </section>
 
 
+<!------------------ FOOTER ----------------->
 
   <footer class="container_footer">                
     <div style="padding-left: 5%;">

@@ -331,7 +331,7 @@
 
                 <div style="margin-right: 5%;">
 
-                    <p class="texte_footer" style="margin-bottom: 0px; margin-top: 0px;">
+                    <p class="texte_footer" style="margin-bottom: 10px; margin-top: 0px;">
                     Contacts
                     </p>
                     
