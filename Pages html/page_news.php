@@ -1,20 +1,60 @@
+<?php session_start(); 
+?>
+
+
 <!DOCTYPE html>
     <html>
         <head>
             <meta charset="utf-8">
-            <link rel="stylesheet" href="style_page_news.css">
+            <link rel="stylesheet" href="style_page_news.css?v=<?php echo time(); ?>">
+
             <link href="url(fonts/StrongConcrete-Bold.otf)">
+
             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-            <title> NEWS </title>
+
+            <title> Cyclean - News </title>
+
+            <!-- Importation du fichier header-->
+            <script src="jquery.js"></script>
+            
+            <script> 
+            $(function(){
+                $("#header").load("contenu/header.php"); 
+            });
+            </script> 
 
          
         </head>
+        <?php 
+        if (empty($_SESSION['id'])){?>
 
-        <body style="background-color:#B4BDCB">
+            <header class="container-flex space gris padding_total" style="">
+
+                    <a href="page_accueil_visiteur.php"><nav style="padding-top: 2%;"><img src="images/LogoBlanc.png " width="50px"></nav></a>
+        
+                    <nav style="margin-right: 2.5%; margin-top:-43px;">
+                        <ul class="navigation">
+                            <li><img src="images/Langages.png" width="30px"/><br /></li>
+                            <li><a href="page_sign_up.php">S'inscrire<br></a></li>
+                            <li><a href="page_sign_in.php">Se connecter<br></a></li>
+                        </ul>
+                    </nav>
+    
+            </header>
+
+        <?php 
+        }
+        else{?>
+            <header id="header" class="gris"></header>
+
+        <?php }
+        ?>
+
+        <body>
 
             <div> 
                 <header class="header">
-                    <img class="logo" src="Images/LogoBlanc.png" id="Logoblanc">
+
                   
                     <div class="header__content">
                       <h1 class="title">NEWS</h1>

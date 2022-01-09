@@ -212,7 +212,6 @@ a {
   background-color: white; /* Green */
   border: none;
   color: #97a3b6;
-  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -238,7 +237,7 @@ a {
   background-color: #b2bdcc; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  
   text-align: center;
   text-decoration: none;
   display: inline-block;

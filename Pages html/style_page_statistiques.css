@@ -165,6 +165,7 @@ p,h2{
   .graph{
     background-color:white;
     width:93%;
+    justify-content: center;
   }
 
 

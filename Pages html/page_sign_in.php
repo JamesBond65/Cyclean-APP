@@ -75,12 +75,12 @@
                                 header('Location: page_accueil.php');
                             }
                             else{
-                                echo "Le mot de passe est incorrect.";
+                                echo "Le nom d'utilisateur ou le mot de passe est incorrect.";
                             }
 
                         }
                         else{
-                            echo "le compte portant le pseudo entré n'existe pas.";
+                            echo "Le nom d'utilisateur ou le mot de passe est incorrect.";
                         }
 
                     }
