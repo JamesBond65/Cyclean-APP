@@ -1,3 +1,8 @@
+@font-face {
+  src: url(fonts/StrongConcrete-Bold.otf);
+  font-family: Strong Concrete;
+}
+
 html,
 body {
   margin: 0;
@@ -119,16 +124,30 @@ body {
   background-color: rgb(255, 255, 255);
   border: white;
 }
+.social_trait2 {
+  margin-left: 6%;
+  margin-top: 100px;
+  background-color: #d3cae6;
+  width: 88%;
+  height: 3px;
+  background-color: rgb(255, 255, 255);
+  border: white;
+}
 /*------------------------------------------------------------------*/
 
 /*---------------------------------------------------Recherche des utilisateurs---------------------------------------*/
 .Recherche {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 30px;
   margin-bottom: 30px;
   padding-left: 5%;
   padding-right: 5%;
+}
+.ligne {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 .Text_Input {
   width: 240px;
@@ -216,7 +235,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
@@ -229,10 +247,57 @@ input:checked + .slider:before {
   font-weight: 900;
   margin-right: 20px;
 }
+.tableau {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.ligne1 {
+  background-color: #e7ddfc;
+  height: 70px;
+  width: 85%;
+  border-radius: 4px;
+}
+.ligne2 {
+  background-color: #c2bbd3;
+  height: 70px;
+  width: 85%;
+  border-radius: 4px;
+}
+
+.boite1:hover {
+  box-shadow: 0 0 33px rgba(33, 33, 33, 0.4);
+}
+.images_recherche {
+  border-radius: 50%;
+  max-width: 100%;
+  height: 60px;
+  margin-left: 5%;
+}
+.boite1 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+}
 
 /*------------------------------------------------------------------*/
 
 /*---------------------------------------------------liste des utilisateurs---------------------------------------*/
+.titre_liste {
+  font-family: "Strong Concrete";
+  font-weight: 100;
+  font-size: 40px;
+  margin-left: 6%;
+}
 .liste_utilisateurs {
   display: flex;
   flex-direction: column;
