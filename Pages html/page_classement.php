@@ -10,7 +10,7 @@
         <script src="jquery.js"></script>
         <script> 
             $(function(){
-                $("#header").load("contenu/header.html"); 
+                $("#header").load("contenu/header.php"); 
             });
         </script> 
     </head>
@@ -53,15 +53,11 @@
         include_once 'database.php';
 
 
-        $sql = "SELECT *FROM amis INNER JOIN utilisateurs WHERE amis.idAmi = utilisateurs.id ORDER BY CreditsCyclean DESC";
+        $sql = "SELECT * FROM amis INNER JOIN utilisateurs WHERE amis.idAmi = utilisateurs.id ORDER BY CreditsCyclean DESC";
 
 
         $requete = $db->query($sql);
         $tableau = $requete->fetchall();
-
-        /*echo $_SESSION['id'];*/
-
-        /*$tableau_pseudos = [];*/
 
        foreach ($tableau as $un_utilisateur) {
 
@@ -335,7 +331,7 @@
 
                 <div style="margin-right: 5%;">
 
-                    <p class="texte_footer" style="margin-bottom: 0px; margin-top: 0px;">
+                    <p class="texte_footer" style="margin-bottom: 10px; margin-top: 0px;">
                     Contacts
                     </p>
                     

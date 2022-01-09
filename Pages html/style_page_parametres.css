@@ -151,9 +151,9 @@ input:focus, textarea:focus, select:focus{
 
 
 hr {
+    width: 100%;
     border: none;
     border-top: 1px solid black;
-    width: 80%;
     height: 5px;
     margin-top: -2px;
     margin-left:0;
@@ -189,9 +189,6 @@ textarea{
     
 }
 
-hr{
-    width: 100%;
-}
 
 .no-outline{
     font-size: 110%;

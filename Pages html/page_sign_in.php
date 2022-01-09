@@ -34,19 +34,13 @@
                     <hr>
 
 
-                    <input type="submit" class="button" name="connexion_form" id="connexion_form" value="S'inscrire">
+                    <input type="submit" class="button" name="connexion_form" id="connexion_form" value="Se Connecter">
 
                         
             </form>
 
-            <p class="oublié">Mot de passe oublié ?</p>
-
-            </div>
 
 
-
-
-                
 
 
 
@@ -76,6 +70,7 @@
                                 $_SESSION['prenom'] = $resultat['prenom'];
                                 $_SESSION['email'] = $resultat['email'];
                                 $_SESSION['APropos'] = $resultat['APropos'];
+                                $_SESSION['extension'] = $resultat['Extension'];
                                 
                                 header('Location: page_accueil.php');
                             }
@@ -85,7 +80,7 @@
 
                         }
                         else{
-                            echo "le compte portant le pseudo " . $connexion_pseudo . " n'existe pas.";
+                            echo "le compte portant le pseudo entré n'existe pas.";
                         }
 
                     }
@@ -93,7 +88,21 @@
                         echo '<div class="remplir">'.'Veuillez remplir tous les champs'.'</div>';
                     }
                 }
-            ?>            
+            ?>       
+            
+
+            <p class="oublié">Mot de passe oublié ?</p>
+
+            </div>
+
+
+
+
+                
+
+
+
+     
 
                 
 

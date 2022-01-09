@@ -17,7 +17,7 @@ if (empty($_SESSION['id'])){
         <script src="jquery.js"></script>
         <script> 
             $(function(){
-                $("#header").load("contenu/header.html"); 
+                $("#header").load("contenu/header.php"); 
             });
             
         </script> 
@@ -67,6 +67,8 @@ if (empty($_SESSION['id'])){
 
                 $dernierTrajetArray = $q->fetch(); // Convertit le résultat en un tableau et le paramètre PDO enlève les doublons 
                 $dernierTrajet = $dernierTrajetArray[0];
+
+
             
 
             // Récupère les données de tous les trajets

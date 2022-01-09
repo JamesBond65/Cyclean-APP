@@ -12,12 +12,12 @@
         <script src="jquery.js"></script>
         <script> 
             $(function(){
-                $("#header").load("contenu/header.html"); 
+               $("#header").load("contenu/header.php"); 
             });
         </script>
         <script> 
             $(function(){
-                $("#header2").load("contenu/header.html"); 
+                $("#header2").load("contenu/header.php"); 
             });
         </script>
     </head>
@@ -82,43 +82,131 @@
 
                             Nouveau nom:<br>
                             <form action="" method="post" class="container-flex space v_center_align">
-                                <input type="text" class="no-outline" name="nom" id="nom" placeholder="<?= $_SESSION['Nom'];?>" size="10" style="margin-bottom:10px;">                       
+                                <input type="text"  size="21" class="no-outline" name="nom" id="nom" placeholder="<?= $_SESSION['Nom'];?>" size="10" style="margin-bottom:10px;">                       
                                 <button name="post_nom" value="done"><img src="images/fleche_bleu.png" width="15px" style="" ></button>
                             </form>
                             <hr>
 
                             Nouveau prénom:<br>
                             <form action="" method="post" class="container-flex space v_center_align">
-                                <input type="text" class="no-outline" name="prenom" id="prenom" placeholder="<?= $_SESSION['prenom'];?>" size="10" style="margin-bottom:10px;">                       
+                                <input type="text"  size="21" class="no-outline" name="prenom" id="prenom" placeholder="<?= $_SESSION['prenom'];?>" size="10" style="margin-bottom:10px;">                       
                                 <button name="post_prenom" value="done"><img src="images/fleche_bleu.png" width="15px" style="" ></button>
                             </form>
                             <hr>
                             
                             A propos de moi:<br>
                             <form action="" method="post" class="container-flex space v_center_align">
-                                <textarea id="story" name="story" style="resize:none"
-                                rows="3" cols="20"> <?=$_SESSION['APropos']?>
-                                </textarea>
+                                <textarea id="story" name="story" style="resize:none"rows="3" cols="20"><?=$_SESSION['APropos'];?></textarea>
                                 <button name="post_apropos" value="done"><img src="images/fleche_bleu.png" width="15px" style="" ></button>
                             </form><br> 
 
                             Nouvelle adresse mail:<br>
                             <form action="" method="post" class="container-flex space v_center_align">
-                                <input type="text" class="no-outline" name="email" id="email" placeholder="<?= $_SESSION['email'];?>" size="10" style="margin-bottom:10px;">                       
+                                <input type="text" size="21" class="no-outline" name="email" id="email" placeholder="<?= $_SESSION['email'];?>" size="10" style="margin-bottom:10px;">                       
 
                                 <button name="post_email" value="done"><img src="images/fleche_bleu.png" width="15px" style="" ></button>
                             </form><hr>
 
                             Nouveau mot de passe:<br>
                             <form action="" method="post">
-                                <input type="password" class="no-outline" name="password" id="password"  size="10" style="margin-bottom:10px;">                       
+                                <input type="password"  size="21" class="no-outline" name="password" id="password"  size="10" style="margin-bottom:10px;">                       
                                 <hr><br>
-
+                            Confirmer le mot de passe:<br>
                                 <div  class="container-flex space v_center_align">
-                                <input type="password" class="no-outline" name="cpassword" id="cpassword"  size="10" style="margin-bottom:10px;">                       
+                                <input type="password"  size="21" class="no-outline" name="cpassword" id="cpassword"  size="10" style="margin-bottom:10px;">                       
                                 <button name="post_password" value="done"><img src="images/fleche_bleu.png" width="15px" style="" ></button>
                                 </div>
                             </form><hr>
+
+
+                            <form method="post" enctype="multipart/form-data">
+                                <p>Photo de profil:</p>
+                                <input type="file" name="fileToUpload" id="fileToUpload">
+                                <input type="submit" value="Upload" name="submit">
+                            </form>
+                            <br>
+
+
+
+
+
+                            <?php
+                                $uploadOk = 1;
+                                $format = strtolower(pathinfo($_FILES['fileToUpload']['name'],PATHINFO_EXTENSION));
+
+
+                                $target_file ="uploads/profile_".$_SESSION['id'].".".$format;
+
+
+
+
+
+
+                                // Check if image file is a actual image or fake image
+                                if(isset($_POST["submit"])) {
+                                    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+                                    if($check == false or ($format != "jpg" && $format != "png" && $format != "jpeg"
+                                    && $format != "gif")) {
+                                        $uploadOk = 0;
+                                        echo "Le fichier n'est pas une image.";?><br><?php
+                                    } else {
+                                        $uploadOk = 1;
+                                    }
+                                
+
+                                    // Check file size
+                                    if ($_FILES["fileToUpload"]["size"] > 500000) {
+                                        echo "Le fichier est trop volumineux.";?><br><?php
+                                        $uploadOk = 0;
+                                    }
+
+                                    // Check if $uploadOk is set to 0 by an error
+                                    if ($uploadOk == 0) {
+                                    // if everything is ok, try to upload file
+                                    } else {
+                                        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                                            echo "Le fichier a été envoyé.";
+
+                                            // Mise à jour de l'extension dans la BDD
+                                            $q2 = $db->prepare("UPDATE utilisateurs SET Extension = :extension WHERE id=:id");
+                                            $q2->execute(['extension' => $format ,'id' => $_SESSION['id']]);
+
+                                            // Suppression du fichier précedent s'il n'a pas déjà été remplacé par le nouveau
+                                            if ($_SESSION['extension'] != $format ){
+                                                unlink("uploads/profile_".$_SESSION['id'].".".$_SESSION['extension']);
+                                            }
+                                             $_SESSION['extension']=$format;
+
+                                        } else {
+                                            echo "Il y a eu une erreur dans l'envoi du fichier";
+                                        }
+                                    }
+                                }
+                            ?>
+
+                            <?php
+                            // Cleaning images
+                            // unlink ("uploads/profile_1.png");
+                            // unlink ("uploads/profile_1.jpg");
+
+                            // unlink ("uploads/profile_3.png");
+                            // unlink ("uploads/profile_3.jpg");
+
+                            // unlink ("uploads/profile_6.png");
+                            // unlink ("uploads/profile_6.jpg");
+
+                            // unlink ("uploads/profile_8.png");
+                            // unlink ("uploads/profile_8.jpg");
+
+                            // unlink ("uploads/profile_4.png");
+                            // unlink ("uploads/profile_4.jpg");
+                            
+                            ?>
+
+                            <div style="border: 1px solid black; ;"><img src="<?php require_once('photo_profil.php'); 
+            echo get_pdp($_SESSION['id'],$_SESSION['extension']);?>"></div>
+
+                            
                         </div>
                     
 
@@ -173,6 +261,12 @@
                             if(isset($_POST['post_apropos'])){
                                 extract ($_POST);
                                 if (!empty($story)){
+
+     
+
+                                    // Convertit la zone de texte entrée avec des br
+
+                                    $story = str_replace("\n", "<br />",$story);
 
                                     $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
                                     $q->execute(['id' => $_SESSION['id']]);

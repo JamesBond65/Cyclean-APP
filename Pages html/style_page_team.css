@@ -1,25 +1,35 @@
-html,body{
-    padding:0;
-    margin:0;
+@font-face{
+    src : url(fonts/StrongConcrete-Bold.otf);
+    font-family: Strong Concrete;
 }
-    
-    
-    
-    
-    /*Propriétés de marges*/
-/*----------------------------------------*/
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+        
+    color: white;
+    background-color:#B4BDCB;
+}
+
+/*-----------------------------------------------------------------------HEADER--------------------------------------------*/
+
 .padding_total{
     padding-left: 3%;
     padding-right: 1%;
 }
-/*----------------------------------------*/
 
+.container-flex{
+    display: flex;
+}
 
-/*-----------------------------------------------------------------------HEADER--------------------------------------------*/
+.space{
+    justify-content:space-between;
+}
 
 
  .navigation{ /*classe car réultilisation plus tard*/
-    text-align:right;
+    text-align: right;
     list-style: none;
 
   }
@@ -63,75 +73,56 @@ html,body{
 .navigation > li> a:hover::after {
     transform:scaleX(1) /*Commence l'animation après hover*/
    }
-/*------------------------------------------------------------------*/
-
-
-
 
 /*-----------------------------------------------------------------END HEADER-------------------------------------------------*/
 
-h1
-{
+.titre{
+    font-size: 300%;
     color: white;
-    margin: 0 5%;
     font-family:"Strong Concrete";
-    font-size: 340%;
-    padding-left: 2%;
-    margin-bottom: 20%;
-    margin: 20px;
-    padding-bottom: 20px;
-    border-bottom: 3px solid #FFFF;
-    width:fit-content;
+    margin-left: 5%;
+    letter-spacing: 3px;
+}
 
+.classement-trait{
+    margin-left: 5%;
+    background-color: #B4BDCB;
+    width: 50%;
+    height: 3px;
+    margin-top: 1%;
+    background-color:rgb(255, 255, 255);
+    border: white;
 
 }
 
+.corps{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+    margin-left: 5%;
+}
 
-h2
-{
-    color: #FFFF;
-    font-family: Arial, Helvetica;
-    line-height: 70px;
-    text-align: left;
-    margin-right: 10px;
-
+.poste{
+    width: 70%;
 }
 
 
+/*--------------------------------------------------------------------------FOOTER----------------------------------------*/
+.container_footer{
+    padding-top: 2%;
+    padding-bottom: 2%;
 
-
-
-  
-p
-{
-    
-    color: white;
-    font-weight: bold;
-    font-family:Helvetica;
-    font-size: 12px;
-    margin-top: 100px;
-    padding-right: 20px;
-    
-
-
-}
-
-.graph
-{
-    margin-right: 20px;
-    margin-bottom: 20px;
-
-
-}
-
-#post{
-    display:flex;
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
 }
 
-
-#logo{
-    position: absolute;
-    bottom:0;
-    right:0;
+.texte_footer{
+    margin-bottom: 5px;
+    color: #B4BDCB;
+    vertical-align: center;
+    text-align: center;
+    font-weight: 1000;
 }
+/*----------------------------------------------------------END FOOTER--------------------------------------------------------------*/

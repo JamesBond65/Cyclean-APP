@@ -10,10 +10,15 @@
     <script src="jquery.js"></script>
     <script>
       $(function () {
-        $("#header").load("contenu/header.html");
+        $("#header").load("contenu/header.php");
       });
     </script>
   </head>
+
+  <?php
+  include 'database.php';
+  global $db;
+  ?>
 
   <body>
     <header id="header"></header>
@@ -36,59 +41,31 @@
 
 
 
-    <!-- liste utilisateurs -->
+  
+      <!-- liste utilisateurs -->
 
-    <li class="liste_utilisateurs">
-      <section class="Ligne1">
-        <div class="boite_utilisateur1">
-          <div class="text_1">
-            <p class="Pseudo">Leopoldo</p>
-            <div class="text_2">
-              <p class="Prenom">Leo</p>
-              <p class="Nom">Poldo</p>
-            </div>
-          </div>
-          <div class="Trait_vertical"></div>
-          <div class="text_utilisateur">
-            <p>
-              Un paragraphe avec des informations sur l'utilisateur avec les
-              donnés de son compte
-            </p>
-            <p>300 bpm</p>
-            <p>22 km</p>
-            <p>Activité en hausse de 10% depuis la semaine dernière</p>
-          </div>
-        </div>
-        <a href="page_mon-profil.php" style="margin-left: 10%">
-          <img src="images/Profil.png" class="Image_Profil1" />
-        </a>
-      </section>
+      <form  method="post">
+        <input type="search" name="pseudo" id="pseudo" placeholder="Pseudo" required><br>
+        <input type="submit" name="formsend" value="entrer">
+    </form>
 
-      <section class="Ligne2">
-        <a href="page_mon-profil.php" style="margin-right: 10%">
-          <img src="images/Profil.png" class="Image_Profil2" />
-        </a>
-        <div class="boite_utilisateur1">
-          <div class="text_1">
-            <p class="Pseudo">Leopoldo</p>
-            <div class="text_2">
-              <p class="Prenom">Leo</p>
-              <p class="Nom">Poldo</p>
-            </div>
-          </div>
-          <div class="Trait_vertical"></div>
-          <div class="text_utilisateur">
-            <p>
-              Un paragraphe avec des informations sur l'utilisateur avec les
-              donnés de son compte
-            </p>
-            <p>300 bpm</p>
-            <p>22 km</p>
-            <p>Activité en hausse de 10% depuis la semaine dernière</p>
-          </div>
-        </div>
-      </section>
-    </li>
+<?php 
+    if(isset($_POST['formsend'])){
+        extract($_POST);
+
+        $q = $db ->prepare("SELECT pseudo FROM utilisateurs WHERE pseudo LIKE ?");
+        $q -> execute(["%$pseudo%"]);
+        $resultat = $q ->fetchAll();
+
+        if($resultat){
+            foreach ($resultat as $pseudo_trouve){
+              // ICI METTRE LES RESULTATS DE LA RECHERCHE ET LE HTML CORRESPONDANT
+              ?>  
+              <div style="">
+              <?php
+              echo $pseudo_trouve[0];?>
+              </div>
+              <?php
 
 
 
@@ -97,53 +74,79 @@
 
 
 
-    
 
-    <!-- FOOTER -->
 
-    <footer class="container_footer">
-      <div style="padding-left: 5%">
-        <img
-          src="images/images_footer/Violet/LogoViolet.png"
-          width="65px"
-        /><br />
 
-        <p class="texte_footer" style="margin-top: 0px">Cyclean</p>
-      </div>
 
-      <p class="texte_footer">
-        © GREEN SENSE 2021<br />
-        ALL RIGHTS RESERVED
-      </p>
 
-      <div style="margin-right: 5%">
-        <p class="texte_footer" style="margin-bottom: 0px; margin-top: 0px">
-          Contacts
-        </p>
 
-        <div>
-          <div class="logo_insta_whatsapp">
-            <img
-              src="images/images_footer/Violet/instaV-1.png"
-              width="20px"
-            />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <img
-              src="images/images_footer/Violet/WhatsappV..png"
-              width="20px"
-            /><br />
-            <img
-              src="images/images_footer/Violet/twitterV.png"
-              width="20px"
-            />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <img src="images/images_footer/Violet/mailV.png" width="20px" />
-          </div>
 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
-            src="images/images_footer/Violet/fbV5.png "
-            width="20px"
-          />
-        </div>
-      </div>
-    </footer>
+
+
+            }
+        }
+
+        else{
+            echo "le compte recherché n'existe pas";
+        }
+    }
+
+    else {?>
+
+
+
+                        <li class="liste_utilisateurs">
+                          <section class="Ligne1">
+                            <div class="boite_utilisateur1">
+                              <div class="text_1">
+                                <p class="Pseudo">Leopoldo</p>
+                                <div class="text_2">
+                                  <p class="Prenom">Leo</p>
+                                  <p class="Nom">Poldo</p>
+                                </div>
+                              </div>
+                              <div class="Trait_vertical"></div>
+                              <div class="text_utilisateur">
+                                <p>
+                                  Un paragraphe avec des informations sur l'utilisateur avec les
+                                  donnés de son compte
+                                </p>
+                                <p>300 bpm</p>
+                                <p>22 km</p>
+                                <p>Activité en hausse de 10% depuis la semaine dernière</p>
+                              </div>
+                            </div>
+                            <a href="page_mon-profil.php" style="margin-left: 10%">
+                              <img src="images/Profil.png" class="Image_Profil1" />
+                            </a>
+                          </section>
+
+                          <section class="Ligne2">
+                            <a href="page_mon-profil.php" style="margin-right: 10%">
+                              <img src="images/Profil.png" class="Image_Profil2" />
+                            </a>
+                            <div class="boite_utilisateur1">
+                              <div class="text_1">
+                                <p class="Pseudo">Leopoldo</p>
+                                <div class="text_2">
+                                  <p class="Prenom">Leo</p>
+                                  <p class="Nom">Poldo</p>
+                                </div>
+                              </div>
+                              <div class="Trait_vertical"></div>
+                              <div class="text_utilisateur">
+                                <p>
+                                  Un paragraphe avec des informations sur l'utilisateur avec les
+                                  donnés de son compte
+                                </p>
+                                <p>300 bpm</p>
+                                <p>22 km</p>
+                                <p>Activité en hausse de 10% depuis la semaine dernière</p>
+                              </div>
+                            </div>
+                          </section>
+                        </li>
+      <?php } ?>
   </body>
+
 </html>
