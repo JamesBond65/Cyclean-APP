@@ -100,7 +100,11 @@ input{
     outline: none;
 }
 
-    
+.texte{
+    text-align: center;
+    color: red;
+    opacity: 0.6;
+}
 
 
 /*----------------FOOTER-------------------*/

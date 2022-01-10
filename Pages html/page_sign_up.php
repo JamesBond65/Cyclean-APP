@@ -12,7 +12,8 @@
 
 
     <body>
-        <header>
+        <div class="content_site">
+<header>
             <div class="logo_header">
                 <a href="page_accueil_visiteur.php"><img src="images/images_footer/Blanc/LogoGris.png" width="120px"></a>
             </div>
@@ -63,9 +64,45 @@
                 if(!empty($password) && !empty($cpassword) && !empty($email) && !empty($prenom) && !empty($nom) && !empty($pseudo)){
 
 
-
+                
 
                     if ($password == $cpassword){
+
+                        $longueurpass = strlen($password);
+                        if ($longueurpass < 8){?>
+
+                           <div class=texte> <?php
+                               echo "Mot de passe trop court ! (8 caractères min)";?>
+                            </div>
+                            <?php return false;
+                        }
+
+                        $longueurpseudo = strlen($pseudo);
+                        if ($longueurpseudo > 20){?>
+
+                        <div class=texte> <?php
+                            echo "Pseudo trop long ! (20 caractères max)";?>
+                            </div>
+                            <?php return false;
+                        }
+                        $longueurprenom = strlen($prenom);
+                        if ($longueurprenom > 20){?>
+
+                        <div class=texte> <?php
+                            echo "Prénom trop long ! (20 caractères max)";?>
+                            </div>
+                            <?php return false;
+                        }
+                        $longueurnom = strlen($nom);
+                        if ($longueurnom > 20){?>
+
+                        <div class=texte> <?php
+                            echo "Nom trop long ! (20 caractères max)";?>
+                            </div>
+                            <?php return false;
+                        }
+
+                        
                         // POUR HACHER LE MDP 
                         // $options=['cost'=>12];
                         // $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
@@ -106,8 +143,8 @@
                                 ]);
 
                                 $resultat=$q->fetch()[0];
-                            
 
+                                
 
                                 // MESSAGE COMPTE CREER DANS LA PAGE SIGN IN !
 
@@ -123,14 +160,19 @@
                     }
                     else{
                         echo "Vos mots de passe ne coincident pas.";
-                    }
+                    } 
+
+                        
+                
                 }
                 
                 else {
                     echo "Il y a une erreur de saisie, veuillez reessayer.";
                 }
             }
+            
 
+            
 
         ?>
 
@@ -175,7 +217,9 @@
                 </div>
             </div>
 
-    </footer>     
+    </footer>
+        </div>
+             
 
 
     </body>
