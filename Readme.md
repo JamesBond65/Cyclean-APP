@@ -15,3 +15,7 @@ Mouhamed : Page News: positionnement logo blanc dans le background blanc à droi
            ;Page Teams: positionnement logo
 
 Richard : Regarder inner join
+
+inscription
+statistiques
+profil
