@@ -135,14 +135,6 @@
     <?php } ?>
           </div>
 
-
-    
-
-    </section>
-
-
-    <section class="avant_footer">
-      
     </section>
 
     <footer class="container_footer">

@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+    <?php session_start(); ?>
 <!DOCTYPE html>
 
 
@@ -12,8 +12,8 @@
 
 
     <body>
-        <div class="content_site">
-<header>
+        
+        <header>
             <div class="logo_header">
                 <a href="page_accueil_visiteur.php"><img src="images/images_footer/Blanc/LogoGris.png" width="120px"></a>
             </div>
@@ -23,14 +23,11 @@
                     CYCLEAN
 
             </div>
-            
-
-            
+               
         </header>
         
 
         
-
         <section >
             
             <form method="post" class="element_1">
@@ -201,7 +198,7 @@
 
             <div style="margin-right: 5%;">
 
-                <p class="texte_footer" style="margin-bottom: 0px; margin-top: 0px;">
+                <p class="texte_footer" style="margin-bottom: 10px;">
                 Contacts
                 </p>
                     
@@ -218,7 +215,7 @@
             </div>
 
     </footer>
-        </div>
+        
              
 
 
