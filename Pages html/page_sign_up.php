@@ -7,13 +7,12 @@
     <head>
         <meta charset="UTF-8" />
         <title>Cyclean - Inscription</title>
-        <link rel="stylesheet" href="style_page_sign_up.css">
+        <link rel="stylesheet" href="style_page_sign_up.css?v=<?php echo time(); ?>">
     </head>
 
 
     <body>
-        <div class="content_site">
-<header>
+        <header>
             <div class="logo_header">
                 <a href="page_accueil_visiteur.php"><img src="images/images_footer/Blanc/LogoGris.png" width="120px"></a>
             </div>
@@ -176,9 +175,7 @@
                 </div>
             </div>
 
-    </footer>
-        </div>
-             
+    </footer>     
 
 
     </body>
