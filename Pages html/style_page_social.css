@@ -403,7 +403,7 @@ input:checked + .slider:before {
 /*------------------------------------------------------------------*/
 
 /*--------------------------------------------------------------------------FOOTER----------------------------------------*/
-.container_footer{
+.container_footer {
   padding-top: 2%;
   padding-bottom: 2%;
 
@@ -413,9 +413,9 @@ input:checked + .slider:before {
   justify-content: space-between;
 }
 
-.texte_footer{
+.texte_footer {
   margin-bottom: 5px;
-  color: #B4BDCB;
+  color: #b4bdcb;
   vertical-align: center;
   text-align: center;
   font-weight: 1000;
@@ -423,5 +423,3 @@ input:checked + .slider:before {
 /*----------------------------------------------------------END FOOTER--------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------*/
-
-
