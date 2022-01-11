@@ -75,10 +75,21 @@
 
 
                     <div class="partie">
-                        <h1 class="titre">Profile<hr></h1>
+                        <h1 class="titre">Profil<hr></h1>
                         
 
                         <div style="float:left;">
+                            <?php 
+                                if(isset($_POST['supprimer_compte'])){
+
+                                    
+                                    $q = $db->prepare("DELETE from utilisateurs WHERE id = ?");
+                                    $q->execute([$_SESSION['id']]);
+
+                                    header('Location: page_deconnexion.php');
+
+                                }
+                            ?>
 
                             Nouveau nom:<br>
                             <form action="" method="post" class="container-flex space v_center_align">
@@ -214,14 +225,7 @@
 
                             if(isset($_POST['post_nom'])){
                                 extract ($_POST);
-                                $longueurnom = strlen($nom);
-                                if (!empty($nom)&& ($longueurnom < 20)){?>
-                                    <div class=texte> <?php
-                                    echo "Nom trop long ! (20 caractères max)";?>
-                                    </div>
-                                    <?php return false;
-                                
-                                
+                                if (!empty($nom)){
 
                                     $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
                                     $q->execute(['id' => $_SESSION['id']]);
@@ -478,23 +482,14 @@
                 
                 <div class="partie">
                     <h1 class="titre">Mon compte<hr></h1>
+
+
                     
                     <form method="post" class="post">
-                                
-                        <input type="checkbox"> Pollution sonore
-                        <hr>
-
-                        <input type="checkbox"> Fréquence cardiaque   
-                        <hr>
-
-                        <input type="checkbox"> Qualité de l'air           
-                        <hr>
-
-                        <input type="checkbox"> Autre
-                        <hr>
-                        <input type="submit" name="compte_form" id="compte_form" value="confirmer">
+                        <button name="supprimer_compte" id="supprimer_compte" onclick="return confirm('Etes-vous sûr de vouloir supprimer le compte?')" >Supprimer le compte</button>
                     </form>
-                
+
+
                 </div>
 
                 <div class="partie">
