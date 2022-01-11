@@ -46,7 +46,7 @@ if (empty($_SESSION['id'])){
                 <hr class="cyclean-trait">
 
                 <h2 class="titre2">L'équipe  ➔ </h2>
-                <h2 class="titre2">News  ➔ </h2>
+                <a href="page_news.php"><h2 class="titre2">News  ➔ </h2></a>
                 
             </div>
 
@@ -63,7 +63,7 @@ if (empty($_SESSION['id'])){
         
         <section class="container-flex wrap center">
 
-            <a href="page_mon-profil.php" class="couleur_stats_accueil flex-3box index1">
+            <a href="page_profil.php?id=<?= $_SESSION['id']?>" class="couleur_stats_accueil flex-3box index1">
 
                 <h1 class="titre">Mon profil<hr class="home"></h1>
                 
