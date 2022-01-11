@@ -3,6 +3,12 @@
     font-family: Strong Concrete;
 }
 
+.texte{
+    text-align: center;
+    color: red;
+    opacity: 0.6;
+}
+
 html, body {
     margin: 0;
     padding: 0;

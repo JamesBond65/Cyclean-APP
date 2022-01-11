@@ -214,7 +214,14 @@
 
                             if(isset($_POST['post_nom'])){
                                 extract ($_POST);
-                                if (!empty($nom)){
+                                $longueurnom = strlen($nom);
+                                if (!empty($nom)&& ($longueurnom < 20)){?>
+                                    <div class=texte> <?php
+                                    echo "Nom trop long ! (20 caractères max)";?>
+                                    </div>
+                                    <?php return false;
+                                
+                                
 
                                     $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
                                     $q->execute(['id' => $_SESSION['id']]);
