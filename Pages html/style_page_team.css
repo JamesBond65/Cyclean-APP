@@ -10,6 +10,11 @@ html, body {
         
     color: white;
     background-color:#B4BDCB;
+    
+    /*Css pour bloquer le footer en bas*/
+    min-height: 100hv;
+    display : flex;
+    flex-direction: column;  
 }
 
 /*-----------------------------------------------------------------------HEADER--------------------------------------------*/
@@ -116,6 +121,9 @@ html, body {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+
+    /*Css footer en bas*/
+    margin-top: auto;
 }
 
 .texte_footer{

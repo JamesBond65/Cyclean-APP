@@ -16,7 +16,6 @@ body {
   /*font-family:"";*/
 
   min-height: 100hv;
-
   display : flex;
   flex-direction: column;
 }

@@ -159,7 +159,9 @@ if (empty($_SESSION['id'])){
 
             <p class="texte_footer">
                 © GREEN SENSE 2021<br>
-                ALL RIGHTS RESERVED
+                ALL RIGHTS RESERVED<br>
+                <br>
+                <a style="color:#B4BDCB" href="page_cgu.php">MENTIONS LEGALES</a>
             </p>
 
 

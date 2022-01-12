@@ -244,13 +244,23 @@
 
                             if(isset($_POST['post_nom'])){
                                 extract ($_POST);
-                                if (!empty($nom)){
+                                ////////////////////////////////////////////////conditions formulaire infini
+                                $longueurnom = strlen($nom);
+                                if (!empty($nom) &&($longueurnom > 20)){?>
+                                 
+        
+                                   <div class=texte> <?php
+                                       echo "nom trop long ! (20 caractères max)";?>
+                                    </div>
+                                    <?php return false;
+                                //////////////////////////////////////////////
 
                                     $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
                                     $q->execute(['id' => $_SESSION['id']]);
                                     $resultat = $q->fetch(); //Convertit le résultat en un tableau
 
                                     if ($resultat){  //Si le compte existe
+
 
                                         $q2 = $db->prepare("UPDATE utilisateurs SET Nom = :nom WHERE id=:id");
                                         $q2->execute(['nom' => $nom,'id' => $_SESSION['id']]);
