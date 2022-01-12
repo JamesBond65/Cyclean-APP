@@ -268,14 +268,35 @@ textarea {
     .height-sometimes{
         height:unset;
     }
-
-
-
 }
 
-#supprimer_compte{
-    background-color: red;
-    border-radius: 10px;
+
+#supprimer_compte{ 
+    color:red;
+    border-radius: 3px;
+    border: solid red 1px;
+    background-color: unset;
+    padding:10px;
+    margin-bottom: 20px;
+}
+
+#supprimer_compte:hover {
+    box-shadow:  0 0 5px red;
+}
+
+
+#toggleState{
+    color:#B2BDCC;
+    border-radius: 3px;
+    border: solid #B2BDCC 1px;
+    background-color: unset;
     padding:10px;
 }
+
+#toggleState:hover {
+    box-shadow:  0 0 5px #B2BDCC;
+}
+
+
+
 

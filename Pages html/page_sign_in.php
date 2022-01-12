@@ -71,6 +71,7 @@
                                 $_SESSION['email'] = $resultat['email'];
                                 $_SESSION['APropos'] = $resultat['APropos'];
                                 $_SESSION['extension'] = $resultat['Extension'];
+                                $_SESSION['utilisateur'] = $resultat['TypeUtilisateur'];
                                 
                                 header('Location: page_accueil.php');
                             }

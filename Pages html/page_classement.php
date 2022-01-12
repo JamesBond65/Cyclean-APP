@@ -65,6 +65,7 @@
 
                 $tableau_pseudos[] = $un_utilisateur['pseudo'];
                 $tableau_points[] = $un_utilisateur['CreditsCyclean'];
+                $tableau_ids[] = $un_utilisateur['IdAmi'];
      
             }
 
@@ -104,6 +105,7 @@
                     <?php 
                     if (isset($tableau_pseudos[0])){
                         echo $tableau_pseudos[0];
+
                     }
                     else{
                         echo "";
@@ -117,6 +119,7 @@
                     <?php 
                     if (isset($tableau_pseudos[1])){
                         echo $tableau_pseudos[1];
+
                     }
                     else{
                         echo "";
@@ -229,7 +232,8 @@
 
                             <div class="rectangles_titres">
 
-                                <?php echo $tableau_pseudos[$i];?>
+                                <?php echo '<a href="page_profil.php?id='.$tableau_ids[$i].'">'.$tableau_pseudos[$i].'</a>';?>
+
 
                             </div>
 

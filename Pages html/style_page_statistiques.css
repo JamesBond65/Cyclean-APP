@@ -365,6 +365,16 @@ h1{
     height: 400px;
   }
 
+#addFriend{
+    color:white;
+    border: solid white 1px;
+    background-color: unset;
+}
+
+#addFriend:hover {
+    box-shadow:  0 0 5px white;
+}
+
 /* ligne horizontale principale*/
 .cyclean-trait{
     width: 80%;

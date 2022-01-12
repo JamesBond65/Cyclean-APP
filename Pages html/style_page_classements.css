@@ -107,9 +107,9 @@ html, body {
     padding-bottom: 2.5%;
     padding-left: 1%;
     padding-right: 1%;
-
-
 }
+
+
 
 .classement_des_utilisateurs{
 
@@ -297,6 +297,11 @@ html, body {
     line-height: 50px;
 
 }  
+
+a {
+    text-decoration: unset;
+    color:white;
+}
 
 
 /*-----------------------------------------------------END Classement personnel---------------------------------------------*/

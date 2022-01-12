@@ -30,15 +30,18 @@ if (empty($_SESSION['id'])){
         <?php include 'database.php';
             global $db;
 
-            // CHOPE L'ID du lien, VOIR PAGE NOTIFICATIONS
+            // CHOPE L'ID du lien et recupère les infos du compte en question.
             $id_actuel=$_GET['id'];
-            $q = $db ->prepare("SELECT pseudo,Nom,prenom,Extension,Apropos FROM utilisateurs WHERE id = ?");
+            $q = $db ->prepare("SELECT pseudo,Nom,prenom,Extension,Apropos,Compte FROM utilisateurs WHERE id = ?");
             $q ->execute([$id_actuel]);
             $information_utilisateur = $q->fetch();
 
 
             // Si l'utilisateur existe, execute la requete dans la BDD.
             if($information_utilisateur){
+
+               
+                
 
 
 
@@ -62,7 +65,10 @@ if (empty($_SESSION['id'])){
 
 
 
-
+                    // vérifie si on est amis avec la personne concernée
+                    $q = $db->prepare("SELECT * FROM amis WHERE Id = ? AND IdAmi = ? ");
+                    $q->execute([$id_actuel,$_SESSION['id']]);
+                    $amis = $q->fetch();
 
 
 
@@ -289,6 +295,48 @@ if (empty($_SESSION['id'])){
                                 <h1 class="slogan_pourc"><?= $information_utilisateur['pseudo']?><br></h1>
 
                                 <h2 class="titre2"><?= $information_utilisateur['prenom']?> <?= $information_utilisateur['Nom']?></h2>
+
+
+                                <?php 
+                                if($id_actuel!=$_SESSION['id']){
+                                        if ($amis){
+                                            echo '<h2 class="titre2">Vous êtes amis</h2>';
+                                        }
+
+                                        else{
+                                            $q = $db->prepare("SELECT * FROM demandesamis WHERE IdReceveur = ? AND IdDemandeur = ? ");
+                                            $q->execute([$id_actuel,$_SESSION['id']]);
+                                            $existence_demande = $q->fetch();
+                                            // Vérifie si on a déjà envoyé une demande d'amis à cette personne
+                                            ?>
+                                                                                                            <!-- corriger qui existe $pseudo_trouve["IdDemandeur"] -->
+                                            <form method="post" action="">
+                                                <input type="submit" id="addFriend" name="addFriend" value="<?php echo $existence_demande ?  "Supprimer la demande d'amis" : "Envoyer une demande d'amis" ;  ?>"/>
+                                            </form>
+        
+                                            <?php 
+                                            if (isset($_POST["addFriend"])) {
+                                                // Si on a déjà envoyé une demande, la supprime
+                                                if ($existence_demande){
+                                                    $q = $db->prepare("DELETE FROM demandesamis WHERE IdDemandeur = ? AND IdReceveur = ?  ");
+                                                    $q->execute([intval($_SESSION["id"]), intval($id_actuel)]);
+                                                    echo "<meta http-equiv='refresh' content='0'>";
+                                                    
+                                                }
+                                                // Si on a pas encore envoyé de demande, en envoie une.
+                                                else{
+                                                    $q = $db->prepare("INSERT INTO demandesamis (IdDemandeur, IdReceveur) VALUES (?, ?)");
+                                                    $q->execute([intval($_SESSION["id"]), intval($id_actuel)]);
+                                                    echo "<meta http-equiv='refresh' content='0'>";
+                                                }
+                                            }
+                                        }
+
+                                    
+                                    }
+                                ?>
+                            
+                            
                             </div>
 
                             <h2 class="titre2" style="margin:0;padding:0;">A Propos de moi:</h2>
@@ -336,7 +384,7 @@ if (empty($_SESSION['id'])){
 
 
                     <?php 
-                    if($dernierTrajet!=null){?>
+                    if($dernierTrajet!=null && (($information_utilisateur['Compte']=="publique") || ( $information_utilisateur['Compte']=="prive" && ($amis || $id_actuel == $_SESSION['id'] || $_SESSION['utilisateur']=="Administrateur"))) ){?>
 
 
                         <section class="grid center" style="padding-bottom: 300px;"> 
@@ -577,10 +625,14 @@ if (empty($_SESSION['id'])){
                         
                     <?php } 
 
-                    else{?>
-                    <h2 class="titre2" style="text-align:center;">Aucune activité récente</h2>
+                    elseif ($information_utilisateur['Compte']=="prive" && !($amis || $id_actuel == $_SESSION['id'] || $_SESSION['utilisateur']=="Administrateur")){?>
+                        <h2 class="titre2" style="text-align:center;">Ce compte est privé.</h2>
 
                     <?php }
+                    else{?>
+                        <h2 class="titre2" style="text-align:center;">Aucune activité récente.</h2>
+                        
+                        <?php }
                     ?>
 
                     <!-- ------------------------------------------------------------ -->

@@ -32,7 +32,7 @@ if (empty($_SESSION['id'])){
             // Récupère l'id du lien
             $id_actuel=$_GET['id'];
 
-            $q = $db ->prepare("SELECT pseudo,Nom,prenom,Extension,Apropos FROM utilisateurs WHERE id = ?");
+            $q = $db ->prepare("SELECT pseudo,Nom,prenom,Extension,Apropos,Compte FROM utilisateurs WHERE id = ?");
             $q ->execute([$id_actuel]);
             $information_utilisateur = $q->fetch();
 
@@ -139,12 +139,12 @@ if (empty($_SESSION['id'])){
             <section style="clear: right;margin: 7.9% 7.9% 0%;padding-bottom:100px;">
 
                 <?php 
-                    if (!$dernierTrajet){?>
+                if($dernierTrajet!=null && (($information_utilisateur['Compte']=="publique") || ( $information_utilisateur['Compte']=="prive" && ($amis || $id_actuel == $_SESSION['id'] || $_SESSION['utilisateur']=="Administrateur"))) ){?>
 
-                    <h2 class="titre2" style="text-align:center;">Aucune activité récente</h2>
 
                 <?php 
-                    }
+
+                    
 
 
 
@@ -321,7 +321,25 @@ if (empty($_SESSION['id'])){
 
                 
             </section>
-        <?php }
+
+            <?php 
+            }
+
+
+            
+            elseif ($information_utilisateur['Compte']=="prive" && !($amis || $id_actuel == $_SESSION['id'] || $_SESSION['utilisateur']=="Administrateur")){?>
+                <h2 class="titre2" style="text-align:center;">Ce compte est privé.</h2>
+
+            <?php 
+            }
+            else{?>
+
+                <h2 class="titre2" style="text-align:center;">Aucune activité récente.</h2>
+            <?php 
+            }
+            
+    
+        }
 
         else{?>
         <h1 class="slogan" style="text-align:center;">

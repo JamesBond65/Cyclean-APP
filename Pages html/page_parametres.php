@@ -69,6 +69,13 @@
 
         <section class="container-flex"  id="big_container">
 
+            <?php 
+            
+                $q = $db ->prepare('SELECT Compte FROM utilisateurs WHERE id = ?');
+                $q->execute([$_SESSION['id']]);
+                $etat_compte = $q->fetch();
+            ?>
+
             <section class="container-flex margin_spec" style="justify-content:space-around;min-width:100%;width:100%;">
 
 
@@ -88,6 +95,18 @@
 
                                     header('Location: page_deconnexion.php');
 
+                                }
+
+                                if (isset($_POST['toggleState'])){
+                                    if ($etat_compte[0] == "publique"){
+                                        $q = $db->prepare("UPDATE utilisateurs SET Compte = ? WHERE id=?");
+                                        $q->execute(["prive",$_SESSION['id']]);
+                                    }
+                                    else{
+                                        $q = $db->prepare("UPDATE utilisateurs SET Compte = ? WHERE id=?");
+                                        $q->execute(["publique",$_SESSION['id']]);
+                                    }
+                                    echo "<meta http-equiv='refresh' content='0'>";
                                 }
                             ?>
 
@@ -480,7 +499,7 @@
             <section class="height-sometimes container-flex" style="justify-content:space-around;min-width:100%;width:100%">
 
                 
-                <div class="partie">
+                <div class="partie" style="justify-content:center;">
                     <h1 class="titre">Mon compte<hr></h1>
 
 
@@ -489,10 +508,16 @@
                         <button name="supprimer_compte" id="supprimer_compte" onclick="return confirm('Etes-vous sûr de vouloir supprimer le compte?')" >Supprimer le compte</button>
                     </form>
 
+                    
+                    <form method="post" action="">
+                        <input type="submit" id="toggleState" name="toggleState" value="<?php echo $etat_compte[0]=="publique" ?  "Rendre le compte privé" : "Rendre le compte public" ;  ?>"/>
+                    </form>
+
+
 
                 </div>
 
-                <div class="partie">
+                <div class="partie" style="">
                     <h1 class="titre">Mon compte<hr></h1>
                     
                     <form method="post" class="post">
