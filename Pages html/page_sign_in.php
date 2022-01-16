@@ -27,14 +27,14 @@
             <form method="post">
                     
 
-                    <input type="text" name="connexion_pseudo" id="connexion_pseudo" class="no-outline" placeholder="Pseudo ...">
+                    <input type="text" name="connexion_pseudo" id="connexion_pseudo" class="no-outline" placeholder="Pseudo ..." required>
                     <hr><br>
                         
-                    <input type="password" name="connexion_password" id="connexion_password" class="no-outline" name="pwd" placeholder="Mot de passe ..." />                                          
+                    <input type="password" name="connexion_password" id="connexion_password" class="no-outline" name="pwd" placeholder="Mot de passe ..." required/>                                          
                     <hr>
 
 
-                    <input type="submit" class="button" name="connexion_form" id="connexion_form" value="Se Connecter">
+                    <button name="connexion_form" id="connexion_form" style="">SE CONNECTER</button>
 
                         
             </form>
@@ -76,17 +76,17 @@
                                 header('Location: page_accueil.php');
                             }
                             else{
-                                echo "Le nom d'utilisateur ou le mot de passe est incorrect.";
+                                echo '<p class="remplir">'."Le nom d'utilisateur ou le mot de passe est incorrect.".'</p>';
                             }
 
                         }
                         else{
-                            echo "Le nom d'utilisateur ou le mot de passe est incorrect.";
+                            echo '<p class="remplir">'."Le nom d'utilisateur ou le mot de passe est incorrect.".'</p>';
                         }
 
                     }
                     else{
-                        echo '<div class="remplir">'.'Veuillez remplir tous les champs'.'</div>';
+                        echo '<p class="remplir">'.'Veuillez remplir tous les champs'.'</p>';
                     }
                 }
             ?>       

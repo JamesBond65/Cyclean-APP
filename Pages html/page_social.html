@@ -36,35 +36,43 @@
 
     <!-- Recherche utilisateurs -->
     <h1 class="titre_liste">Recherche utilisateur</h1>
-    <form method="post">
-      <section class="Recherche">
-        <div class="ligne">
-          <div class="div_1">
-            <input
-              type="text"
-              name="search"
-              placeholder="Recherche.."
-              class="Text_Input"
-              required
-            />
-          </div>
-          <div class="div_2">
-            <p class="text_amis">AMIS SEULEMENT :</p>
-            <label class="switch">
-              <input type="checkbox" name="friends_only" checked />
-              <span class="slider round"></span>
-            </label>
-          </div>
+    <section class="Recherche">
+      <div class="ligne">
+        <div class="div_1">
+          <input
+            type="text"
+            name="search"
+            placeholder="Recherche.."
+            class="Text_Input"
+          />
         </div>
-        <input
-          class="search_button"
-          type="submit"
-          name="formsend"
-          value="entrer"
-          hidden
-        />
-      </section>
-    </form>
+        <div class="div_2">
+          <p class="text_amis">AMIS SEULEMENT :</p>
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="tableau">
+        <div class="boite1">
+          <img src="Images/Profil.png" class="images_recherche" />
+          <div class="ligne1"></div>
+        </div>
+        <div class="boite1">
+          <img src="Images/Profil.png" class="images_recherche" />
+          <div class="ligne2"></div>
+        </div>
+        <div class="boite1">
+          <img src="Images/Profil.png" class="images_recherche" />
+          <div class="ligne1"></div>
+        </div>
+        <div class="boite1">
+          <img src="Images/Profil.png" class="images_recherche" />
+          <div class="ligne2"></div>
+        </div>
+      </div>
+    </section>
 
     <div class="social_trait2"></div>
 
@@ -126,51 +134,45 @@
       </section>
     </li>
 
+
     <!------------------ FOOTER ----------------->
 
-    <footer class="container_footer">
-      <div style="padding-left: 5%">
-        <img
-          src="images/images_footer/Blanc/LogoGris.png "
-          width="65px"
-        /><br />
+    <footer class="container_footer">                
+      <div style="padding-left: 5%;">
+          <img src="images/images_footer/Blanc/LogoGris.png " width="65px"><br>
 
-        <p class="texte_footer" style="margin-top: 0px">Cyclean</p>
+          <p class="texte_footer" style="margin-top: 0px;">
+              Cyclean 
+          </p>
+        
       </div>
+
 
       <p class="texte_footer">
-        © GREEN SENSE 2021<br />
-        ALL RIGHTS RESERVED
+          © GREEN SENSE 2021<br>
+          ALL RIGHTS RESERVED
       </p>
 
-      <div style="margin-right: 5%">
-        <div class="texte_footer" style="margin-bottom: 10px; margin-top: 0px">
+
+      <div style="margin-right: 5%;">
+
+          <div class="texte_footer" style="margin-bottom: 10px; margin-top: 0px;">
           Contacts
-        </div>
-
-        <div>
-          <div class="logo_insta_whatsapp">
-            <img
-              src="images/images_footer/Blanc/instaF.png "
-              width="20px"
-            />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <img
-              src="images/images_footer/Blanc/WhatsappF.png "
-              width="20px"
-            /><br />
-            <img
-              src="images/images_footer/Blanc/TwitterF.png "
-              width="20px"
-            />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <img src="images/images_footer/Blanc/Mail.F.png " width="20px" />
           </div>
+          
+          <div>
+              <div class="logo_insta_whatsapp">
+                  <img src="images/images_footer/Blanc/instaF.png " width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <img src="images/images_footer/Blanc/WhatsappF.png " width="20px"><br>
+                  <img src="images/images_footer/Blanc/TwitterF.png " width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <img src="images/images_footer/Blanc/Mail.F.png " width="20px">
+              </div>
 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
-            src="images/images_footer/Blanc/facebookF.png "
-            width="20px"
-          />
-        </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/images_footer/Blanc/facebookF.png " width="20px">
+          </div>
       </div>
+
     </footer>
+    
   </body>
 </html>
