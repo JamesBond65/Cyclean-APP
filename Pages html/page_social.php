@@ -78,9 +78,12 @@ global $db;
           <div>
             <div class="tableau">
               <div class="boite1">
-              <img src="Images/Profil.png" class="images_recherche" />
+              
                 <div class="ligne1">
-                <?php echo $pseudo_trouve[0]; ?>
+                  <img src="Images/Profil.png" class="images_recherche" />
+                <div class=pseudo_trouve>
+                  <?php echo $pseudo_trouve[0]; ?>
+                </div>
             
                 <input type="text" name="friendId" value="<?php echo $pseudo_trouve[1] ?>" hidden />
             
