@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+if (empty($_SESSION['id'])){
+    header('Location: page_accueil_visiteur.php');
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">

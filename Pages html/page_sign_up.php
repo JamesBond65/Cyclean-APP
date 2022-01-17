@@ -115,8 +115,8 @@
 
                         
                             // POUR HACHER LE MDP 
-                            // $options=['cost'=>12];
-                            // $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
+                            $options=['cost'=>12];
+                            $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
 
 

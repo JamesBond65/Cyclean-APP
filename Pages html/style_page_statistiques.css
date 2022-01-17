@@ -371,6 +371,17 @@ h1{
     background-color: unset;
 }
 
+#SupprimerCompte{
+    color:#d3cae6;
+    border: solid #d3cae6 1px;
+    background-color: unset;
+    margin-bottom: 10px;
+}
+
+#SupprimerCompte:hover {
+    box-shadow:  0 0 5px #d3cae6;
+}
+
 #addFriend:hover {
     box-shadow:  0 0 5px white;
 }

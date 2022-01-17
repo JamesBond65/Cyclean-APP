@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+if (empty($_SESSION['id'])){
+    header('Location: page_accueil_visiteur.php');
+}
+?>
 <!DOCTYPE html>
 
 <html lang="fr" id="d">
@@ -399,6 +404,9 @@
                                     $resultat = $q->fetch(); //Convertit le résultat en un tableau
 
                                     if ($resultat){  //Si le compte existe
+
+                                        $options=['cost'=>12];
+                                        $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
                                             
                                         $q2 = $db->prepare("UPDATE utilisateurs SET password = :password WHERE id=:id");
