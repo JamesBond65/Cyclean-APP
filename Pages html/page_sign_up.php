@@ -110,10 +110,6 @@
                         }
                         // Si toutes les conditions ci-dessus sont vérifiées
                         else{
-
-                        
-
-                        
                             // POUR HACHER LE MDP 
                             $options=['cost'=>12];
                             $password = password_hash($password, PASSWORD_BCRYPT, $options);
