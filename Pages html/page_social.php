@@ -109,61 +109,71 @@ global $db;
     <!-- liste utilisateurs -->
     <h1 class="titre_liste">Cyclean friends</h1>
     <li class="liste_utilisateurs">
-      <section class="Ligne1">
-        <div class="boite_utilisateur1">
-          <div class="text_1">
+      <?php
+      $q = $db->prepare("SELECT * FROM amis LEFT JOIN utilisateurs ON utilisateurs.id = amis.Id LEFT JOIN mesures ON amis.Id = mesures.Id WHERE amis.IdAmi = ?");
+      $q->execute([$_SESSION["id"]]);
+      $resultats = $q->fetchAll();
+      $sideType = 1;
+      foreach ($resultats as $result) {
+      ?>
+        <section class="Ligne<?php echo ($sideType = ($sideType + 1) % 2) + 1; ?>">
+          <?php
+          if ($sideType == 1) {
+          ?>
+            <a href="page_profil.php?id=<?php echo $result["id"] ?>" style=" margin-left: 10%">
+              <img src="<?php echo strlen($result["Extension"]) > 0 ? "uploads/profile_" . $result["id"] . "." . $result["Extension"] : "images/user.svg"; ?>" class="Image_Profil1" />
+            </a>
+          <?php
+          }
+          ?>
+          <div class="boite_utilisateur1">
+            <div class="text_1">
+              <p class="Pseudo"><?= $result['pseudo'] ?></p>
 
-            <p class="Pseudo"><?= $information_utilisateur['pseudo'] ?></p>
+              <div class="text_2">
+                <p class="Prenom"><?php echo $result["Prenom"]; ?></p>
+                <p class="Nom"><?php echo $result["Nom"]; ?></p>
+              </div>
+            </div>
+            <div class="Trait_vertical"></div>
+            <div class="text_utilisateur">
+              <p style="font-family: Helvetica">
+                <?php echo $result["APropos"]; ?>
+              </p>
 
-            <div class="text_2">
-              <p class="Prenom">Leo</p>
-              <p class="Nom">Poldo</p>
+              <?php
+              $q = $db->prepare("SELECT * FROM mesures WHERE mesures.Id = ? ORDER BY DateMesure ASC");
+              $q->execute([$result["id"]]);
+              $mesures = $q->fetchAll();
+              $bpm = 0;
+              $sonore = 0;
+              foreach ($mesures as $mesure) {
+                if ($mesure["TypeCapteur"] == "FrequenceC")
+                  $bpm = $mesure["ValeurMesure"];
+                else if ($mesure["TypeCapteur"] == "Sonore")
+                  $sonore = $mesure["ValeurMesure"];
+              }
+              ?>
+              <p style="font-family: Helvetica"><?php echo $bpm ?> bpm</p>
+              <p style="font-family: Helvetica"><?php echo $sonore ?> db</p>
+              <p style="font-family: Helvetica">
+                Activité en hausse de 10% depuis la semaine dernière
+              </p>
             </div>
           </div>
-          <div class="Trait_vertical"></div>
-          <div class="text_utilisateur">
-            <p style="font-family: Helvetica">
-              Un paragraphe avec des informations sur l'utilisateur avec les
-              donnés de son compte
-            </p>
-            <p style="font-family: Helvetica">300 bpm</p>
-            <p style="font-family: Helvetica">22 km</p>
-            <p style="font-family: Helvetica">
-              Activité en hausse de 10% depuis la semaine dernière
-            </p>
-          </div>
-        </div>
-        <a href="page_mon-profil.php" style="margin-left: 10%">
-          <img src="images/Profil.png" class="Image_Profil1" />
-        </a>
-      </section>
-
-      <section class="Ligne2">
-        <a href="page_mon-profil.php" style="margin-right: 10%">
-          <img src="images/Profil.png" class="Image_Profil2" />
-        </a>
-        <div class="boite_utilisateur1">
-          <div class="text_1">
-            <p class="Pseudo">Leopoldo</p>
-            <div class="text_2">
-              <p class="Prenom">Leo</p>
-              <p class="Nom">Poldo</p>
-            </div>
-          </div>
-          <div class="Trait_vertical"></div>
-          <div class="text_utilisateur">
-            <p style="font-family: Helvetica">
-              Un paragraphe avec des informations sur l'utilisateur avec les
-              donnés de son compte
-            </p>
-            <p style="font-family: Helvetica">300 bpm</p>
-            <p style="font-family: Helvetica">22 km</p>
-            <p style="font-family: Helvetica">
-              Activité en hausse de 10% depuis la semaine dernière
-            </p>
-          </div>
-        </div>
-      </section>
+          <?php
+          if ($sideType == 0) {
+          ?>
+            <a href="page_profil.php?id=<?php echo $result["id"] ?>" style="margin-left: 10%">
+              <img src="<?php echo strlen($result["Extension"]) > 0 ? "uploads/profile_" . $result["id"] . "." . $result["Extension"] : "images/user.svg"; ?>" class="Image_Profil1" />
+            </a>
+          <?php
+          }
+          ?>
+        </section>
+      <?php
+      }
+      ?>
     </li>
 
     <!------------------ FOOTER ----------------->
