@@ -37,8 +37,9 @@ if (empty($_SESSION['id'])){
             $information_utilisateur = $q->fetch();
 
 
-            // Fonction qui a un objet de type Array en PHP renvoie une liste JAVASCRIPT
+
                 function ArrayToJavascript($Data){
+                    // Fonction qui a un objet de type Array en PHP renvoie une liste JAVASCRIPT
                     $DataStr = '[';
 
                     for($i = 0; $i < count($Data); $i++){
@@ -55,6 +56,7 @@ if (empty($_SESSION['id'])){
 
                 
                 function StatsDuTrajet($Array,$NumTrajet,$capteur){
+                    // Récupère les données d'un trajet donné pour un capteur donné sous forme de liste de tuple (en PHP).
                     $ReturnedArray=[];
 
                     foreach ($Array as $value) {
@@ -71,8 +73,6 @@ if (empty($_SESSION['id'])){
 
             // Si l'utilisateur existe, execute la requete dans la BDD.
             if($information_utilisateur){   
-
-
 
                 // Récupère le numéro du dernier trajet de l'utilisateur
                     $q = $db->prepare("SELECT MAX(NumSerie) FROM mesures WHERE Id = :Id");
@@ -171,6 +171,19 @@ if (empty($_SESSION['id'])){
                             array_push($DataArraySMesure, $value[0]);
                             array_push($DataArraySDate,$value[1]);
                         }
+                        
+                        $DataArrayGaz = StatsDuTrajet($DataArray,$i,'Gaz');
+
+                        $DataArrayGMesure = [];
+                        $DataArrayGDate = [];
+                        
+                        foreach($DataArrayGaz as $value){
+                            array_push($DataArrayGMesure, $value[0]);
+                            array_push($DataArrayGDate,$value[1]);
+                        }
+
+
+
                             ?>
 
 
@@ -219,38 +232,92 @@ if (empty($_SESSION['id'])){
                             
                             <div class="graph"><canvas id="ChartS<?=$i?>"></canvas></div>
 
-                                <h1 id="textS<?=$i?>" class="slogan v_center_align">Intensité Sonore</h1>
+                            <h1 id="textS<?=$i?>" class="slogan v_center_align">Intensité Sonore</h1>
 
-                                <script>
+                            <script>
 
-                                    const labelsS<?=$i?> = <?= ArrayToJavascript($DataArraySDate);?>; // Transforme l'array php en array javascript
-                                    
-                                    const dataS<?=$i?> = {
-                                    labels: labelsS<?=$i?>,
-                                    datasets: [{
-                                        label: 'Intensité sonore (DB) en fonction du "temps"',
-                                        backgroundColor: 'rgb(158, 133, 133)',
-                                        borderColor: 'rgb(158, 133, 133)',
-                                        data: <?=ArrayToJavascript($DataArraySMesure)?>, // Données sur les mesures du dernier trajet
-                                    }]
-                                    };
+                                const labelsS<?=$i?> = <?= ArrayToJavascript($DataArraySDate);?>; // Transforme l'array php en array javascript
+                                
+                                const dataS<?=$i?> = {
+                                labels: labelsS<?=$i?>,
+                                datasets: [{
+                                    label: 'Intensité sonore (DB) en fonction du "temps"',
+                                    backgroundColor: 'rgb(158, 133, 133)',
+                                    borderColor: 'rgb(158, 133, 133)',
+                                    data: <?=ArrayToJavascript($DataArraySMesure)?>, // Données sur les mesures du dernier trajet
+                                }]
+                                };
 
-                                    const configS<?=$i?> = {
-                                        type: 'line',
-                                        data: dataS<?=$i?>,
-                                        options: {}
-                                    };
+                                const configS<?=$i?> = {
+                                    type: 'line',
+                                    data: dataS<?=$i?>,
+                                    options: {}
+                                };
 
-                                    const ChartS<?=$i?> = new Chart(
-                                        document.getElementById('ChartS<?=$i?>'),
-                                        configS<?=$i?>
-                                    );
+                                const ChartS<?=$i?> = new Chart(
+                                    document.getElementById('ChartS<?=$i?>'),
+                                    configS<?=$i?>
+                                );
 
-                                </script>
+                            </script>
 
+
+
+
+
+                            <div class="graph"><canvas id="ChartG<?=$i?>" ></canvas></div>
+                            <h1 id="textG<?=$i?>" class="slogan v_center_align">Concentration de CO₂</h1>
+
+                            <script>
+
+                                const labelsG<?=$i?> = <?= ArrayToJavascript($DataArrayGDate);?>; // Transforme l'array php en array javascript
+                                
+                                const dataG<?=$i?> = {
+                                labels: labelsG<?=$i?>,
+                                datasets: [{
+                                    label: 'Fréquence cardiaque (BPM) en fonction du "temps"',
+                                    backgroundColor: 'rgb(158, 133, 133)',
+                                    borderColor: 'rgb(158, 133, 133)',
+                                    data: <?=ArrayToJavascript($DataArrayGMesure)?>, // Données sur les mesures du dernier trajet
+                                }]
+                                };
+
+                                const configG<?=$i?> = {
+                                    type: 'line',
+                                    data: dataG<?=$i?>,
+                                    options: {}
+                                };
+
+                                const ChartG<?=$i?> = new Chart(
+                                    document.getElementById('ChartG<?=$i?>'),
+                                    configG<?=$i?>
+                                );
+
+                            </script>
 
 
                         </div>
+
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
 
                     <script>

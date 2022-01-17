@@ -30,6 +30,43 @@ if (empty($_SESSION['id'])){
         <?php include 'database.php';
             global $db;
 
+
+
+            // Fonction qui a un objet de type Array en PHP renvoie une liste JAVASCRIPT
+            function ArrayToJavascript($Data){
+                $DataStr = '[';
+
+                for($i = 0; $i < count($Data); $i++){
+
+                    $DataStr = $DataStr."'".$Data[$i]."'";
+
+                    if($i != count($Data)-1){
+                        $DataStr = $DataStr.',';
+                    }
+                }
+                $DataStr = $DataStr.']';
+                return $DataStr;
+            }
+
+            function CountRange($start,$end,$array){
+                //  Renvoie le nombre d'élement de la liste array compris entre les deux bornes start et end
+                $count = 0;
+                foreach($array as $element){
+                    if ($start<$element && $element<$end){
+                        ++$count;
+                    }
+                }
+                return $count;
+            }
+
+
+
+
+
+
+
+
+
             // CHOPE L'ID du lien et recupère les infos du compte en question.
             $id_actuel=$_GET['id'];
             $q = $db ->prepare("SELECT pseudo,Nom,prenom,Extension,Apropos,Compte FROM utilisateurs WHERE id = ?");
@@ -40,32 +77,12 @@ if (empty($_SESSION['id'])){
             // Si l'utilisateur existe, execute la requete dans la BDD.
             if($information_utilisateur){
 
-               
                 
 
 
 
 
-                
-                    // Fonction qui a un objet de type Array en PHP renvoie une liste JAVASCRIPT
-                    function ArrayToJavascript($Data){
-                        $DataStr = '[';
-
-                        for($i = 0; $i < count($Data); $i++){
-
-                            $DataStr = $DataStr."'".$Data[$i]."'";
-
-                            if($i != count($Data)-1){
-                                $DataStr = $DataStr.',';
-                            }
-                        }
-                        $DataStr = $DataStr.']';
-                        return $DataStr;
-                    }
-
-
-
-                    // vérifie si on est amis avec la personne concernée
+                    // servira à vérifier si on est amis avec la personne concernée plus tard
                     $q = $db->prepare("SELECT * FROM amis WHERE Id = ? AND IdAmi = ? ");
                     $q->execute([$id_actuel,$_SESSION['id']]);
                     $amis = $q->fetch();
@@ -74,7 +91,6 @@ if (empty($_SESSION['id'])){
 
                     // Récupère le numéro du dernier trajet de l'utilisateur
                     $q = $db->prepare("SELECT MAX(NumSerie) FROM mesures WHERE Id = :Id");
-
                     $q -> execute(['Id' => $id_actuel]);
 
                     $dernierTrajetArray = $q->fetch(); // Convertit le résultat en un tableau et le paramètre PDO enlève les doublons 
@@ -147,6 +163,39 @@ if (empty($_SESSION['id'])){
                         $moyenneS = array_sum($DataDTrajetSArray)/count($DataDTrajetSArray);
                         $moyenneS = ceil($moyenneS);
 
+
+
+
+
+
+
+
+
+                        // Récupère mesures de concentration de CO₂ du dernier trajet
+                        $q_DTrajetG = $db->prepare("SELECT ValeurMesure from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
+                        $q_DTrajetG -> execute(['id' => $id_actuel,'capteur' => 'Gaz', 'numderniertrajet' => $dernierTrajet]);
+                        
+                        $DTrajetGArray = $q_DTrajetG->fetchAll();
+                        $DTrajetG = $DTrajetGArray[0];
+
+
+
+
+
+
+                        // Création Liste contenant uniquement les données concernées
+                        $DataDTrajetGArray = [];
+                        for($i = 0; $i < count($DTrajetSArray); $i++){
+                            array_push($DataDTrajetGArray, $DTrajetGArray[$i][0]);
+                        }
+
+                        $DataDTrajetGArray = array_filter($DataDTrajetGArray);                
+
+
+                        // Calcul de la moyenne de cette liste de données
+                        $moyenneG = array_sum($DataDTrajetGArray)/count($DataDTrajetGArray);
+                        $moyenneG = ceil($moyenneG);
+
                     
 
 
@@ -196,6 +245,17 @@ if (empty($_SESSION['id'])){
 
 
 
+                        // Moyenne en concentration CO2
+                        $q_moisyenneG = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) FROM mesures WHERE Id = ? AND TypeCapteur = ? AND DateMesure BETWEEN ? AND ?");
+
+                        $q_moisyenneG -> execute([$id_actuel,'Gaz',$startDate, $endDate]);
+
+
+                        $moisyenneGArray = $q_moisyenneG->fetch(); //Convertit le résultat en une liste
+                        $moisyenneG = $moisyenneGArray[0];
+
+
+
 
 
 
@@ -236,6 +296,22 @@ if (empty($_SESSION['id'])){
 
                         $YmoyenneSArray = $q_YmoyenneS->fetch(); //Convertit le résultat en une liste
                         $YmoyenneS = $YmoyenneSArray[0];
+
+
+                        // Moyenne de l'année en concentration de CO₂
+                        $q_YmoyenneG = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) FROM mesures WHERE Id = ? AND TypeCapteur = ? AND DateMesure BETWEEN ? AND ?");
+
+                        $q_YmoyenneG -> execute([$id_actuel,'Gaz',$startDateY, $endDateY]);
+
+
+                        $YmoyenneGArray = $q_YmoyenneG->fetch(); //Convertit le résultat en une liste
+                        $YmoyenneG = $YmoyenneGArray[0];
+
+
+
+
+
+
 
                     }
                 }
@@ -461,8 +537,8 @@ if (empty($_SESSION['id'])){
 
                             <div class="special-margin">  <!--v_center_align avant-->
                                 <div class="container-flex v_center_align ">
-                                    <h1 class="stats text-center"><?= $moyenneS ?></h1> 
-                                    <h1 class="slogan text-center">db</h1>
+                                    <h1 class="stats text-center" style="margin-right:10px;"><?= $moyenneS ?></h1> 
+                                    <h1 class="slogan text-center" >db</h1>
                                 </div>
                                 
                                 <h1 class="titre2 text-center">Durant votre dernier trajet,<br> vous avez subit <?= $moyenneS ?> db en moyenne.</h1>
@@ -480,16 +556,72 @@ if (empty($_SESSION['id'])){
 
                             <!-- Ligne 2 -->
                             
-                            <div > <!--v_center_align avant-->
-                                <h1 class="stats">85</h1>
-                                <h1 class="titre2 text-center">Polluant principal<br>Pm 2,5</h1>
+                            <div style="text-align:center;"> <!--v_center_align avant-->
+   
+                                <div class="container-flex v_center_align" style="justify-content:center;">
+                                    <h1 class="stats text-center" style="margin-right:10px;"><?= $moyenneG ?></h1> 
+                                    <h1 class="slogan text-center">ppm</h1>
+                                </div>
+                                <h1 class="titre2 text-center">Durant votre dernier trajet,<br> la concentration de CO₂ dans l'air était de <?= $moyenneG ?> ppm en moyenne<br></h1>
                             </div>
                             
                             <div class="vline margin-sides"></div>
                             <hr class="special-cyclean-trait">
                             
                             <div class="container-flex special-margin">
-                                <img src="images/Plan_travail.png" width="300px">  
+
+
+                                <!-- $DataDTrajetGArray -->
+
+                                <div>
+                                    <canvas id="myChartGaz" style="color:white;"></canvas>
+                                    <script>
+                                        
+                                        
+                                        const dataGaz = {
+                                        labels: ['Bonne (<600 ppm)','Normale (600-1200 ppm)','Mauvaise (> 1200 ppm)'],
+                                        datasets: [{
+                                            label: "Répartition de la qualité de l'air",
+                                            data: [<?= CountRange(0,600,$DataDTrajetGArray) ?>, <?= CountRange(601,1200,$DataDTrajetGArray) ?>, <?= CountRange(1201,9000,$DataDTrajetGArray) ?>],
+                                            backgroundColor: [
+                                            'rgb(146,193,146)',
+                                            'rgb(54, 162, 235)',
+                                            'rgb(255, 205, 86)'
+                                            ],
+                                            color: 'rgb(255, 0, 0)',
+                                            
+                                            borderColor: 'rgb(255, 255, 255)',
+                                            hoverOffset: 4
+                                        }]};
+
+                                        const configGaz = {
+                                            type: 'doughnut',
+                                            data: dataGaz,
+                                            scaleFontColor: "#FFFFFF",
+                                            options: {
+                                                
+                                                plugins: {
+                                                    title: {
+                                                        display: true,
+                                                        text: "Qualité de l'air lors du dernier trajet",
+                                                        color: "#FFF"
+                                                    },
+                                                    label:{
+                                                        color:"#FFF"
+                                                    }
+                                           
+                                                }
+                                            }
+
+                                        };
+
+            
+                                        
+                                        const myChartGaz = new Chart(document.getElementById('myChartGaz'),configGaz);
+                                    </script>
+                                </div>
+
+
                             </div>
 
 
@@ -552,8 +684,8 @@ if (empty($_SESSION['id'])){
 
                                 <div>
 
-                                    <div class="container-flex"> <!--v_center_align avant-->
-                                        <h1 class="stats text-center"><?= $moyenneFreqc ?></h1> 
+                                    <div class="container-flex  v_center_align"> <!--v_center_align avant-->
+                                        <h1 class="stats text-center" style="margin-right:10px;"><?= $moyenneFreqc ?></h1> 
                                         <h1 class="slogan text-center">bpm</h1>
                                     </div>
                                     
@@ -587,8 +719,8 @@ if (empty($_SESSION['id'])){
                                     </div>
 
                                     <div>
-                                    <h1 class="slogan text-center">70</h1>
-                                        <h2 class="moyenne text-center">pm 2.5</h2>
+                                    <h1 class="slogan text-center"><?= $moisyenneG ?></h1>
+                                        <h2 class="moyenne text-center">ppm</h2>
                                     </div>
 
                                     <div>
@@ -612,8 +744,8 @@ if (empty($_SESSION['id'])){
                                     </div>
 
                                     <div>
-                                    <h1 class="slogan text-center">70</h1>
-                                        <h2 class="moyenne text-center">pm 2.5</h2>
+                                    <h1 class="slogan text-center"><?= $YmoyenneG ?></h1>
+                                        <h2 class="moyenne text-center">ppm</h2>
                                     </div>
 
                                     <div>

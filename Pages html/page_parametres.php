@@ -249,16 +249,16 @@ if (empty($_SESSION['id'])){
 
                             if(isset($_POST['post_nom'])){
                                 extract ($_POST);
-                                ////////////////////////////////////////////////conditions formulaire infini
-                                $longueurnom = strlen($nom);
-                                if (!empty($nom) &&($longueurnom > 20)){?>
+
+
+                                if (empty($nom) || (strlen($nom) > 20)){?>
                                  
         
                                    <div class=texte> <?php
                                        echo "nom trop long ! (20 caractères max)";?>
                                     </div>
                                     <?php return false;
-                                //////////////////////////////////////////////
+
 
                                     $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
                                     $q->execute(['id' => $_SESSION['id']]);
@@ -278,11 +278,14 @@ if (empty($_SESSION['id'])){
                                     }
 
                                 }
+                                else{
+                                    echo "Nom vide ou trop long ! (20 caractères max)";
+                                }
                             }
 
                             if(isset($_POST['post_prenom'])){
                                 extract ($_POST);
-                                if (!empty($prenom)){
+                                if (empty($prenom) || (strlen($prenom) > 20)){
 
                                     $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
                                     $q->execute(['id' => $_SESSION['id']]);
@@ -301,36 +304,11 @@ if (empty($_SESSION['id'])){
                                     }
 
                                 }
-                            }
-
-                            if(isset($_POST['post_apropos'])){
-                                extract ($_POST);
-                                if (!empty($story)){
-
-     
-
-                                    // Convertit la zone de texte entrée avec des br
-
-                                    $story = str_replace("\n", "<br />",$story);
-
-                                    $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
-                                    $q->execute(['id' => $_SESSION['id']]);
-                                    $resultat = $q->fetch(); //Convertit le résultat en un tableau
-
-                                    if ($resultat){  //Si le compte existe
-
-                                        $q2 = $db->prepare("UPDATE utilisateurs SET APropos = :apropos WHERE id=:id");
-                                        $q2->execute(['apropos' => $story,'id' => $_SESSION['id']]);
-
-                                        $_SESSION['APropos'] = $story;
-                                    }
-                                    
-                                    else{
-                                        trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
-                                    }
-
+                                else{
+                                    echo "Prenom vide ou trop long ! (20 caractères max)";
                                 }
                             }
+
 
                             if(isset($_POST['post_email'])){
                                 extract ($_POST);
@@ -397,33 +375,39 @@ if (empty($_SESSION['id'])){
 
                             if(isset($_POST['post_password'])){
                                 extract ($_POST);
-                                if (((!empty($password) and !empty($cpassword)) && $cpassword == $password)){
-
-                                    $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
-                                    $q->execute(['id' => $_SESSION['id']]);
-                                    $resultat = $q->fetch(); //Convertit le résultat en un tableau
-
-                                    if ($resultat){  //Si le compte existe
-
-                                        $options=['cost'=>12];
-                                        $password = password_hash($password, PASSWORD_BCRYPT, $options);
-
-                                            
-                                        $q2 = $db->prepare("UPDATE utilisateurs SET password = :password WHERE id=:id");
-                                        $q2->execute(['password' => $password,'id' => $_SESSION['id']]);
-
-                                        $_SESSION['password'] = $password;
-
-                                        }
-
-                                    
-                                    else{
-                                        trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
-                                    }
-
+                                if (strlen($password)<8){
+                                    echo "Mot de passe trop court (8 caractères min)";
                                 }
                                 else{
-                                    echo "vide ou correspond pas";
+
+                                
+                                    if ((!empty($password) && $cpassword == $password)){
+
+                                        $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
+                                        $q->execute(['id' => $_SESSION['id']]);
+                                        $resultat = $q->fetch(); //Convertit le résultat en un tableau
+
+                                        if ($resultat){  //Si le compte existe
+
+                                            $options=['cost'=>12];
+                                            $password = password_hash($password, PASSWORD_BCRYPT, $options);
+
+                                                
+                                            $q2 = $db->prepare("UPDATE utilisateurs SET password = :password WHERE id=:id");
+                                            $q2->execute(['password' => $password,'id' => $_SESSION['id']]);
+
+                                            $_SESSION['password'] = $password;
+
+                                            }
+
+                                        else{
+                                            trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
+                                        }
+
+                                    }
+                                    else{
+                                        echo "vide ou correspond pas";
+                                    }
                                 }
                             }
                             ?>
