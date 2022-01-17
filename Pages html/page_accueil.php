@@ -45,7 +45,7 @@ if (empty($_SESSION['id'])){
 
                 <hr class="cyclean-trait">
 
-                <h2 class="titre2">L'équipe  ➔ </h2>
+                <a href="page_team.php"><h2 class="titre2">L'équipe  ➔ </h2></a>
                 <a href="page_news.php"><h2 class="titre2">News  ➔ </h2></a>
                 
             </div>

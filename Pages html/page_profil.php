@@ -299,6 +299,23 @@ if (empty($_SESSION['id'])){
 
                                 <?php 
                                 if($id_actuel!=$_SESSION['id']){
+                                        if($_SESSION['utilisateur']=='Administrateur'){?>
+
+                                            <form method="post" action="">
+                                            <input type="submit" id="SupprimerCompte" name="SupprimerCompte" value="<?php echo "Supprimer le compte"?>" onclick="return confirm('Etes-vous sûr de vouloir supprimer le compte?')"/>
+                                            </form>
+                                        <?php
+                                        if(isset($_POST['SupprimerCompte'])){
+                                            $q = $db->prepare("DELETE from utilisateurs WHERE id = ?");
+                                            $q->execute([$id_actuel]);        
+                                        }    
+                                    
+                                    
+                                    }
+
+
+
+
                                         if ($amis){
                                             echo '<h2 class="titre2">Vous êtes amis</h2>';
                                         }
