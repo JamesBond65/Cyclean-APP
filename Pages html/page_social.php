@@ -82,9 +82,19 @@ global $db;
   ?>
         <form method="post">
           <div>
-            <?php echo $pseudo_trouve[0]; ?>
-            <input type="text" name="friendId" value="<?php echo $pseudo_trouve[1] ?>" hidden />
-            <input type="submit" name="addFriend" value="<?php echo isset($pseudo_trouve["IdDemandeur"]) ? "Déjà demandé" : "Ajouter";  ?>" <?php echo isset($pseudo_trouve["IdDemandeur"]) ? "disabled" : ""; ?> />
+            <div class="tableau">
+              <div class="boite1">
+              <img src="Images/Profil.png" class="images_recherche" />
+                <div class="ligne1">
+                <?php echo $pseudo_trouve[0]; ?>
+            
+                <input type="text" name="friendId" value="<?php echo $pseudo_trouve[1] ?>" hidden />
+            
+                <input type="submit" name="addFriend" value="<?php echo isset($pseudo_trouve["IdDemandeur"]) ? "Déjà demandé" : "Ajouter";  ?>" <?php echo isset($pseudo_trouve["IdDemandeur"]) ? "disabled" : ""; ?> />
+                </div>
+            </div>
+            
+            
           </div>
         </form>
     <?php
