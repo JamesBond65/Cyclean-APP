@@ -37,7 +37,7 @@
                     </div>
 
                     <div>
-                        <input type="radio" name="compte" id="utilisateur"  value="Utilisateur"><label for="utilisateur">Utilisateur</label>
+                        <input type="radio" name="compte" id="utilisateur"  value="Utilisateur" required="required"><label for="utilisateur">Utilisateur</label>
                     </div>
 
                 </div>
@@ -73,15 +73,17 @@
 
                     if ($password == $cpassword){
 
+                        
+
                         $longueurpass = strlen($password);
                         $longueurpseudo = strlen($pseudo);
                         $longueurprenom = strlen($prenom);
                         $longueurnom = strlen($nom);
                         
-                        if ($longueurpseudo > 20){?>
+                        if ($longueurpseudo > 20 || preg_match("#[a-zA-Z0-9._-]#", $pseudo)){?>
 
                         <p class=texte> <?php
-                            echo "Pseudo trop long ! (20 caractères max)";?>
+                            echo "Pseudo incorrect ou trop long (20 caractères max - aucun caractère spécial)";?>
                             </p>
                             <?php
                         }
@@ -93,23 +95,28 @@
                                 <?php
                             }
 
-                        elseif ($longueurprenom > 20){?>
+                        elseif ($longueurprenom > 20 || preg_match("#[a-zA-Z0-9._-]#", $prenom)){?>
 
                         <p class=texte> <?php
-                            echo "Prénom trop long ! (20 caractères max)";?>
+                            echo "Prénom incorrect ou trop long ! (20 caractères max - aucun caractère spécial)";?>
                             </p>
                             <?php
                         }
 
-                        elseif ($longueurnom > 20){?>
+                        elseif ($longueurnom > 20 || preg_match("#[a-zA-Z0-9._-]#", $nom)){?>
 
                         <p class=texte> <?php
-                            echo "Nom trop long ! (20 caractères max)";?>
+                            echo "Nom incorrect ou trop long ! (20 caractères max - aucun caractère spécial)";?>
                             </p>
                             <?php
                         }
                         // Si toutes les conditions ci-dessus sont vérifiées
                         else{
+                            // Filtre en plus au cas où
+                            $prenom = preg_replace('/[0-9\@\.\;\" "]+/', '', $prenom);
+                            $nom = preg_replace('/[0-9\@\.\;\" "]+/', '', $nom);
+                            $pseudo = preg_replace('/[0-9\@\.\;\" "]+/', '', $pseudo);
+
                             // POUR HACHER LE MDP 
                             $options=['cost'=>12];
                             $password = password_hash($password, PASSWORD_BCRYPT, $options);

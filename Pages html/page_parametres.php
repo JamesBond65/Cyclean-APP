@@ -249,16 +249,14 @@ if (empty($_SESSION['id'])){
 
                             if(isset($_POST['post_nom'])){
                                 extract ($_POST);
+                                $nom = preg_replace('/[0-9\@\.\;\" "]+/', '', $nom);
 
+                                if (empty($nom) || (strlen($nom) > 20) || preg_match("#[a-zA-Z0-9._-]#", $nom)){
+                                    echo "Nom inccrrect ou trop long ! (20 caractères max - sans caractères spéciaux)";
+                                }
 
-                                if (empty($nom) || (strlen($nom) > 20)){?>
-                                 
-        
-                                   <div class=texte> <?php
-                                       echo "nom trop long ! (20 caractères max)";?>
-                                    </div>
-                                    <?php return false;
-
+                                else{
+            
 
                                     $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
                                     $q->execute(['id' => $_SESSION['id']]);
@@ -276,16 +274,17 @@ if (empty($_SESSION['id'])){
                                     else{
                                         trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
                                     }
-
-                                }
-                                else{
-                                    echo "Nom vide ou trop long ! (20 caractères max)";
                                 }
                             }
 
                             if(isset($_POST['post_prenom'])){
                                 extract ($_POST);
-                                if (empty($prenom) || (strlen($prenom) > 20)){
+
+
+                                if (empty($prenom) || (strlen($prenom) > 20) || preg_match("#[a-zA-Z0-9._-]#", $prenom)){
+                                    echo "Prenom vide ou trop long ! (20 caractères max)";
+                                }
+                                else{
 
                                     $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
                                     $q->execute(['id' => $_SESSION['id']]);
@@ -303,9 +302,6 @@ if (empty($_SESSION['id'])){
                                         trigger_error("Erreur: Le compte n'existe pas",E_USER_WARNING);
                                     }
 
-                                }
-                                else{
-                                    echo "Prenom vide ou trop long ! (20 caractères max)";
                                 }
                             }
 
@@ -352,6 +348,9 @@ if (empty($_SESSION['id'])){
 
                             if(isset($_POST['post_apropos'])){
                                 extract ($_POST);
+
+                                $story = preg_replace('/[0-9\@\.\;\" "]+/', '', $story);
+
                                 if (!empty($story)){
 
                                     $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");
@@ -378,9 +377,7 @@ if (empty($_SESSION['id'])){
                                 if (strlen($password)<8){
                                     echo "Mot de passe trop court (8 caractères min)";
                                 }
-                                else{
-
-                                
+                                else{                                
                                     if ((!empty($password) && $cpassword == $password)){
 
                                         $q = $db->prepare("SELECT * FROM utilisateurs WHERE id = :id");

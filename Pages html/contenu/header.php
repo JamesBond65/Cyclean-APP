@@ -6,7 +6,7 @@
     </a>
   </nav>
 
-  <nav style="margin-right: 2.5%">
+  <nav style="margin-right: 2.5%;z-index:1;">
     <ul class="navigation">
       <li><img src="images/Langages.png" width="30px" /><br /></li>
       <li>
@@ -21,9 +21,17 @@
       <li>
         <a href="page_classement.php">Classement <br /></a>
       </li>
+
       <li>
-        <a href="page_faq.php">FAQ<br /></a>
+        <a href="page_faq.php">Forum<br /></a>
       </li>
+
+      <li>
+        <a href="page_contact.php">Contact<br /></a>
+      </li>
+
+
+
       <li>
         <a href="page_parametres.php">Paramètres<br /></a>
       </li>

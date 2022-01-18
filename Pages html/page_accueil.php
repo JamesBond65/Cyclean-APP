@@ -34,9 +34,9 @@ if (empty($_SESSION['id'])){
 
 
 
-        <section id="bloc_gris" class="wrap" style="margin-top: -70px;">
+        <section id="bloc_gris" class="wrap" style="margin-top: -70px;z-index:-1">
 
-            <div id="cyclean" style="margin-top: -25px;">
+            <div id="cyclean" style="margin-top: -25px;z-index:1">
                     
                 <h1 class="slogan" style="padding-bottom: 50px;">
                     CYCLEAN
@@ -50,8 +50,24 @@ if (empty($_SESSION['id'])){
                 
             </div>
 
-            <img src="images/VELOFINAL-5.png" class="imgtop" width="900px" style="z-index:0;right: 0;margin-bottom: -10%;overflow:hidden;"> 
+            <img src="images/VELOFINAL-5.png" id="velo" class="imgtop" width="900px" style="z-index:0;right: 0;margin-bottom: -10%;overflow:hidden;position: absolute;"> 
 
+            <script>
+                var container = document.getElementById('bloc_gris');
+                var windowHeight = window.innerHeight;
+                var windowWidth = window.innerWidth;
+                var scrollArea = 2000 - windowHeight;
+                var velo = document.getElementById('velo');
+
+                // update position of square 1 and square 2 when scroll event fires.
+                window.addEventListener('scroll', function() {
+                    var scrollTop = window.pageYOffset || window.scrollTop;
+                    var scrollPercent = scrollTop/scrollArea || 0;
+
+                    velo.style.left = scrollPercent*window.innerWidth + 'px';
+                });
+
+            </script>
             </section>
 
 

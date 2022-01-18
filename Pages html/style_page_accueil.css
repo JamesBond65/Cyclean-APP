@@ -309,3 +309,20 @@ a.couleur_classement_accueil:hover{
     padding-left: 2%;
     margin-top: 10%;
 }
+
+#contact_post{
+    background-color: white;
+    width:100%;
+    padding-top:4px;
+    padding-bottom:4px;
+    font-weight: bold;
+    font-size: 140%;
+    color:#B2BDCC;
+
+    border-radius: 7px;
+    box-shadow: 4px 4px #787f8a;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
