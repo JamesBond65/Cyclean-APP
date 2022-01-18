@@ -33,21 +33,18 @@ global $db;
 
   <!-- haut de page -->
 
-  <section class="bloc_violet">
-    <div class="sous_bloc">
-      <h1 class="slogan">
+  <section class="bloc_violet sous_bloc">
+      <h1 class="slogan_pourc padd_left">
         ACTIVITES<br />
         DES UTILISATEURS
       </h1>
-
-      <div class="image_Social">
-        <img src="images/Social.png" width="450px" />
-      </div>
-    </div>
-    <div class="social_trait"></div>
+      
+      <img src="images/Social.png"  class="imgtop" style="margin-right:250px;margin-top:-130px;" width="550px">
   </section>
-
+  <div class="trait" style="margin-bottom:140px;"></div>
   <!-- Recherche utilisateurs -->
+
+
   <h1 class="titre_liste">Recherche utilisateur</h1>
   <form method="post">
     <section class="Recherche">
@@ -111,7 +108,7 @@ global $db;
     $q->execute([intval($_SESSION["id"]), intval($_POST["friendId"])]);
   } else { ?>
 
-    <div class="social_trait2"></div>
+    <div class="social_trait2" style="margin-top:140px;"></div>
 
     <!-- liste utilisateurs -->
     <h1 class="titre_liste">Cyclean friends</h1>

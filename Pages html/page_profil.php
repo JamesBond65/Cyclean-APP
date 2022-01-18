@@ -325,8 +325,6 @@ if (empty($_SESSION['id'])){
                 // Si l'utilisateur existe, continue et  affiche la page.
                 if($information_utilisateur){?>
 
-
-
                     <section class="bloc_marron space"> 
                     
                         <h1 class="slogan_pourc padd_left">
@@ -340,16 +338,15 @@ if (empty($_SESSION['id'])){
                             </h1>
 
                         
-                        <img src="images/Stats.png" class="imgtop" style="margin-right: 150px;" width="500px">
+                        <img src="images/Stats.png" class="imgtop" style="margin-right:250px;margin-top:-130px;" width="600px">
 
-                        
-                    <div class="boite_utilisateur1">
+
                     </section>
 
 
 
-                    
-                    <hr class="cyclean-trait" style="margin-bottom:200px;">
+                    <div class="trait" style="margin-bottom:200px;"></div>
+
 
 
 

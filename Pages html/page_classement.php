@@ -31,18 +31,12 @@ if (empty($_SESSION['id'])){
 
        <!--Classement des utilisateurs + image-->
 
-        <section class="bloc_vert">
-
-            <h1 class="slogan">
+        <section class="bloc_vert space">
+            <h1 class="slogan_pourc padd_left">
                 CLASSEMENT<br> DES UTILISATEURS</h1>
-
-            <div class="image_empreinte">
-                <img src="images/Empreinte.png" width="500px">
-           </div>
-            
-           <div class="classement-trait"></div>
-
+            <img src="images/Empreinte.png" class="imgtop" style="margin-right:250px;"  width="600px">
        </section>
+       <div class="classement-trait" style="margin-bottom:230px;"></div>
 
        <!--END Classement des utilisateurs + image-->
 

@@ -82,8 +82,7 @@ if (empty($_SESSION['id'])){
             <a href="page_profil.php?id=<?= $_SESSION['id']?>" class="couleur_stats_accueil flex-3box index1">
 
                 <h1 class="titre">Mon profil<hr class="home"></h1>
-                
-    
+
                 <img src="images/Stats.png" width="300px" class="center-img">                    
 
 
@@ -97,7 +96,7 @@ if (empty($_SESSION['id'])){
                 <h1 class="titre">Social<hr class="home"></h1>
                 
 
-                <img src="images/Social.png" width="275px" class="center-img" >
+                <img src="images/Social.png" width="280px" class="center-img" >
 
 
                 <h2 class="titre2">Consulter les activités de ses proches ➔</h2>
@@ -109,7 +108,7 @@ if (empty($_SESSION['id'])){
 
                 <h1 class="titre">Classement<hr class="home"></h1>
 
-                <img src="images/Empreinte.png" width="450px" class="center-img" style="margin-bottom: 111px;">
+                <img src="images/Empreinte.png" width="300px" class="center-img" style="margin-bottom:10px;margin-top: 110px;">
 
                 <h2 class="titre2">Comparer son score avec le monde ➔</h2>
             </a>

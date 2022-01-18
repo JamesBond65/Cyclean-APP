@@ -270,10 +270,12 @@ a.couleur_classement_accueil:hover{
 
 
  .center-img {
+    margin-top:40px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 10%;
+
   }
 
 
@@ -325,4 +327,12 @@ a.couleur_classement_accueil:hover{
 
 input:focus, textarea:focus, select:focus{
     outline: none;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    .imgtop { /*réutiliser pour toutes les pages avec imgtop*/
+        display: none; /*Image du haut supprimée*/
+    }
 }

@@ -387,8 +387,10 @@ h1{
 }
 
 /* ligne horizontale principale*/
-.cyclean-trait{
-    width: 80%;
+.trait{
+    margin-left: 5%;
+    background-color: #92C192;
+    width: 90%;
     height: 3px;
     margin-top: 1%;
     background-color:rgb(255, 255, 255);

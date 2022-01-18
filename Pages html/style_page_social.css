@@ -71,19 +71,21 @@ body {
 
 .bloc_violet {
   display: flex;
-  flex-direction: column;
-  /*justify-content:space-between;*/
+
+
+
   /*Lignes précédentes pour avoir la nav bar alignée avec le texte CYCLEAN FOR ENVIRONMENT dans la page d'accueil du login*/
   background-color: #d3cae6;
   /*border-radius: 10px 10px 10px 10px;*/
   padding-bottom: 2.5%;
   padding-left: 1%;
   padding-right: 1%;
+  align-items: center;
 }
 
 .sous_bloc {
   display: flex;
-  flex-direction: row;
+
   justify-content: space-between;
 }
 
@@ -302,6 +304,41 @@ input:checked + .slider:before {
   margin-left: 5%;
   
  
+}
+
+.slogan_pourc{
+  color: white;
+  font-family:"Strong Concrete";
+  font-size:300%;
+}
+
+
+.padd_left{
+  padding-left: 1.2%;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+  .imgtop { /*réutiliser pour toutes les pages avec imgtop*/
+      display: none; /*Image du haut supprimée*/
+  }
+}
+
+
+.space{
+  justify-content:space-between;
+}
+
+.trait{
+  margin-left: 5%;
+
+  width: 90%;
+  height: 3px;
+  margin-top: 1%;
+  background-color:rgb(255, 255, 255);
+  border: white;
+
 }
 
 /*------------------------------------------------------------------*/
