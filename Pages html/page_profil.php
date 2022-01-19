@@ -60,6 +60,65 @@ if (empty($_SESSION['id'])){
             }
 
 
+            function StatsCapteur($id,$capteur,$num_trajet,$db){
+                // Fonction qui renvoye les données du trajet $num_trajet tel que: toutes les mesures, la moyenne. Ainsi que la moyenne des stats du mois dernier et de l'année dernière pour le trajet choisi
+
+                $endDate = date('Y-m-d H:i:s');
+                $startDate = date("Y-m-d H:i:s",strtotime("-1 month"));
+
+
+
+                $startDateY = date("Y-m-d H:i:s",strtotime("-1 year"));
+
+
+                // Récupère Mesures FREQUENCIELLES du dernier trajet
+                $q_DTrajet = $db->prepare("SELECT ValeurMesure from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
+                $q_DTrajet -> execute(['id' => $id,'capteur' => $capteur, 'numderniertrajet' => $num_trajet]);
+                
+                $DTrajetArray = $q_DTrajet->fetchAll();
+
+  
+
+                // Création Liste contenant uniquement les données
+                $DataDTrajetArray = [];
+
+                for($i = 0; $i < count($DTrajetArray); $i++){
+                    array_push($DataDTrajetArray, $DTrajetArray[$i][0]);
+                }
+                $DataDTrajetArray = array_filter($DataDTrajetArray);
+
+
+            
+                // Calcul de la moyenne de cette liste de données
+                $moyenne = array_sum($DataDTrajetArray)/count($DataDTrajetArray);
+                $moyenne =ceil($moyenne);
+
+
+                // Moyenne du mois précédent !
+                $q_moisyenne = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) FROM mesures WHERE Id = ? AND TypeCapteur = ? AND DateMesure BETWEEN ? AND ?");
+
+                $q_moisyenne -> execute([$id,$capteur,$startDate, $endDate]);
+
+
+                $moisyenneArray = $q_moisyenne->fetch(); //Convertit le résultat en une liste
+                $moisyenne = $moisyenneArray[0];
+
+
+                // Moyenne de l'année précédente !
+                $q_Ymoyenne = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) FROM mesures WHERE Id = ? AND TypeCapteur = ? AND DateMesure BETWEEN ? AND ?");
+
+                $q_Ymoyenne -> execute([$id,$capteur,$startDateY, $endDate]);
+
+                $YmoyenneArray = $q_Ymoyenne->fetch(); //Convertit le résultat en une liste
+                $Ymoyenne = $YmoyenneArray[0];
+
+                $ArrayR = array($DataDTrajetArray,$moyenne,$moisyenne,$Ymoyenne);
+
+                
+                return $ArrayR;
+            }
+
+
 
 
 
@@ -76,11 +135,6 @@ if (empty($_SESSION['id'])){
 
             // Si l'utilisateur existe, execute la requete dans la BDD.
             if($information_utilisateur){
-
-                
-
-
-
 
                     // servira à vérifier si on est amis avec la personne concernée plus tard
                     $q = $db->prepare("SELECT * FROM amis WHERE Id = ? AND IdAmi = ? ");
@@ -99,220 +153,25 @@ if (empty($_SESSION['id'])){
 
                     // Si on a fait un trajet auparavant
                     if($dernierTrajet!=null){
-                    
-                        // Récupère Mesures FREQUENCIELLES du dernier trajet
-                        $q_DTrajetF = $db->prepare("SELECT ValeurMesure from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
-                        $q_DTrajetF -> execute(['id' => $id_actuel,'capteur' => 'FrequenceC', 'numderniertrajet' => $dernierTrajet]);
-                        
-                        $DTrajetFArray = $q_DTrajetF->fetchAll();
-
-                        $DTrajetF = $DTrajetFArray[0];
-
-
-                        // Création Liste contenant uniquement les données
-                        $DataDTrajetFArray = [];
-
-                        for($i = 0; $i < count($DTrajetFArray); $i++){
-                            array_push($DataDTrajetFArray, $DTrajetFArray[$i][0]);
-                        }
-
-                        $DataDTrajetFArray = array_filter($DataDTrajetFArray);            
-
-
-                    
-                        // Calcul de la moyenne de cette liste de données
-                        $moyenneFreqc = array_sum($DataDTrajetFArray)/count($DataDTrajetFArray);
-                        $moyenneFreqc =ceil($moyenneFreqc);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        // Récupère Mesures SONORES fréquence du dernier trajet
-                        $q_DTrajetS = $db->prepare("SELECT ValeurMesure from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
-                        $q_DTrajetS -> execute(['id' => $id_actuel,'capteur' => 'Sonore', 'numderniertrajet' => $dernierTrajet]);
-                        
-                        $DTrajetSArray = $q_DTrajetS->fetchAll();
-                        $DTrajetS = $DTrajetSArray[0];
-
-
-
-
-
-
-                        // Création Liste contenant uniquement les données concernées
-                        $DataDTrajetSArray = [];
-                        for($i = 0; $i < count($DTrajetSArray); $i++){
-                            array_push($DataDTrajetSArray, $DTrajetSArray[$i][0]);
-                        }
-
-                        $DataDTrajetSArray = array_filter($DataDTrajetSArray);                
-
-
-
-                        // Calcul de la moyenne de cette liste de données
-                        $moyenneS = array_sum($DataDTrajetSArray)/count($DataDTrajetSArray);
-                        $moyenneS = ceil($moyenneS);
-
-
-
-
-
-
-
-
-
-                        // Récupère mesures de concentration de CO₂ du dernier trajet
-                        $q_DTrajetG = $db->prepare("SELECT ValeurMesure from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
-                        $q_DTrajetG -> execute(['id' => $id_actuel,'capteur' => 'Gaz', 'numderniertrajet' => $dernierTrajet]);
-                        
-                        $DTrajetGArray = $q_DTrajetG->fetchAll();
-                        $DTrajetG = $DTrajetGArray[0];
-
-
-
-
-
-
-                        // Création Liste contenant uniquement les données concernées
-                        $DataDTrajetGArray = [];
-                        for($i = 0; $i < count($DTrajetSArray); $i++){
-                            array_push($DataDTrajetGArray, $DTrajetGArray[$i][0]);
-                        }
-
-                        $DataDTrajetGArray = array_filter($DataDTrajetGArray);                
-
-
-                        // Calcul de la moyenne de cette liste de données
-                        $moyenneG = array_sum($DataDTrajetGArray)/count($DataDTrajetGArray);
-                        $moyenneG = ceil($moyenneG);
-
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
-
-                        // Recherche des MOYENNES DU MOIS
-
-                        // On commence par définir le mois précédent
-                        $endDate = date('Y-m-d H:i:s');
-
-                        $startDate = date("Y-m-d H:i:s",strtotime("-1 month"));
-
-
-
-
-                        // Moyenne en fréquence cardiaque
-                        $q_moisyenneF = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) FROM mesures WHERE Id = ? AND TypeCapteur = ? AND DateMesure BETWEEN ? AND ?");
-
-                        $q_moisyenneF -> execute([$id_actuel,'FrequenceC',$startDate, $endDate]);
-
-
-                        $moisyenneFArray = $q_moisyenneF->fetch(); //Convertit le résultat en une liste
-                        $moisyenneF = $moisyenneFArray[0];
-
-
-                    
-                    
-                        // Moyenne en fréquence sonore
-                        $q_moisyenneS = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) FROM mesures WHERE Id = ? AND TypeCapteur = ? AND DateMesure BETWEEN ? AND ?");
-
-                        $q_moisyenneS -> execute([$id_actuel,'Sonore',$startDate, $endDate]);
-
-
-                        $moisyenneSArray = $q_moisyenneS->fetch(); //Convertit le résultat en une liste
-                        $moisyenneS = $moisyenneSArray[0];
-
-
-
-                        // Moyenne en concentration CO2
-                        $q_moisyenneG = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) FROM mesures WHERE Id = ? AND TypeCapteur = ? AND DateMesure BETWEEN ? AND ?");
-
-                        $q_moisyenneG -> execute([$id_actuel,'Gaz',$startDate, $endDate]);
-
-
-                        $moisyenneGArray = $q_moisyenneG->fetch(); //Convertit le résultat en une liste
-                        $moisyenneG = $moisyenneGArray[0];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        // Recherche des moyennes de l'année
-
-                        // On commence par définir l'année précédente
-                        $endDateY = date('Y-m-d H:i:s');
-
-                        $startDateY = date("Y-m-d H:i:s",strtotime("-1 year"));
-
-
-
-                        // Moyenne de l'année en FREQUENCE CARDIAQUE
-                        $q_YmoyenneF = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) FROM mesures WHERE Id = ? AND TypeCapteur = ? AND DateMesure BETWEEN ? AND ?");
-
-                        $q_YmoyenneF -> execute([$id_actuel,'FrequenceC',$startDateY, $endDateY]);
-
-
-                        $YmoyenneFArray = $q_YmoyenneF->fetch(); //Convertit le résultat en une liste
-                        $YmoyenneF = $YmoyenneFArray[0];
-
-
-
-                        // Moyenne de l'année en intensité SONORE
-                        $q_YmoyenneS = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) FROM mesures WHERE Id = ? AND TypeCapteur = ? AND DateMesure BETWEEN ? AND ?");
-
-                        $q_YmoyenneS -> execute([$id_actuel,'Sonore',$startDateY, $endDateY]);
-
-
-                        $YmoyenneSArray = $q_YmoyenneS->fetch(); //Convertit le résultat en une liste
-                        $YmoyenneS = $YmoyenneSArray[0];
-
-
-                        // Moyenne de l'année en concentration de CO₂
-                        $q_YmoyenneG = $db->prepare("SELECT ROUND(AVG(ValeurMesure),0) FROM mesures WHERE Id = ? AND TypeCapteur = ? AND DateMesure BETWEEN ? AND ?");
-
-                        $q_YmoyenneG -> execute([$id_actuel,'Gaz',$startDateY, $endDateY]);
-
-
-                        $YmoyenneGArray = $q_YmoyenneG->fetch(); //Convertit le résultat en une liste
-                        $YmoyenneG = $YmoyenneGArray[0];
-
-
-
-
-
-
-
+                        // Récupération des stats de moyenne
+                        $Freqc = StatsCapteur($id_actuel,'FrequenceC',$dernierTrajet,$db);
+                        $DataDTrajetFArray= $Freqc[0];
+                        $moyenneFreqc= $Freqc[1];
+                        $moisyenneF= $Freqc[2];
+                        $YmoyenneF= $Freqc[3];
+
+
+                        $Sonore=StatsCapteur($id_actuel,'Sonore',$dernierTrajet,$db);
+                        $DataDTrajetSArray= $Sonore[0];
+                        $moyenneS = $Sonore[1];
+                        $moisyenneS = $Sonore[2];
+                        $YmoyenneS = $Sonore[3];
+
+                        $Gaz= StatsCapteur($id_actuel,'Gaz',$dernierTrajet,$db);
+                        $DataDTrajetGArray = $Gaz[0];
+                        $moyenneG= $Gaz[1];
+                        $moisyenneG = $Gaz[2];
+                        $YmoyenneG = $Gaz[3];
                     }
                 }
                 ?>
@@ -444,7 +303,7 @@ if (empty($_SESSION['id'])){
 
                     </section>
 
-                    <hr class="cyclean-trait" style="margin-bottom:400px;">
+                    <div class="trait" style="margin-bottom:450px;"></div>
 
 
 
@@ -470,7 +329,8 @@ if (empty($_SESSION['id'])){
                             Dernier Trajet<br>
                         </h1>
                     
-                    <hr class="cyclean-trait" style="margin-bottom:50px;">
+                        <div class="trait" style="margin-bottom:50px;"></div>
+
 
 
                     <?php 
@@ -711,17 +571,17 @@ if (empty($_SESSION['id'])){
                                 <div class="container-flex" style="justify-content:space-around;">
 
                                     <div>
-                                        <h1 class="slogan text-center"><?= $moisyenneS ?></h1>
+                                        <h1 class="slogan text-center"><?= is_null($moisyenneS ) ? 0 : $moisyenneS  ;?></h1>
                                         <h2 class="moyenne text-center">DB</h2>
                                     </div>
 
                                     <div>
-                                    <h1 class="slogan text-center"><?= $moisyenneG ?></h1>
+                                    <h1 class="slogan text-center"><?= is_null($moisyenneG ) ? 0 : $moisyenneG ?></h1>
                                         <h2 class="moyenne text-center">ppm</h2>
                                     </div>
 
                                     <div>
-                                    <h1 class="slogan text-center"><?= $moisyenneF ?></h1>
+                                    <h1 class="slogan text-center"><?= is_null($moisyenneF ) ? 0 : $moisyenneF ?></h1>
                                         <h2 class="moyenne text-center">BPM</h2>
                                     </div>
 
@@ -736,17 +596,17 @@ if (empty($_SESSION['id'])){
                                 <div class="container-flex" style="justify-content:space-around;">
 
                                     <div>
-                                        <h1 class="slogan text-center"><?= $YmoyenneS ?></h1>
+                                        <h1 class="slogan text-center"><?= is_null($YmoyenneS) ? 0 : $YmoyenneS ; ?></h1>
                                         <h2 class="moyenne text-center">DB</h2>
                                     </div>
 
                                     <div>
-                                    <h1 class="slogan text-center"><?= $YmoyenneG ?></h1>
+                                    <h1 class="slogan text-center"><?= is_null($YmoyenneG) ? 0 : $YmoyenneG ; ?></h1>
                                         <h2 class="moyenne text-center">ppm</h2>
                                     </div>
 
                                     <div>
-                                    <h1 class="slogan text-center"><?= $YmoyenneF ?></h1>
+                                    <h1 class="slogan text-center"><?= is_null($YmoyenneF) ? 0 : $YmoyenneF ; ?></h1>
                                         <h2 class="moyenne text-center">BPM</h2>
                                     </div>
 

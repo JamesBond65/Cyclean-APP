@@ -130,7 +130,8 @@ if (empty($_SESSION['id'])){
                     }
                     ?></h1>
                 
-                <hr class="cyclean-trait" style="margin-bottom:60px;float:right;">
+                    <div class="trait" style="margin-bottom:60px;float:right;"></div>
+
             </section>
 
 
