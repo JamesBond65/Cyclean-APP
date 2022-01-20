@@ -41,7 +41,7 @@
 
             <div class="image">
 
-                <img src="Images/LogoBlancCut.png" id="logo" width="500px">
+                <img src="Images/LogoBlancCut1.png" id="logo" width="500px">
 
             </div>
         </section>

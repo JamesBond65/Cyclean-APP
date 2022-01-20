@@ -349,7 +349,8 @@ if (empty($_SESSION['id'])){
                             if(isset($_POST['post_apropos'])){
                                 extract ($_POST);
 
-                                $story = preg_replace('/[0-9\@\.\;\" "]+/', '', $story);
+                                // Remplace tout html sauf <br>
+                                $story = preg_replace('/<(?!br\b)\/?[a-z]([^"\'>]|"[^"]*"|\'[^\']*\')*>/', '', $story);
 
                                 if (!empty($story)){
 
