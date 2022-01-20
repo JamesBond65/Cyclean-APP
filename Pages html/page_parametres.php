@@ -54,23 +54,6 @@ if (empty($_SESSION['id'])){
             </header>
         </header>
 
-        
-        <script>
-            function slide(direction){
-            if(direction == 'left'){
-                document.getElementById('d').scrollLeft -= 10000;
-            } else {
-                document.getElementById('d').scrollLeft += 10000;
-            }
-        }
-
-
-        </script>
-
-        <div class="flex_phone">
-            <button type="button" onclick="slide('left')"  class="arrow_position left button_fixed"><img src="images/fleche_bleu.png" style="transform: rotate(180deg);" class="arrow_img" alt=""></button>
-            <button type="button" onclick="slide('right')" class="arrow_position right button_fixed"><img src="images/fleche_bleu.png" class="arrow_img" alt=""></button>
-        </div>
 
         <section class="container-flex"  id="big_container">
 
@@ -412,24 +395,28 @@ if (empty($_SESSION['id'])){
 
                     </div>
                     
-                    <div class="partie">
-                        <h1 class="titre">Interface<hr></h1>
+                
+                    <div class="partie" style="justify-content:center;">
+                        <h1 class="titre">Mon compte<hr></h1>
+
+
                         
-
-                        <form method="post" id="post_tick">
-                                    
-                            <input type="checkbox"> Pollution sonore<hr>
-
-                            <input type="checkbox"> Fréquence cardiaque<hr>
-
-                            <input type="checkbox"> Qualité de l'air <hr>
-
-                            <input type="checkbox"> Autre<hr>
-
-                            <input type="submit" class="spec" name="interface_form" id="interface_form" value="confirmer">
+                        <form method="post" class="post">
+                            <button name="supprimer_compte" id="supprimer_compte" onclick="return confirm('Etes-vous sûr de vouloir supprimer le compte?')" >Supprimer le compte</button>
                         </form>
-                    
+
+                        
+                        <form method="post" action="">
+                            <input type="submit" id="toggleState" name="toggleState" value="<?php echo $etat_compte[0]=="publique" ?  "Rendre le compte privé" : "Rendre le compte public" ;  ?>"/>
+                        </form>
+
+
+
                     </div>
+
+
+
+                    
             </section>
 
             
@@ -494,52 +481,6 @@ if (empty($_SESSION['id'])){
 
 
 
-
-
-            <section class="height-sometimes container-flex" style="justify-content:space-around;min-width:100%;width:100%">
-
-                
-                <div class="partie" style="justify-content:center;">
-                    <h1 class="titre">Mon compte<hr></h1>
-
-
-                    
-                    <form method="post" class="post">
-                        <button name="supprimer_compte" id="supprimer_compte" onclick="return confirm('Etes-vous sûr de vouloir supprimer le compte?')" >Supprimer le compte</button>
-                    </form>
-
-                    
-                    <form method="post" action="">
-                        <input type="submit" id="toggleState" name="toggleState" value="<?php echo $etat_compte[0]=="publique" ?  "Rendre le compte privé" : "Rendre le compte public" ;  ?>"/>
-                    </form>
-
-
-
-                </div>
-
-                <div class="partie" style="">
-                    <h1 class="titre">Mon compte<hr></h1>
-                    
-                    <form method="post" class="post">
-                                
-                        <input type="checkbox"> Pollution sonore
-                        <hr>
-
-                        <input type="checkbox"> Fréquence cardiaque   
-                        <hr>
-
-                        <input type="checkbox"> Qualité de l'air           
-                        <hr>
-
-                        <input type="checkbox"> Autre
-                        <hr>
-                        <input type="submit" name="compte_form" id="compte_form" value="confirmer">
-                    </form>
-                
-                </div>
-
-
-            </section>
 
         </section>                    
 
