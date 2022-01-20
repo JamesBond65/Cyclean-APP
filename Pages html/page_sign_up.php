@@ -80,7 +80,7 @@
                         $longueurprenom = strlen($prenom);
                         $longueurnom = strlen($nom);
                         
-                        if ($longueurpseudo > 20 || preg_match("#[a-zA-Z0-9._-]#", $pseudo)){?>
+                        if ($longueurpseudo > 20 || preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $pseudo)){?>
 
                         <p class=texte> <?php
                             echo "Pseudo incorrect ou trop long (20 caractères max - aucun caractère spécial)";?>
@@ -95,7 +95,7 @@
                                 <?php
                             }
 
-                        elseif ($longueurprenom > 20 || preg_match("#[a-zA-Z0-9._-]#", $prenom)){?>
+                        elseif ($longueurprenom > 20 || preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $prenom)){?>
 
                         <p class=texte> <?php
                             echo "Prénom incorrect ou trop long ! (20 caractères max - aucun caractère spécial)";?>
@@ -103,7 +103,7 @@
                             <?php
                         }
 
-                        elseif ($longueurnom > 20 || preg_match("#[a-zA-Z0-9._-]#", $nom)){?>
+                        elseif ($longueurnom > 20 || preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $nom)){?>
 
                         <p class=texte> <?php
                             echo "Nom incorrect ou trop long ! (20 caractères max - aucun caractère spécial)";?>
