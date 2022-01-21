@@ -114,8 +114,8 @@
                 ?>
 
                     <article class="article_container" style="margin-bottom:90px;text-align:center;">
-                        <h1><?= $news[3]; ?></h1>
-                        <p class="article_content" style="margin-bottom:100px;"><?= $news[0]; ?></p>
+                        <h1 style="margin-bottom:40px;"><?= $news[3]; ?></h1>
+                        <p class="article_content" style="margin-bottom:100px;text-align:left;"><?= wordwrap(nl2br($news[0]), 90, "<br />\n",true); ?></p>
 
                         <p style="float:right;text-align:right;">Publié par <?= $news[1]; ?> le <?= $news[2]; ?> </p>
 
