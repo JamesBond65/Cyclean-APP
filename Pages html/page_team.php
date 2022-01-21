@@ -32,11 +32,11 @@
 
         <section class="corps">
             <div class="poste">
-                <h2>Steven Bradley .........................Poste</h2>
-                <h2>Mouhamed Sy ..........................Poste</h2>
-                <h2>Armand  Bidault .......................Poste</h2>
-                <h2>Richard Kienitz ........................Poste</h2>
-                <h2>Adrien Frieh .............................Poste</h2>
+                <img src="<?php require_once('photo_profil.php'); echo get_pdp(1)?>"><h2>Steven Bradley ......................... PDG de GREEN SENSE</h2>
+                <h2>Armand  Bidault ....................... Graphiste</h2>
+                <h2>Richard Kienitz ........................ Développeur full stack</h2>
+                <h2>Adrien Frieh ............................. Expert en formulaire</h2>
+                <h2>Mouhamed Sy ..........................</h2>
             </div>
 
             <div class="image">
