@@ -3,7 +3,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Cyclean - Social</title>
+    <title>Cyclean - A Propos</title>
     <link rel="stylesheet" href="style_page_Propos.css" />
 
     <!-- Importation du fichier header-->

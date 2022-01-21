@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
     <html>
+        <?php include_once 'database.php'; ?>
         <head>
             <meta charset="utf-8">
             <link rel="stylesheet" href="style_page_news.css?v=<?php echo time(); ?>">
@@ -46,13 +47,13 @@
         }
         else{?>
             <header id="header" class="gris"></header>
-
         <?php }
         ?>
 
         <body>
 
-            <div> 
+
+            <div style="margin-bottom:100px;"> 
                 <header class="header">
 
                   
@@ -71,29 +72,59 @@
                  
             </div>
 
-            <section>
-              <article class="article_container" style="margin-bottom:200px;">
-                <p class="article_content">
-                    Des nouvelles de la boites ou un nouveau projet ici avec des infos. Il peut y avoir des update<br>
-                    Du projet en cours.Pour rapprocher le client avec le projet et la team derrière le projet.<br>
-                    Par la suite il peut même y avoir des updates d’autres entreprise en relation avec nous ou <br>
-                    Bien des start up afin de leur donner un appuie médiatique  
-                </p>
+
+            <?php 
+                if($_SESSION['utilisateur']=='Administrateur'){
+                ?>
+                    
+                    <article class="article_container" style="margin-bottom:150px;">
+                        <form method="post" style="margin-left:70px;text-align:center;">
+                            <h1 style="text-align:center;margin-bottom:15px;">Ajouter une publication</h1>
+                            <input type="text" name="titre" class="text" id="titre" placeholder="Titre..."><br>
+                            <textarea style="resize:none;height:200px;" class="text" name="contenu" id="contenu" placeholder="Contenu de la publication...."></textarea><br>
+                            <input type="submit" name="formsend" id="formsend" value="Ajouter">
+                        </form>
+                    </article>
+
+
+                <?php   
+                if(isset($_POST['formsend'])){
+                    extract($_POST);
+
+                    if(!empty($titre) && !empty($contenu)){
+                        $q=$db->prepare("INSERT INTO news(pseudo,contenu,titre) VALUES(?,?,?)");
+                        $q->execute([$_SESSION['pseudo'],$contenu,$titre]);
+                    }
+                }
+
                 
-                <img src="images/graph.png" class="graph" width=10% height=5% >
-            </article>
+
+                }
+            ?>
+
+            <section>
 
 
+                <?php 
+                $q = $db->prepare("SELECT contenu,pseudo,date,titre FROM news ORDER BY date DESC"); //
+                $q->execute();
+                $news_total = $q->fetchall();
+                
+                foreach($news_total as $news){
+                ?>
 
-            <article class="article_container">
-                <p class="article_content">
-                    Des nouvelles de la boites ou un nouveau projet ici avec des infos. Il peut y avoir des update<br>
-                    Du projet en cours.Pour rapprocher le client avec le projet et la team derrière le projet.<br>
-                    Par la suite il peut même y avoir des updates d’autres entreprise en relation avec nous ou <br>
-                    Bien des start up afin de leur donner un appuie médiatique  
-                </p>
-            </article>
-         </section>
+                    <article class="article_container" style="margin-bottom:90px;text-align:center;">
+                        <h1><?= $news[3]; ?></h1>
+                        <p class="article_content" style="margin-bottom:100px;"><?= $news[0]; ?></p>
+
+                        <p style="float:right;text-align:right;">Publié par <?= $news[1]; ?> le <?= $news[2]; ?> </p>
+
+                    </article>
+
+                <?php } ?>
+
+
+            </section>
 
             
         </body>

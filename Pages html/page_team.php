@@ -4,7 +4,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Page team</title>
+        <title>Cyclean - Team</title>
         <link rel="stylesheet" href="style_page_team.css?v=<?php echo time(); ?>">
         <!-- Importation du fichier header-->
         <script src="jquery.js"></script>
@@ -18,6 +18,10 @@
   
   
     <body>
+        <?php
+        include 'database.php';
+        global $db;
+        ?>
     
         <header id="header"></header>
 	
@@ -32,16 +36,16 @@
 
         <section class="corps">
             <div class="poste">
-                <img src="<?php require_once('photo_profil.php'); echo get_pdp(1)?>"><h2>Steven Bradley ......................... PDG de GREEN SENSE</h2>
-                <h2>Armand  Bidault ....................... Graphiste</h2>
-                <h2>Richard Kienitz ........................ Développeur full stack</h2>
-                <h2>Adrien Frieh ............................. Expert en formulaire</h2>
-                <h2>Mouhamed Sy ..........................</h2>
+                <div style="display:flex;"><a href="page_profil.php?id=1"><img class="image" src="<?php require_once('photo_profil.php'); echo get_pdp(1);?>"></a><h2>Steven Bradley ......................... PDG de GREEN SENSE</h2></div>
+                <div style="display:flex;"><img class="image" src="<?php require_once('photo_profil.php'); echo get_pdp(1);?>"><h2>Armand  Bidault ....................... Graphiste</h2></a></div>
+                <div style="display:flex;"><img class="image" src="<?php require_once('photo_profil.php'); echo get_pdp(1);?>"><h2>Richard Kienitz ........................ Développeur full stack</h2></a></div>
+                <div style="display:flex;"><a href="page_profil.php?id=42"><img class="image" src="<?php require_once('photo_profil.php'); echo get_pdp(42);?>"></a><h2>Adrien Frieh ............................. Expert en formulaire</h2></a></div>
+                <div style="display:flex;"><img class="image" src="<?php require_once('photo_profil.php'); echo get_pdp(1);?>"><h2>Mouhamed Sy ..........................</h2></a></div>
             </div>
 
             <div class="image">
 
-                <img src="Images/LogoBlancCut1.png" id="logo" width="500px">
+                <img src="images/LogoBlancCut1.png" id="logo" width="500px">
 
             </div>
         </section>
