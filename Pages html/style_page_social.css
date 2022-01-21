@@ -272,7 +272,11 @@ input:checked + .slider:before {
   font-family: Helvetica;
   font-weight: 1500;
   margin-right: 20px;
-
+  margin-top: 18px;
+  font-family: "Strong Concrete";
+  font-weight: 100;
+  font-size: 40px;
+  margin-left: 6%;
 }
 .ligne2 {
   background-color: #c2bbd3;
