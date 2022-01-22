@@ -69,7 +69,7 @@ global $db;
 
     extract($_POST);
 
-    $q = $db->prepare("SELECT pseudo, id, IdDemandeur FROM utilisateurs LEFT JOIN demandesamis ON utilisateurs.id = demandesamis.IdReceveur AND demandesamis.IdDemandeur = ? WHERE pseudo LIKE ? AND id != ?");
+    $q = $db->prepare("SELECT pseudo, id, IdDemandeur,Extension FROM utilisateurs LEFT JOIN demandesamis ON utilisateurs.id = demandesamis.IdReceveur AND demandesamis.IdDemandeur = ? WHERE pseudo LIKE ? AND id != ?");
     $q->execute([$_SESSION["id"], "%" . $_POST["search"] . "%", $_SESSION["id"]]);
     $resultat = $q->fetchAll();
 
@@ -84,7 +84,7 @@ global $db;
               
                 <div class="ligne1">
                 <a href="page_profil.php?id=<?php echo $pseudo_trouve[1] ?>"><img src="<?php require_once('photo_profil.php'); 
-                        echo get_pdp($pseudo_trouve[1]); ?>" class="images_recherche" /></a>
+                        echo get_pdp($pseudo_trouve[1],$pseudo_trouve[3]); ?>" class="images_recherche" /></a>
                 <div class=pseudo_trouve>
                 <a href="page_profil.php?id=<?php echo $pseudo_trouve[1] ?>" style="text-decoration:none;color:white;"><?php echo $pseudo_trouve[0]; ?></a>
                 </div>
@@ -126,7 +126,7 @@ global $db;
           ?>
             <a href="page_profil.php?id=<?php echo $result["id"] ?>" style=" margin-left: 10%">
               <img src="<?php require_once('photo_profil.php'); 
-                        echo get_pdp($result["id"]); ?>" class="Image_Profil1" />
+                        echo get_pdp($result["id"],$result['Extension']); ?>" class="Image_Profil1" />
             </a>
           <?php
           }
