@@ -216,7 +216,7 @@ if (empty($_SESSION['id'])){
                     <section class="container-flex v_center_align" style="flex-basis:100%;justify-content:space-around;margin-bottom:150px;">
 
                         <img src="<?php require_once('photo_profil.php'); 
-                        echo get_pdp($id_actuel,$information_utilisateur['Extension']);?>" class="Image_Profil1 vertical" style="margin-left:2%;">
+                        echo get_pdp($id_actuel);?>" class="Image_Profil1 vertical" style="margin-left:2%;">
 
 
 

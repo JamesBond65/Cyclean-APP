@@ -67,7 +67,7 @@ if (empty($_SESSION['id'])){
                 $contenu = str_replace("\n.", "\n..", $contenu);
                 $contenu = wordwrap($contenu, 70, "\r\n");
 
-                mail($_SESSION['email'], $_SESSION['pseudo'].' - '.$objet, $contenu);
+                mail('cyclean.admin@gmail.com', $_SESSION['pseudo'].' - '.$objet, $contenu);
             }
             elseif($type_contact == 'messagerie'){
                 $contenu = preg_replace('/[0-9\@\<\>" "]+/', '', $contenu);

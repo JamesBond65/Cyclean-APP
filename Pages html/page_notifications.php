@@ -68,7 +68,7 @@ if (empty($_SESSION['id'])){
 
             
 
-            $q1 = $db->prepare("SELECT pseudo,Extension FROM utilisateurs WHERE id = :id");
+            $q1 = $db->prepare("SELECT pseudo FROM utilisateurs WHERE id = :id");
 
             $q1->execute(['id' => $liste_id[$i]]);
 
@@ -80,7 +80,7 @@ if (empty($_SESSION['id'])){
 
 
             <a href="page_profil.php?id=<?= $liste_id[$i] ?>"><img src="<?php require_once('photo_profil.php');
-                                                                        echo get_pdp($liste_id[$i], $resultat_id[1]); ?>" class="image"></a>
+                                                                        echo get_pdp($liste_id[$i]); ?>" class="image"></a>
             <div class="boite">
               <p class="text">
                 <?= $pseudo_demandeur ?>
