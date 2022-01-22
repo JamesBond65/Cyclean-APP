@@ -151,11 +151,12 @@ html,body{
 .date_heure{
     padding-top: 2%;
     
-    width: 20%;
+    width: 55%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
   
 }
+
 
 .info_ancien_message{
   margin-top: 1.5%;
@@ -164,9 +165,63 @@ html,body{
   
 }
 
-.fleche_repondre{
-  width: 60%;
+.supprimer{
+  margin-top: 0.75%;
+  width: 10%;
+}
+
+.button_supprimer {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f43e1e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: large;
+  padding: 10px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.suppr{
+  background-color: #f43e1e;
+  color: white;
+  font-size: large;
+  border: none;
+}
+
+.button_supprimer span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
   
+  transition: 0.5s;
+}
+
+.button_supprimer span:after {
+  content: ' ?';
+  position: absolute;
+  opacity: 0;
+  top: -22px;
+  font-size: x-large;
+  right: -5px;
+  transition: 0.5s;
+}
+
+.button_supprimer:hover span {
+  padding-right: 25px;
+}
+
+.button_supprimer:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.fleche_repondre{
+  width: 10%;
+  margin-top: 1%;
 }
 
 .image_fleche{
@@ -200,19 +255,20 @@ html,body{
     
 }
 
-input[type=submit] {
+.submit {
   margin-top: 20%;
   margin-left: 20%;
   padding:5px 15px; 
   background: rgba(0, 47, 255, 0.253);
-   
+  color: white;
+  font-size: large;
   border:0 none;
   cursor:pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px; 
 }
 
-input[type=submit]:hover{
+.submit:hover{
   background: rgba(0, 47, 255, 0.521);
 }
 
