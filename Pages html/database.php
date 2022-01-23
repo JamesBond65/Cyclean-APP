@@ -1,5 +1,5 @@
 <?php
-/*
+
 define("HOST","leomelki.fr");
 define("DB_NAME","armandb");
 define("USER","armandb");
@@ -14,7 +14,7 @@ catch(PDOException $e){
  echo $e;
 }
 
-*/
+/*
 define("HOST", "localhost");
 define("DB_NAME", "siteweb");
 define("USER", "root");
@@ -28,4 +28,4 @@ try {
     throw $e;
 }
 
-?>
+?>*/

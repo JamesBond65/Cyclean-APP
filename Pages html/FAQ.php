@@ -89,9 +89,9 @@
                 <div class="entete">
 
                     <div class ="photo_profil">
+                        
 
-                        <img src="<?php require_once('photo_profil.php'); 
-                        echo get_pdp($information['id']); ?>" width="50px" style="border-radius: 50%;">
+                        <img src="<?php require_once('photo_profil.php'); echo get_pdp($information['id']); ?>" width="50px" style="border-radius: 50%;">
 
                     </div>
 

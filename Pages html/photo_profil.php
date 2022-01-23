@@ -1,7 +1,7 @@
 <?php
 function get_pdp($id){ //function parameters, two variables.
 
-    include 'database.php';
+    include_once 'database.php';
     global $db;
 
     $q = $db->prepare("SELECT Extension FROM utilisateurs WHERE id = :id");
