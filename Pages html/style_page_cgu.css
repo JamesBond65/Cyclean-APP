@@ -8,8 +8,8 @@ html, body {
     margin: 0;
     padding: 0;
     
-    color: white;
-    /*font-family:"";*/
+    background-color: #B6C0D9;
+    font-family:"Helvetica";
 }
 
 .padding_total{
@@ -19,3 +19,63 @@ html, body {
 
 }
 
+.slogan_pourc{
+    color: white;
+    font-family:"Strong Concrete";
+    font-size:300%;
+  }
+
+  .padd_left{
+    padding-left: 1.2%;
+  }
+
+.trait{
+    margin-left: 5%;
+  
+    width: 90%;
+    height: 3px;
+    margin-top: 1%;
+    background-color:rgb(255, 255, 255);
+    border: white;
+  } 
+
+
+.texte{
+    text-justify: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: aliceblue;
+    margin-bottom: 5%;
+}
+
+
+
+/*---------------------------------------------------Footer----------------------------------------------*/
+
+
+
+
+.container_footer {
+    padding: 20px 0;
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  
+    margin-top: auto;
+  }
+  
+  
+  .body_container {
+    min-height: 100vh;
+  }
+  
+  .texte_footer {
+    color: #b4bdcb;
+    vertical-align: center;
+    text-align: center;
+    font-weight: 1000;
+    font-family: "Helvetica";
+  }
+  
+  /*---------------------------------------------------End footer------------------------*/

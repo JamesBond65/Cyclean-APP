@@ -22,6 +22,7 @@
 
     <?php
         $compteur_id = 0;
+        
         session_start();
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
@@ -52,20 +53,35 @@
 
 
     <!-- ------------------------------------------------------------------------------------ -->
+
+    
+
+
+    
     
     
    <?php
 
-        $sql = "SELECT * FROM `faq` WHERE question=1 ";
+        $sql = "SELECT * FROM `faq` INNER JOIN utilisateurs ON faq.pseudo = utilisateurs.pseudo WHERE faq.question =1 ";
 
         $requete = $db->query($sql);
         $informations = $requete->fetchall();
 
-    
+        #echo($_SESSION['utilisateur']);
 
+     ?>   
+
+
+    <?php
     foreach ($informations as $information) {
-        $compteur_id = $compteur_id + 1;
-        ?>
+        $compteur_id = $information['idQuestion'] + 1;
+        
+
+        #echo($information['pseudo']);
+        #echo($information['id']);
+        
+    ?>
+
         <section class="discussion">
         
             <div class= "messages">
@@ -73,7 +89,9 @@
                 <div class="entete">
 
                     <div class ="photo_profil">
-                        <img src="images\Profil.png" width="50px" style="border-radius: 50%;">
+
+                        <img src="<?php require_once('photo_profil.php'); 
+                        echo get_pdp($information['id']); ?>" width="50px" style="border-radius: 50%;">
 
                     </div>
 
@@ -84,13 +102,36 @@
 
                     <div class="date_heure">
                         <?php
+
                             echo($information['date']);
                             
                         ?>
                     </div>
 
+                    <div class="supprimer">
+                        <?php 
+                        if( $_SESSION['utilisateur'] = 'Administrateur'){
+                        ?>
+                            <form action="" method="POST">
+                                
+                                <input type="hidden" name="idSupprimer" value="<?php echo($information['idQuestion']) ?>">
+                                
+
+                                <div class="button_supprimer" style="vertical-align:middle">
+                                    <input class="suppr" type="submit" name="supprimer" value="Supprimer"><span></span>
+                                </div>
+                                
+                            </form>
+                            
+                        <?php
+                        }
+                        
+                        ?>
+                    </div>
+
                     <div class="fleche_repondre">
-                        <img class="image_fleche" onclick="apparaitre()" src="images\fleche_repondre.png" width=" 35px" >
+                        
+                        <img class="image_fleche" onclick="apparaitre()" src="images\fleche_repondre.png" width="35px" >
 
                     </div>
 
@@ -113,6 +154,18 @@
         }
     ?>
 
+<?php
+        if (isset($_POST['supprimer'])){
+            
+            $numero = intval($_POST['idSupprimer']);
+           
+            #echo($numero);
+            #echo("je suis là"); 
+            $db->exec("DELETE FROM `faq` WHERE idQuestion = $numero");
+            header('Location: FAQ.php');
+
+        }
+    ?>
 
     <?php
         if (isset($_POST['publier'])){
@@ -120,16 +173,13 @@
             if (!empty($_POST['remarque'])){
                #echo('ici');
 
-                #$compteur_id = $compteur_id +1;
-                $DateAndTime = date('d-m-Y H:i');
-                /*echo($compteur_id);
-                echo($DateAndTime);
-                echo($_SESSION['pseudo']);
-                echo($_POST['remarque']);*/
                 
-
-                $db->exec("INSERT INTO `faq` (`idQuestion`, `idReponse`, `texte`, `pseudo`, `question`, `reponse`, `date`) 
-                VALUES('$compteur_id', '0', '$_POST[remarque]' , '$_SESSION[pseudo]', '1','1','$DateAndTime' )");
+                $DateAndTime = date('d-m-Y H:i');
+                
+                
+                $db->exec("INSERT INTO `faq` (`idQuestion`, `texte`, `pseudo`, 
+                `question`, `reponse`, `reponse_de_la_question`, `date`) 
+                VALUES('$compteur_id', '$_POST[remarque]' , '$_SESSION[pseudo]', '1','0','0','$DateAndTime' )");
 
                 header('Location: FAQ.php');
                 
@@ -179,7 +229,7 @@
                            <textarea type="text" name="remarque" class="remarque" placeholder="Ecrire message"></textarea> 
                         </div>
                         <div class="bouton_publier" >
-                            <input onclick="verifier()" class="submit" type="submit" name="publier" value="Publier">
+                            <input class="submit" type="submit" name="publier" value="Publier">
                         </div>
                         
                     </form>

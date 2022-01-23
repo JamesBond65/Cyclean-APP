@@ -26,8 +26,9 @@
         <img src="images/VELOFINAL-5.png" class="ImageVelo1" />
         <div class="Image_text">
           <p class="text1">
-            Je ne sais pas vraiment quoi mettre ici mas on peut mettre des infos
-            cool
+            L'entreprise GREENSENSE a pour objectif de participer à la réduction du réchauffement climatique<br></br>
+            Nous pensons que nous pouvons apporter notre aide à cette mission en changeant les habitudes quotidiennes des individus<br></br>
+            C'est pourquoi nous avons créé CYCLEAN.
           </p>
           <!--<img src="images/Social.png" class="Im1" />-->
           <div class="trait2"></div>
@@ -37,8 +38,8 @@
       <div class="Partie2">
         <div class="Image_text2">
           <p class="text1">
-            Je ne sais pas vraiment quoi mettre ici mas on peut mettre des infos
-            cool
+            Le but de l'application CYCLEAN est de proner l'utilisation du vélo pour se déplacer et pour motiver les utilisateurs, nous avons créer une compétitions entre eux.<br></br>
+            L'idée est simple, effcuter des courses "vertes", c'est-à-dire des courses dans des endroits non pollueé et avec une faible nuisance sonore pour marquer le plus de points. 
           </p>
           <div class="trait3"></div>
         </div>
