@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <title>Page FAQ</title>
-  <link rel="stylesheet" href="style_page_Faq.css">
+  <link rel="stylesheet" href="style_page_FAQ.css">
   <script src="jquery.js"></script>
   <script src="js_faq.js"></script>
   

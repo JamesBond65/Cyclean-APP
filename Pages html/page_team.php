@@ -19,7 +19,7 @@
   
     <body>
         <?php
-        include 'database.php';
+        include 'database.php';require('photo_profil.php'); 
         global $db;
         ?>
     
@@ -36,11 +36,11 @@
 
         <section class="corps">
             <div class="poste">
-                <div style="display:flex;"><a href="page_profil.php?id=1"><img class="image" src="<?php require_once('photo_profil.php'); echo get_pdp(1);?>"></a><h2>Steven Bradley ............................ PDG de GREEN SENSE</h2></div>
-                <div style="display:flex;"><img class="image" src="<?php require_once('photo_profil.php'); echo get_pdp(1);?>"><h2>Armand  Bidault .......................... Graphiste</h2></a></div>
-                <div style="display:flex;"><a href="page_profil.php?id=55"><img class="image" src="<?php require_once('photo_profil.php'); echo get_pdp(55  );?>"></a><h2>Richard Kienitz ........................ Développeur full stack</h2></a></div>
-                <div style="display:flex;"><a href="page_profil.php?id=42"><img class="image" src="<?php require_once('photo_profil.php'); echo get_pdp(42);?>"></a><h2>Adrien Frieh ............................. Expert en formulaire</h2></a></div>
-                <div style="display:flex;"><a href="page_profil.php?id=71"><img class="image" src="<?php require_once('photo_profil.php'); echo get_pdp(71);?>"></a><h2>Mouhamed Sy .........................</h2></a></div>
+                <div style="display:flex;"><a href="page_profil.php?id=1"><img class="image" src="<?php echo get_pdp(1);?>"></a><h2>Steven Bradley ............................ PDG de GREEN SENSE</h2></div>
+                <div style="display:flex;"><img class="image" src="<?php echo get_pdp(1);?>"><h2>Armand  Bidault .......................... Graphiste</h2></a></div>
+                <div style="display:flex;"><a href="page_profil.php?id=55"><img class="image" src="<?php echo get_pdp(55  );?>"></a><h2>Richard Kienitz ........................ Développeur full stack</h2></a></div>
+                <div style="display:flex;"><a href="page_profil.php?id=42"><img class="image" src="<?php echo get_pdp(42);?>"></a><h2>Adrien Frieh ............................. Expert en formulaire</h2></a></div>
+                <div style="display:flex;"><a href="page_profil.php?id=71"><img class="image" src="<?php echo get_pdp(71);?>"></a><h2>Mouhamed Sy .........................</h2></a></div>
             </div>
 
             <div class="image">

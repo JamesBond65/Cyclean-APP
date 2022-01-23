@@ -7,19 +7,14 @@ html, body {
     margin: 0;
     padding: 0;
     color: #727272;
-    height: 100%;
-    min-height: 100%;
 
 }
 
 body{
     width:100%;
     min-width:100%;
-    max-width:100%;
-    top: 0;
-    bottom:0;
-    position:absolute;
-    overflow-x: hidden;
+
+
 }
 
 canvas{
@@ -149,6 +144,13 @@ input:focus, textarea:focus, select:focus{
     vertical-align: middle;
 }
 
+.button{
+    width:70%;
+    height:60px;
+
+
+}
+
 
 hr {
     width: 100%;
@@ -177,13 +179,6 @@ textarea{
 
 }
 
-.button_fixed{
-    position: fixed;
-}
-
-
-
-
 .center{
     justify-content: center;
     
@@ -208,9 +203,6 @@ textarea{
     width: 100%;
 }
 
-.margin_spec{
-    padding-right: 400%;
-}
 
 textarea {
    resize: none;

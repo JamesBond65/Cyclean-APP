@@ -52,13 +52,6 @@ global $db;
         <div class="div_1">
           <input type="text" name="search" placeholder="Recherche.." class="Text_Input" required />
         </div>
-        <div class="div_2">
-          <p class="text_amis">AMIS SEULEMENT :</p>
-          <label class="switch">
-            <input type="checkbox" name="friends_only" checked />
-            <span class="slider round"></span>
-          </label>
-        </div>
       </div>
       <input class="search_button" type="submit" name="formsend" value="entrer" hidden />
     </section>
@@ -76,7 +69,7 @@ global $db;
     if ($resultat) {
       foreach ($resultat as $pseudo_trouve) {
         // METTRE LES RESULTATS DE LA RECHERCHE ET LE HTML CORRESPONDANT
-  ?>
+      ?>
         <form method="post">
           <div>
             <div class="tableau">
@@ -111,22 +104,25 @@ global $db;
     <div class="social_trait2" style="margin-top:140px;"></div>
 
     <!-- liste utilisateurs -->
-    <h1 class="titre_liste">Cyclean friends</h1>
+    <h1 class="titre_liste">Amis cyclean</h1>
     <li class="liste_utilisateurs">
       <?php
-      $q = $db->prepare("SELECT * FROM amis LEFT JOIN utilisateurs ON utilisateurs.id = amis.Id LEFT JOIN mesures ON amis.Id = mesures.Id WHERE amis.IdAmi = ?");
+      $q = $db->prepare("SELECT * FROM amis LEFT JOIN utilisateurs ON utilisateurs.id = amis.Id WHERE amis.IdAmi = ?");
       $q->execute([$_SESSION["id"]]);
       $resultats = $q->fetchAll();
+
       $sideType = 1;
       foreach ($resultats as $result) {
+
+
+
       ?>
         <section class="Ligne<?php echo ($sideType = ($sideType + 1) % 2) + 1; ?>">
           <?php
           if ($sideType == 1) {
           ?>
             <a href="page_profil.php?id=<?php echo $result["id"] ?>" style=" margin-left: 10%">
-              <img src="<?php require_once('photo_profil.php'); 
-                        echo get_pdp($result["id"],$result['Extension']); ?>" class="Image_Profil1" />
+              <img src="<?php require_once('photo_profil.php'); echo get_pdp($result["id"]); ?>" class="Image_Profil1" />
             </a>
           <?php
           }
@@ -136,7 +132,7 @@ global $db;
               <p class="Pseudo"><?= $result['pseudo'] ?></p>
 
               <div class="text_2">
-                <p class="Prenom"><?php echo $result["Prenom"]; ?></p>
+                <p class="Prenom"><?php echo $result["prenom"]; ?></p>
                 <p class="Nom"><?php echo $result["Nom"]; ?></p>
               </div>
             </div>
@@ -144,26 +140,37 @@ global $db;
             <div class="text_utilisateur">
               <p style="font-family: Helvetica">
                 <?php echo $result["APropos"]; ?>
+
               </p>
 
               <?php
-              $q = $db->prepare("SELECT * FROM mesures WHERE mesures.Id = ? ORDER BY DateMesure ASC");
-              $q->execute([$result["id"]]);
-              $mesures = $q->fetchAll();
-              $bpm = 0;
-              $sonore = 0;
-              foreach ($mesures as $mesure) {
-                if ($mesure["TypeCapteur"] == "FrequenceC")
-                  $bpm = $mesure["ValeurMesure"];
-                else if ($mesure["TypeCapteur"] == "Sonore")
-                  $sonore = $mesure["ValeurMesure"];
-              }
+
+              $max=$db->prepare("SELECT MAX(NumSerie) FROM mesures WHERE Id = ?");
+              $max->execute([$result["id"]]);
+              $dernier_trajet = $max->fetch()[0];
+
+
+
+              $q = $db->prepare("SELECT AVG(ValeurMesure) FROM mesures WHERE mesures.Id = ? AND TypeCapteur = ? AND NumSerie = ? ");
+              $q->execute([$result["id"],'FrequenceC',$dernier_trajet]);
+              $mesures_freqc = $q->fetch();
+
+
+              $q1 = $db->prepare("SELECT AVG(ValeurMesure) FROM mesures WHERE mesures.Id = ? AND TypeCapteur = ? AND NumSerie = ? ");
+              $q1->execute([$result["id"],'Sonore',$dernier_trajet]);
+              $mesures_sonore = $q1->fetch();
+
+
+              $q2 = $db->prepare("SELECT AVG(ValeurMesure) FROM mesures WHERE mesures.Id = ? AND TypeCapteur = ? AND NumSerie = ? ");
+              $q2->execute([$result["id"],'Gaz',$dernier_trajet]);
+              $mesures_gaz = $q2->fetch();
+
+
               ?>
-              <p style="font-family: Helvetica"><?php echo $bpm ?> bpm</p>
-              <p style="font-family: Helvetica"><?php echo $sonore ?> db</p>
-              <p style="font-family: Helvetica">
-                Activité en hausse de 10% depuis la semaine dernière
-              </p>
+              <p style="font-family: Helvetica;font-weight:bold;">Moyennes du dernier trajet:</p>
+              <p style="font-family: Helvetica"><?= is_null($mesures_freqc[0]) ? 0 : round($mesures_freqc[0]) ;?> BPM<br><?= is_null($mesures_sonore[0]) ? 0 : round($mesures_sonore[0]) ;?> DB<br><?= is_null($mesures_gaz[0]) ? 0 : round($mesures_gaz[0]) ; ?> PPM</p>
+
+
             </div>
           </div>
           <?php

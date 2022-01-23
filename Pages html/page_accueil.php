@@ -38,9 +38,9 @@ if (empty($_SESSION['id'])){
 
             <div id="cyclean" style="margin-top: -25px;z-index:1">
                     
-                <h1 class="slogan" style="padding-bottom: 50px;">
-                    CYCLEAN
-                    FOR
+                <h1 class="slogan" style="padding-bottom: 50px;word-wrap: break-word;">
+                    CYCLEAN<br>
+                    FOR<br>
                     ENVIRONMENT</h1>
 
                 <hr class="cyclean-trait">

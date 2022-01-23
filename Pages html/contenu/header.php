@@ -23,7 +23,7 @@
       </li>
 
       <li>
-        <a href="page_faq.php">Forum<br /></a>
+        <a href="FAQ.php">FAQ<br /></a>
       </li>
 
       <li>

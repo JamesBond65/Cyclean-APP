@@ -20,11 +20,6 @@ if (empty($_SESSION['id'])){
                $("#header").load("contenu/header.php"); 
             });
         </script>
-        <script> 
-            $(function(){
-                $("#header2").load("contenu/header.php"); 
-            });
-        </script>
     </head>
 
     <body>
@@ -40,16 +35,7 @@ if (empty($_SESSION['id'])){
                 <header id="header" class="gris"></header>
 
 
-                <h1 class="slogan" style="padding:0;margin:0;">Paramètres </h1>
-                
-            </header>
-
-            <header class="fixed" style="width:100%;min-width:100%">
-                
-                <header id="header2" class="gris"></header>
-
-
-                <h1 class="slogan" style="padding:0;margin:0;">Paramètres </h1>
+                <h1 class="slogan" style="padding:0;margin:0;">Paramètres</h1>
                 
             </header>
         </header>
@@ -69,11 +55,11 @@ if (empty($_SESSION['id'])){
 
 
 
-                    <div class="partie">
+                    <div class="partie" style="width:40%;">
                         <h1 class="titre">Profil<hr></h1>
                         
 
-                        <div style="float:left;">
+                        <div style="float:left;width:90%;">
                             <?php 
                                 if(isset($_POST['supprimer_compte'])){
 
@@ -221,8 +207,7 @@ if (empty($_SESSION['id'])){
                             
                             ?>
 
-                            <div style="border: 1px solid black; ;"><img src="<?php require_once('photo_profil.php'); 
-            echo get_pdp($_SESSION['id'],$_SESSION['extension']);?>"></div>
+                            <img style="border: 5px solid #B2BDCC;" src="<?php require_once('photo_profil.php'); echo get_pdp($_SESSION['id']);?>">
 
                             
                         </div>
@@ -396,18 +381,18 @@ if (empty($_SESSION['id'])){
                     </div>
                     
                 
-                    <div class="partie" style="justify-content:center;">
+                    <div class="partie" style="justify-content:center;width:40%;">
                         <h1 class="titre">Mon compte<hr></h1>
 
 
                         
-                        <form method="post" class="post">
-                            <button name="supprimer_compte" id="supprimer_compte" onclick="return confirm('Etes-vous sûr de vouloir supprimer le compte?')" >Supprimer le compte</button>
+                        <form method="post" style="width:100%;text-align:center;">
+                            <button class="button" name="supprimer_compte" id="supprimer_compte" onclick="return confirm('Etes-vous sûr de vouloir supprimer le compte?')" >Supprimer le compte</button>
                         </form>
 
                         
-                        <form method="post" action="">
-                            <input type="submit" id="toggleState" name="toggleState" value="<?php echo $etat_compte[0]=="publique" ?  "Rendre le compte privé" : "Rendre le compte public" ;  ?>"/>
+                        <form method="post" style="width:100%;text-align:center;" action="">
+                            <button class="button" name="toggleState" id="toggleState" ><?php echo $etat_compte[0]=="publique" ?  "Rendre le compte privé" : "Rendre le compte public" ;  ?></button>
                         </form>
 
 
@@ -418,70 +403,6 @@ if (empty($_SESSION['id'])){
 
                     
             </section>
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </section>                    
 
 
@@ -500,53 +421,6 @@ if (empty($_SESSION['id'])){
 
             <footer class="container_footer fixed margin_spec" style="min-width:100%;width:100%">
 
-                <div style="padding-left: 5%;">
-                    <img src="images/LogoBlanc.png " width="65px"><br>
-
-                    <p class="texte_footer" style="margin-top: 0px;">
-                        Cyclean 
-                    </p>
-                    
-                </div>
-
-
-                        
-
-
-
-
-                <p class="texte_footer">
-                    © GREEN SENSE 2021<br>
-                    ALL RIGHTS RESERVED
-                </p>
-
-
-                    
-
-
-
-
-                <div style="margin-right: 5%;">
-
-                    <p class="texte_footer" style="margin-bottom: 0px; margin-top: 0px;">
-                    Contacts
-                    </p>
-                    
-                    <div>
-                        <div class="logo_insta_whatsapp">
-                            <img src="images/images_footer/Blanc_Blanc/instaF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <img src="images/images_footer/Blanc_Blanc/WhatsappF.png" width="20px"><br>
-                            <img src="images/images_footer/Blanc_Blanc/TwitterF.png" width="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <img src="images/images_footer/Blanc_Blanc/Mail.F.png" width="20px">
-                        </div>
-
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/images_footer/Blanc_Blanc/facebookF.png " width="20px">
-                    </div>
-                </div>
-
-        </footer>
-
-        <footer class="container_footer fixed" style="min-width:100%;width:100%">                
                 <div style="padding-left: 5%;">
                     <img src="images/LogoBlanc.png " width="65px"><br>
 

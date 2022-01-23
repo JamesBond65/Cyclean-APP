@@ -77,7 +77,7 @@ a {
 
   
 #cyclean{
-    width:400px;
+    width:500px;
   
     padding-left:1%;
     padding-bottom: 2%;
@@ -204,7 +204,7 @@ a.couleur_classement_accueil:hover{
  .slogan {
     color: white;
     font-family:"Strong Concrete";
-    font-size: 340%;
+    font-size: 300%;
     padding-left: 2%;
     margin-bottom: 17%;
   }

@@ -32,6 +32,22 @@ if (empty($_SESSION['id'])){
 
 
 
+
+            function SqlToArray($Data,$position){
+                // Création Liste contenant uniquement les données
+                $DataDTrajetArray = [];
+
+                for($i = 0; $i < count($Data); $i++){
+                    array_push($DataDTrajetArray, $Data[$i][$position]);
+                }
+
+                $DataDTrajetArray = array_filter($DataDTrajetArray);
+
+                return $DataDTrajetArray;
+            }
+
+
+
             // Fonction qui a un objet de type Array en PHP renvoie une liste JAVASCRIPT
             function ArrayToJavascript($Data){
                 $DataStr = '[';
@@ -70,9 +86,9 @@ if (empty($_SESSION['id'])){
 
                 $startDateY = date("Y-m-d H:i:s",strtotime("-1 year"));
 
-
-                // Récupère Mesures FREQUENCIELLES du dernier trajet
-                $q_DTrajet = $db->prepare("SELECT ValeurMesure from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
+                
+                // Récupère Mesures et date des mesures du dernier trajet
+                $q_DTrajet = $db->prepare("SELECT ValeurMesure,DateMesure  from mesures WHERE Id = :id AND TypeCapteur = :capteur AND NumSerie = :numderniertrajet");
                 $q_DTrajet -> execute(['id' => $id,'capteur' => $capteur, 'numderniertrajet' => $num_trajet]);
                 
                 $DTrajetArray = $q_DTrajet->fetchAll();
@@ -80,12 +96,11 @@ if (empty($_SESSION['id'])){
   
 
                 // Création Liste contenant uniquement les données
-                $DataDTrajetArray = [];
 
-                for($i = 0; $i < count($DTrajetArray); $i++){
-                    array_push($DataDTrajetArray, $DTrajetArray[$i][0]);
-                }
-                $DataDTrajetArray = array_filter($DataDTrajetArray);
+                $DataDTrajetArray = SqlToArray($DTrajetArray,0);
+
+
+                $DateDTrajetArray = SqlToArray($DTrajetArray,1);
 
 
             
@@ -112,7 +127,7 @@ if (empty($_SESSION['id'])){
                 $YmoyenneArray = $q_Ymoyenne->fetch(); //Convertit le résultat en une liste
                 $Ymoyenne = $YmoyenneArray[0];
 
-                $ArrayR = array($DataDTrajetArray,$moyenne,$moisyenne,$Ymoyenne);
+                $ArrayR = array($DataDTrajetArray,$moyenne,$moisyenne,$Ymoyenne,$DateDTrajetArray);
 
                 
                 return $ArrayR;
@@ -159,6 +174,7 @@ if (empty($_SESSION['id'])){
                         $moyenneFreqc= $Freqc[1];
                         $moisyenneF= $Freqc[2];
                         $YmoyenneF= $Freqc[3];
+                        $DateDTrajetFArray=$Freqc[4];
 
 
                         $Sonore=StatsCapteur($id_actuel,'Sonore',$dernierTrajet,$db);
@@ -166,6 +182,7 @@ if (empty($_SESSION['id'])){
                         $moyenneS = $Sonore[1];
                         $moisyenneS = $Sonore[2];
                         $YmoyenneS = $Sonore[3];
+                        $DateDTrajetSArray= $Sonore[4];
 
                         $Gaz= StatsCapteur($id_actuel,'Gaz',$dernierTrajet,$db);
                         $DataDTrajetGArray = $Gaz[0];
@@ -351,7 +368,7 @@ if (empty($_SESSION['id'])){
 
 
                                 <script>
-                                    const labels = <?= ArrayToJavascript(range(1,count($DataDTrajetSArray)));?>; // Transforme l'array php en array javascript
+                                    const labels = <?= ArrayToJavascript($DateDTrajetSArray);?>; // Transforme l'array php en array javascript
 
                                     const data = {
                                     labels: labels,
@@ -503,7 +520,7 @@ if (empty($_SESSION['id'])){
 
                                 <script>
 
-                                    const labels2 = <?= ArrayToJavascript(range(1,count($DataDTrajetFArray))); ?>; // Transforme l'array php en array javascript
+                                    const labels2 = <?= ArrayToJavascript($DateDTrajetFArray); ?>; // Transforme l'array php en array javascript
                                     
                                     const data2 = {
                                     labels: labels2,
