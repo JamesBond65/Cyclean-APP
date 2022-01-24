@@ -147,3 +147,12 @@ html, body {
     margin-right: 40px;
     transition: box-shadow 0.3s;
   }
+
+  
+
+@media screen and (max-width: 1000px) {
+
+    .imgtop { /*réutiliser pour toutes les pages avec imgtop*/
+        display: none; /*Image du haut supprimée*/
+    }
+}

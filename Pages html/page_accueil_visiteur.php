@@ -46,7 +46,7 @@
 
                     <hr class="cyclean-trait">
 
-                    <a href=""><h2 class="titre2">L'équipe  ➔ </h2></a>
+                    <a href="page_team.php"><h2 class="titre2">L'équipe  ➔ </h2></a>
 
                     <a href="page_news.php"><h2 class="titre2">News  ➔ </h2></a>
 

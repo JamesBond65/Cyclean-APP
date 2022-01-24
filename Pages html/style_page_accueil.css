@@ -184,6 +184,7 @@ a.couleur_classement_accueil:hover{
     padding-left: 2%;
     padding-right: 2%;
 
+
 }
  /*---------------------------------------------------------------------------------------------------*/
 
@@ -220,7 +221,7 @@ a.couleur_classement_accueil:hover{
     color: white;
     font-weight: bold;
     font-family:Helvetica;
-    font-size: 110%;
+    font-size: 140%;
     display: inline;
     margin-right: 5%;
 }

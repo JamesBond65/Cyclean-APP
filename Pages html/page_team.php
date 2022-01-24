@@ -23,7 +23,29 @@
         global $db;
         ?>
     
-        <header id="header"></header>
+    <?php 
+        if (empty($_SESSION['id'])){?>
+
+            <header class="container-flex space gris padding_total" style=" margin-top:43px;">
+
+                    <a href="page_accueil_visiteur.php"><nav style="padding-top: 2%;"><img src="images/LogoBlanc.png " width="50px"></nav></a>
+        
+                    <nav style="margin-right: 2.5%;">
+                        <ul class="navigation">
+                            <li><img src="images/Langages.png" width="30px"/><br /></li>
+                            <li><a href="page_sign_up.php">S'inscrire<br></a></li>
+                            <li><a href="page_sign_in.php">Se connecter<br></a></li>
+                        </ul>
+                    </nav>
+    
+            </header>
+
+        <?php 
+        }
+        else{?>
+            <header id="header" class="gris"></header>
+        <?php }
+        ?>
 	
         <section >
             <div class="titre">
@@ -34,7 +56,7 @@
         
         </section>
 
-        <section class="corps">
+        <section class="corps" style="position:relative;">
             <div class="poste">
                 <div style="display:flex;"><a href="page_profil.php?id=1"><img class="image" src="<?php echo get_pdp(1);?>"></a><h2>Steven Bradley ............................ PDG de GREEN SENSE</h2></div>
                 <div style="display:flex;"><img class="image" src="<?php echo get_pdp(1);?>"><h2>Armand  Bidault .......................... Graphiste</h2></a></div>
@@ -43,11 +65,8 @@
                 <div style="display:flex;"><a href="page_profil.php?id=71"><img class="image" src="<?php echo get_pdp(71);?>"></a><h2>Mouhamed Sy .........................</h2></a></div>
             </div>
 
-            <div class="image">
+                <img class="imgtop" style="right:0;bottom:0;position:absolute;" src="images/LogoBlancCut1.png" id="logo" width="500px">
 
-                <img src="images/LogoBlancCut1.png" id="logo" width="500px">
-
-            </div>
         </section>
 
 
