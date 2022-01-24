@@ -32,21 +32,8 @@ if (empty($_SESSION['id'])){
         <header id="header" class="gris"></header>
 
         <form method="post" style="width:500px;margin-left:auto;margin-right:auto">
-            <h3>Type de contact</h3>
-            <div style="display:flex;justify-content: space-between;">
-                
-                <div>
-                    <input type="radio" name="type_contact" id="mail" value="mail"><label for="mail" style="background-color:#B2BDCC;">Mail</label>
-                </div>
+            <h2 style="text-align:center;">Contacter les administrateurs par courriel</h3>
 
-                <div>
-                    <input type="radio" name="type_contact" id="messagerie"  value="messagerie" required="required"><label for="messagerie">Messagerie</label>
-                </div>
-
-
-                    
-
-            </div>
             <hr style="color:white;">
 
             <h3>Objet</h3>
@@ -62,24 +49,13 @@ if (empty($_SESSION['id'])){
         <?php
         if(isset($_POST['contact_post'])){
             extract($_POST);
-
-            if($type_contact == 'mail'){
                 $contenu = str_replace("\n.", "\n..", $contenu);
-                $contenu = wordwrap($contenu, 70, "\r\n");
+                // $contenu = wordwrap($contenu, 70, "\r\n");
 
-                mail('cyclean.admin@gmail.com', $_SESSION['pseudo'].' - '.$objet, $contenu);
-            }
-            elseif($type_contact == 'messagerie'){
-                $contenu = preg_replace('/[0-9\@\<\>" "]+/', '', $contenu);
+                mail('cyclean@outlook.fr', $_SESSION['pseudo'].' - '.$objet, $contenu);
+                mail('ad.cyclean@gmail.com', $_SESSION['pseudo'].' - '.$objet, $contenu);
 
-                $q = $db->prepare("INSERT INTO messagerie(id_envoyeur,message) VALUES(?,?)");
-                $q->execute([$_SESSION['id'],$contenu]);
-                
 
-            }
-            else{
-                echo "Il y a eu un problème, veuillez réessayer.";
-            }
         }
         ?>
 

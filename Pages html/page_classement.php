@@ -60,6 +60,10 @@ if (empty($_SESSION['id'])){
         $requete = $db->query($sql);
         $tableau = $requete->fetchall();
 
+        $tableau_pseudos=[];
+        $tableau_points=[];
+        $tableau_ids=[];
+
        foreach ($tableau as $un_utilisateur) {
 
             if ($_SESSION['id'] == $un_utilisateur['Id']){
@@ -69,9 +73,27 @@ if (empty($_SESSION['id'])){
                 $tableau_ids[] = $un_utilisateur['IdAmi'];
      
             }
-
-                
         }
+
+        // Rajoute soi-même s'il y a des éléments
+        if(count($tableau_points)!=0 && $_SESSION['cyclean']>min($tableau_points) ){
+            for ($i = 0; $i < count($tableau_points);$i++){
+                echo $i;
+                if($_SESSION['cyclean']>$tableau_points[$i] || (!($_SESSION['cyclean']>$tableau_points[$i]) && $i==$tableau_points) ){
+                    array_splice($tableau_points, $i, 0, array($_SESSION['cyclean']) );
+                    array_splice($tableau_pseudos, $i, 0, array($_SESSION['pseudo']) );
+                    array_splice($tableau_ids, $i, 0, array($_SESSION['id']) );
+                    break;
+                }
+            }
+        }
+        else{
+            array_push($tableau_points, $_SESSION['cyclean']);
+            array_push($tableau_pseudos, $_SESSION['pseudo']);
+            array_push($tableau_ids, $_SESSION['id']);
+        }
+
+
 
         /*echo count($tableau_pseudos);*/
 
@@ -201,27 +223,46 @@ if (empty($_SESSION['id'])){
             <div class="informations_personelles">
                
                 <div class="emplacement_informations" >
+
+                
+                    <div class="titres">
+                            Classement
+                    </div>
+
                                             
                     <div class="titres" >
-                            Pseudo
-                        </div>
+                        Pseudo
+                    </div>
 
-                        <div class="titres">
-                            Cy Point
-                        </div>
+                    <div class="titres">
+                        Cy Point
+                    </div>
 
-                        <div class="titres">
-                            Classement
-                        </div>
-
-                        <div class="titres">
-                            Meilleure stat
-                        </div>
 
                 </div>
 
 
                 <div class="boites" >
+
+                
+                    <div class="rectangles">
+
+                        <?php 
+                            
+                        for ($i = 0; $i < count($tableau_pseudos); $i++) {
+                                
+                            ?>
+
+                            <div class="rectangles_titres">
+                                <?= ($i+1) ?>
+
+                            </div>
+
+                            <?php
+                        }?>    
+                        
+
+                    </div>
                     
                     <div class="rectangles">
 
@@ -265,43 +306,7 @@ if (empty($_SESSION['id'])){
 
                     </div>
 
-                    <div class="rectangles">
 
-                        <?php 
-                            
-                        for ($i = 0; $i < count($tableau_pseudos); $i++) {
-                                
-                            ?>
-
-                            <div class="rectangles_titres">
-
-
-                            </div>
-
-                            <?php
-                        }?>    
-                        
-
-                    </div>
-
-                    <div class="rectangles">
-                        
-                        <?php 
-                            
-                        for ($i = 0; $i < count($tableau_pseudos); $i++) {
-                                    
-                            ?>
-    
-                            <div class="rectangles_titres">
-    
-    
-                            </div>
-    
-                            <?php
-                            
-                        }?>
-
-                    </div>
 
                 </div>
 

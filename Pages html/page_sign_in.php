@@ -70,6 +70,7 @@
                                 $_SESSION['Nom'] = $resultat['Nom'];
                                 $_SESSION['prenom'] = $resultat['prenom'];
                                 $_SESSION['email'] = $resultat['email'];
+                                $_SESSION['cyclean'] = $resultat['CreditsCyclean'];
                                 $_SESSION['APropos'] = $resultat['APropos'];
                                 $_SESSION['extension'] = $resultat['Extension'];
                                 $_SESSION['utilisateur'] = $resultat['TypeUtilisateur'];
