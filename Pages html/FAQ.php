@@ -21,7 +21,7 @@
 
 
     <?php
-        $compteur_id = 0;
+        $compteur_id = 1;
         
         session_start();
         ini_set('display_errors', 1);
@@ -62,18 +62,21 @@
     
    <?php
 
-        $sql = "SELECT * FROM `faq` INNER JOIN utilisateurs ON faq.pseudo = utilisateurs.pseudo WHERE faq.question =1 ";
+        $sql = "SELECT * FROM `faq` INNER JOIN utilisateurs ON faq.pseudo = utilisateurs.pseudo WHERE faq.question =1 OR faq.reponse = 1";
 
         $requete = $db->query($sql);
         $informations = $requete->fetchall();
 
+        $donnees = $informations;
+
         #echo($_SESSION['utilisateur']);
 
-     ?>   
 
-
+    ?> 
     <?php
     foreach ($informations as $information) {
+        $reponse_de_la_question = $information['reponse_de_la_question'];
+        #echo($compteur_id);
         $compteur_id = $information['idQuestion'] + 1;
         
 
@@ -81,9 +84,11 @@
         #echo($information['id']);
         
     ?>
-
         <section class="discussion">
-        
+        <?php
+        if($information['question']==1){
+            #echo("question");?>
+
             <div class= "messages">
                 
                 <div class="entete">
@@ -131,7 +136,7 @@
 
                     <div class="fleche_repondre">
                         
-                        <img class="image_fleche" onclick="apparaitre()" src="images\fleche_repondre.png" width="35px" >
+                        <img class="image_fleche" onclick="afficher_reponse(<?php echo($information['idQuestion']) ?>)" src="images\fleche_repondre.png" width="35px" >
 
                     </div>
 
@@ -148,6 +153,105 @@
 
             </div>
 
+                <div id="js_reponse_message_<?php echo($information['idQuestion']) ?>" style="display: none">
+
+                    <div class="reponses">
+
+                        <div class="entete">
+
+                            <div class ="photo_profil">
+
+                                <img src="images\Profil.png" width="50px" style="border-radius: 50%;">
+
+                            </div>
+
+                            <div class="pseudo">
+                                <?php echo($_SESSION['pseudo']) ?>
+
+                            </div>
+
+                            <div class="date_heure">
+                                <?php
+                                    echo($DateAndTime = date('d-m-Y H:i'));
+                                ?>
+                            </div>
+
+                        </div>
+
+                        <div class="corps">
+                            <form method="POST" action="" class="publication_message">
+
+                                <div class="emplacement_ecriture">
+                                <textarea type="text" name="remarque" class="remarque" placeholder="Ecrire message"></textarea> 
+                                </div>
+
+                                <input type="hidden" name="id_reponse_question" value="<?php echo($information['idQuestion']) ?>">
+                                
+                                <div class="bouton_publier" >
+                                    <input class="submit" type="submit" name="publier_reponse" value="Publier">
+                                </div>
+                        
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+        </div>
+            <?php
+        }
+        ?>
+        <?php 
+
+            $indicateur_question = $information['idQuestion'];
+            #echo($indicateur_question);
+
+
+
+            foreach ($informations as $donnee){
+                
+                if($donnee['reponse'] == 1 && $donnee['reponse_de_la_question'] == $information['idQuestion']){
+                    
+                    #echo('ici');
+                    
+                    ?>
+        
+
+                    <div class="reponses">
+                        <div class="entete">
+
+                            <div class ="photo_profil">
+
+                                <img src="<?php require_once('photo_profil.php'); echo get_pdp($information['id']); ?>" width="50px" style="border-radius: 50%;">
+
+                            </div>
+
+                            <div class="pseudo">
+                                <?php echo($information['pseudo']) ?>
+
+                            </div>
+
+                            <div class="date_heure">
+                                <?php
+                                    echo($information['date']);
+                                ?>
+                            </div>
+
+                        </div>
+
+                        <div class="corps">
+                            <div class="info_ancien_message">
+                                <?php echo($donnee['texte'])?>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                }?>
+
+            <?php
+                }
+            ?>
         </section>
 
     <?php
@@ -172,10 +276,15 @@
 
             if (!empty($_POST['remarque'])){
                #echo('ici');
+               #echo($compteur_id);
+               #$compteur_id = $compteur_id + 1;
+               #echo($_POST['remarque']);
+               #echo($_SESSION['pseudo']);
+               
 
                 
                 $DateAndTime = date('d-m-Y H:i');
-                
+                echo($DateAndTime);
                 
                 $db->exec("INSERT INTO `faq` (`idQuestion`, `texte`, `pseudo`, 
                 `question`, `reponse`, `reponse_de_la_question`, `date`) 
@@ -189,6 +298,22 @@
                 echo('Le champ est vide');
             }
         }
+    ?>
+
+    <?php   
+        if (isset($_POST['publier_reponse'])){ 
+
+            $DateAndTime = date('d-m-Y H:i');
+            echo($DateAndTime);
+                
+            $db->exec("INSERT INTO `faq` (`idQuestion`, `texte`, `pseudo`, 
+                `question`, `reponse`, `reponse_de_la_question`, `date`) 
+                VALUES('$compteur_id', '$_POST[remarque]' , '$_SESSION[pseudo]', '0','1','$_POST[id_reponse_question]','$DateAndTime' )");
+
+                header('Location: FAQ.php');
+
+        }
+
     ?>
 
 
@@ -228,6 +353,7 @@
                         <div class="emplacement_ecriture">
                            <textarea type="text" name="remarque" class="remarque" placeholder="Ecrire message"></textarea> 
                         </div>
+                        
                         <div class="bouton_publier" >
                             <input class="submit" type="submit" name="publier" value="Publier">
                         </div>
@@ -263,6 +389,7 @@
 
         <div class="portfolio-experiment">
             <a>
+                <!-- display() -->
                 <span class="text" onclick="display()">Ajouter une discussion</span>
                 <span class="line -right"></span>
                 <span class="line -top"></span>
