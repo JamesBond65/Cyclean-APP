@@ -79,9 +79,10 @@ if (empty($_SESSION['id'])){
 
 
 
+
+            <div class="boite">
             <a href="page_profil.php?id=<?= $liste_id[$i] ?>"><img src="<?php require_once('photo_profil.php');
                                                                         echo get_pdp($liste_id[$i]); ?>" class="image"></a>
-            <div class="boite">
               <p class="text">
                 <?= $pseudo_demandeur ?>
                 veut Cyclean avec vous!
@@ -131,13 +132,6 @@ if (empty($_SESSION['id'])){
                 header("Refresh:0");
               }
               ?>
-
-
-              $q3->execute(['id' => $liste_id[$i]]);
-
-              header("Refresh:0");
-            }
-            ?>
         </div>
       </div>
 
