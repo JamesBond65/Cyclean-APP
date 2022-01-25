@@ -46,7 +46,7 @@ Aucune information personnelle n'est collectée à votre insu. Les informations 
 
 Elles ne font l'objet d'aucune cession à des tiers. CYCLEAN traite les informations qui vous concernent avec la plus grande confidentialité.<br/>
 
-Conformément à la loi « Informatique et Libertés » n°78-17 du 6 janvier 1978, vous disposez d'un droit d'accès, de rectification et d'opposition aux données personnelles vous concernant. Pour l'exercer, il suffit de nous en faire la demande par écrit aux coordonnées suivantes : cyclean@gmail.com<br/>
+Conformément à la loi « Informatique et Libertés » n°78-17 du 6 janvier 1978, vous disposez d'un droit d'accès, de rectification et d'opposition aux données personnelles vous concernant. Pour l'exercer, il suffit de nous en faire la demande par écrit aux coordonnées suivantes : ad.cyclean@gmail.com<br/>
 <h1><br>Droit d'auteur / copyright<br/></h1>
 
 L'ensemble du contenu du présent site Internet, y compris nom de domaine, marques, logo, texte… est la propriété de la société CYCLEAN, il est protégé par les lois en vigueur de la législation française sur la propriété intellectuelle.<br/>

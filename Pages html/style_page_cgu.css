@@ -12,12 +12,67 @@ html, body {
     font-family:"Helvetica";
 }
 
+
 .padding_total{
-    padding-left: 3%;
-    padding-right: 1%;
+  padding-left: 3%;
+  padding-right: 1%;
+}
+
+a {
+  /*Enlever surlignage bleu pour les liens de la barre de nav*/
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+
+                              /*Partie principale de la page (dans l'ordre)*/
+/*---------------------------------------------------------------------------------------------------*/
+
+.navigation{ /*classe car réultilisation plus tard*/
+  text-align:right;
+  list-style: none;
+
+}
+
+
+.navigation > li> a {
+  /*Personnaliser le texte dans la barre de nav*/
+  color: white;
+  font-family:Helvetica;
+  font-size: 90%;
+  font-weight: bold;
+  display: inline;
+  text-decoration: none;
+
+  position: relative;
 
 
 }
+      /*Animation CSS pour la barre de navigation*/
+
+/*------------------------------------------------------------------*/
+.navigation > li> a::after {
+  background-color:white;
+  content:""; /*Contenu invisible*/
+  height:2px;
+  width:15px;
+
+  position:absolute;
+  top: 50%;
+  right: -19px;
+
+  display: block;
+
+
+
+
+  transform-origin:left center;
+  transition: transform .2s ease-in-out,color .2s ease-in-out; /*pour le dégradé temporel entrant*/
+  transform:scaleX(0) /*Commence sans rien*/
+}
+.navigation > li> a:hover::after {
+  transform:scaleX(1) /*Commence l'animation après hover*/
+ }
 
 .slogan_pourc{
     color: white;
