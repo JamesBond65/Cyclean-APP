@@ -266,7 +266,13 @@
             #echo($numero);
             #echo("je suis là"); 
             $db->exec("DELETE FROM `faq` WHERE idQuestion = $numero");
-            header('Location: FAQ.php');
+            #header('Location: FAQ.php');
+            ?>
+            <script type="text/javascript">
+                refresh_page();
+            </script>
+
+            <?php
 
         }
     ?>
@@ -290,7 +296,13 @@
                 `question`, `reponse`, `reponse_de_la_question`, `date`) 
                 VALUES('$compteur_id', '$_POST[remarque]' , '$_SESSION[pseudo]', '1','0','0','$DateAndTime' )");
 
-                header('Location: FAQ.php');
+                #header('Location: FAQ.php');
+                ?>
+                <script type="text/javascript">
+                refresh_page();
+                </script>
+
+                <?php
                 
             }
 
@@ -310,7 +322,15 @@
                 `question`, `reponse`, `reponse_de_la_question`, `date`) 
                 VALUES('$compteur_id', '$_POST[remarque]' , '$_SESSION[pseudo]', '0','1','$_POST[id_reponse_question]','$DateAndTime' )");
 
-                header('Location: FAQ.php');
+                #header('Location: FAQ.php');
+            ?>
+            
+            <script type="text/javascript">
+                refresh_page();
+            </script>
+
+            <?php
+
 
         }
 
