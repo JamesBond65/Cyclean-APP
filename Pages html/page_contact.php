@@ -12,7 +12,7 @@ if (empty($_SESSION['id'])){
         <meta charset="UTF-8" />
         <title>Cyclean - Contact</title>
         <link rel="stylesheet" href="style_page_accueil.css?v=<?php echo time(); ?>">
-
+        <link rel = "icon" href = "images/LogoBlancCut1.png">
         <!-- Importation du fichier header-->
         <script src="jquery.js"></script>
         <script> 

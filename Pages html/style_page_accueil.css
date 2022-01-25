@@ -7,7 +7,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    
+    background-color: #B2BDCC;
     color: white;
     /*font-family:"";*/
 }
@@ -247,9 +247,6 @@ a.couleur_classement_accueil:hover{
     justify-content: center;
 }
 
-.gris{
-    background-color: #B2BDCC;
- }
 
 .container-flex{
     display: flex;
@@ -260,7 +257,7 @@ a.couleur_classement_accueil:hover{
 }
 
 .index1{
-    z-index:1;
+    z-index:4;
 }
 
 
@@ -341,4 +338,5 @@ input,textarea{
     .imgtop { /*réutiliser pour toutes les pages avec imgtop*/
         display: none; /*Image du haut supprimée*/
     }
+    
 }

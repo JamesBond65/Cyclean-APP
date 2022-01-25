@@ -5,6 +5,7 @@
         <meta charset="UTF-8" />
         <title>Cyclean - Accueil</title>
         <link rel="stylesheet" href="style_page_accueil.css?v=<?php echo time(); ?>">
+        <link rel = "icon" href = "images/LogoBlancCut1.png">
     </head>
 
 

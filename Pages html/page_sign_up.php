@@ -8,6 +8,7 @@
         <meta charset="UTF-8" />
         <title>Cyclean - Inscription</title>
         <link rel="stylesheet" href="style_page_sign_up.css?v=<?php echo time(); ?>">
+        <link rel = "icon" href = "images/LogoBlancCut1.png">
     </head>
 
 

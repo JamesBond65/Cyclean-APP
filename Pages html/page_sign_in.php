@@ -6,6 +6,7 @@
         <meta charset="UTF-8" />
         <title>Cyclean - Connexion</title>
         <link rel="stylesheet" href="style_page_sign_in.css?v=<?php echo time(); ?>">
+        <link rel = "icon" href = "images/LogoBlancCut1.png">
     </head>
 
 

@@ -4,6 +4,7 @@ function display(){
 
 function apparaitre(){
     document.getElementById('js_reponse').style.display = "block";
+
 }
 
 

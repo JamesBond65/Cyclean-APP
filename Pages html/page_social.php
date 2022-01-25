@@ -12,7 +12,8 @@ if (empty($_SESSION['id'])){
 <head>
   <meta charset="UTF-8" />
   <title>Cyclean - Social </title>
-  <link rel="stylesheet" href="style_page_social.css?v=<?php echo time(); ?>" />
+  <link rel="stylesheet" href="style_page_social.css?v=<?php echo time(); ?>">
+  <link rel = "icon" href = "images/LogoBlancCut1.png">
 
   <!-- Importation du fichier header-->
   <script src="jquery.js"></script>

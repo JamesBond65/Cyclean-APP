@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <title>Cyclean - Team</title>
         <link rel="stylesheet" href="style_page_team.css?v=<?php echo time(); ?>">
+        <link rel = "icon" href = "images/LogoBlancCut1.png">
         <!-- Importation du fichier header-->
         <script src="jquery.js"></script>
         <script> 

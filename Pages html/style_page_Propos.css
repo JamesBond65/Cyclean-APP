@@ -10,6 +10,7 @@ body {
 
   color: white;
   background-color: #b4bdcb;
+  overflow-x: hidden;
 }
 
 /*Propriétés de marges*/

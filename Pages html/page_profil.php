@@ -12,6 +12,7 @@ if (empty($_SESSION['id'])){
         <meta charset="UTF-8" />
         <title>Cyclean - Profil</title>
         <link rel="stylesheet" href="style_page_statistiques.css?v=<?php echo time(); ?>">
+        <link rel = "icon" href = "images/LogoBlancCut1.png">
 
         <!-- Importation du fichier header-->
         <script src="jquery.js"></script>
@@ -373,7 +374,7 @@ if (empty($_SESSION['id'])){
                                     const data = {
                                     labels: labels,
                                     datasets: [{
-                                        label: 'Intensité sonore en fonction du "temps"',
+                                        label: 'Intensité sonore en fonction du temps',
                                         backgroundColor: 'rgb(158, 133, 133)',
                                         borderColor: 'rgb(158, 133, 133)',
                                         data: <?= ArrayToJavascript($DataDTrajetSArray);?>, // Données sur les mesures du dernier trajet
@@ -525,7 +526,7 @@ if (empty($_SESSION['id'])){
                                     const data2 = {
                                     labels: labels2,
                                     datasets: [{
-                                        label: 'Fréquence cardiaque en fonction du "temps"',
+                                        label: 'Fréquence cardiaque en fonction du temps',
                                         backgroundColor: 'rgb(158, 133, 133)',
                                         borderColor: 'rgb(158, 133, 133)',
                                         data: <?= ArrayToJavascript($DataDTrajetFArray) ?>, // Données sur les mesures du dernier trajet

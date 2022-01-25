@@ -12,7 +12,7 @@ if (empty($_SESSION['id'])){
         <meta charset="UTF-8">
         <title>Page des classements</title>
         <link rel="stylesheet" href="style_page_classements.css?v=<?php echo time(); ?>">
-
+        <link rel = "icon" href = "images/LogoBlancCut1.png">
         <!-- Importation du fichier header-->
         <script src="jquery.js"></script>
         <script> 

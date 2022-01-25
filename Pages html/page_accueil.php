@@ -12,6 +12,7 @@ if (empty($_SESSION['id'])){
         <meta charset="UTF-8" />
         <title>Cyclean - Accueil</title>
         <link rel="stylesheet" href="style_page_accueil.css?v=<?php echo time(); ?>">
+        <link rel = "icon" href = "images/LogoBlancCut1.png">
 
         <!-- Importation du fichier header-->
         <script src="jquery.js"></script>
@@ -25,7 +26,8 @@ if (empty($_SESSION['id'])){
 
     <body>
 
-        <header id="header" class="gris"></header>
+        
+        <header id="header" class="gris" style="position:relative; z-index:10"></header>
 
 
 
@@ -34,9 +36,9 @@ if (empty($_SESSION['id'])){
 
 
 
-        <section id="bloc_gris" class="wrap" style="margin-top: -70px;z-index:-1">
+        <section id="bloc_gris" class="wrap" style="margin-top: -70px;z-index:1">
 
-            <div id="cyclean" style="margin-top: -25px;z-index:1">
+            <div id="cyclean" style="margin-top: -25px;z-index:3">
                     
                 <h1 class="slogan" style="padding-bottom: 50px;word-wrap: break-word;">
                     CYCLEAN<br>
@@ -50,7 +52,7 @@ if (empty($_SESSION['id'])){
                 
             </div>
 
-            <img src="images/VELOFINAL-5.png" id="velo" class="imgtop" width="900px" style="z-index:0;right: 0;margin-bottom: -10%;overflow:hidden;position: absolute;"> 
+            <img src="images/VELOFINAL-5.png" id="velo" class="imgtop" width="900px" style="z-index:2;right: 0;margin-bottom: -10%;overflow:hidden;position: absolute;"> 
 
             <script>
                 var container = document.getElementById('bloc_gris');
@@ -77,7 +79,7 @@ if (empty($_SESSION['id'])){
 
 
         
-        <section class="container-flex wrap center">
+        <section class="container-flex wrap center" style="z-index:4;">
 
             <a href="page_profil.php?id=<?= $_SESSION['id']?>" class="couleur_stats_accueil flex-3box index1">
 

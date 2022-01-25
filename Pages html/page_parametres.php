@@ -12,6 +12,7 @@ if (empty($_SESSION['id'])){
 
         <title>Cyclean - Paramètres</title>
         <link rel="stylesheet" href="style_page_parametres.css?v=<?php echo time(); ?>">
+        <link rel = "icon" href = "images/LogoBlancCut1.png">
 
         <!-- Importation du fichier header-->
         <script src="jquery.js"></script>
