@@ -75,8 +75,9 @@
     ?> 
     <?php
     foreach ($informations as $information) {
+        
         $reponse_de_la_question = $information['reponse_de_la_question'];
-        #echo($compteur_id);
+        #echo('ici');
         $compteur_id = $information['idQuestion'] + 1;
         
 
@@ -115,7 +116,8 @@
 
                     <div class="supprimer">
                         <?php 
-                        if( $_SESSION['utilisateur'] = 'Administrateur'){
+                        #echo($_SESSION['utilisateur']);
+                        if($_SESSION['utilisateur'] == 'Administrateur'){
                         ?>
                             <form action="" method="POST">
                                 
