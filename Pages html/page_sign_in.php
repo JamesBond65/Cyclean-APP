@@ -63,7 +63,6 @@
 
                             $password_compte= $resultat['password'];
 
-
                             if ((password_verify($connexion_password, $password_compte))){
 
                                 $_SESSION['id'] = $resultat['id'];

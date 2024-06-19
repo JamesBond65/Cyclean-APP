@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <header class="container-flex space padding_total">
-  <nav style="padding-top:2%" class="imgtop" >
+  <nav style="padding-top:2%">
     <a href="page_accueil.php">
       <img src="images/LogoBlanc.png " width="50px"/>
     </a>
@@ -8,7 +8,7 @@
 
   <nav style="margin-right: 2.5%;z-index:1;">
     <ul class="navigation">
-      <li><img src="images/Langages.png" class="imgtop" width="30px" /><br /></li>
+      <li><img src="images/Langages.png" width="30px" /><br /></li>
       <li>
         <a href="page_notifications.php">Notifications <br /></a>
       </li>
