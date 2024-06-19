@@ -142,7 +142,7 @@
 
                                 if ($somme_pseudo == 0){
                                     // si le pseudo n'est pas déjà utilisé
-                                    $q = $db->prepare("INSERT INTO utilisateurs(pseudo,Nom,prenom,email,password,ModeleProduit,TypeUtilisateur) VALUES(:pseudo,:nom,:prenom,:email,:password,:modele,:compte)");
+                                    $q = $db->prepare("INSERT INTO utilisateurs(pseudo,Nom,prenom,email,password,TypeUtilisateur) VALUES(:pseudo,:nom,:prenom,:email,:password,:compte)");
                                     
                                     
                                     $q->execute([
@@ -151,7 +151,6 @@
                                         'prenom'=> $prenom,
                                         'email' => $email, 
                                         'password' => $password,
-                                        'modele'=> 112,
                                         'compte' => $compte,
                                     ]); // Attention aux différences entre différents types de guillemets
 
