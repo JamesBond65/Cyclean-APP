@@ -1,3 +1,59 @@
+# Cyclean
+
+Cyclean is an innovative web application designed to promote the transition to more ecological modes of transport, encouraging the use of bicycles through specialized and friendly communities. The site collects and organizes data from various environmental sensors, including:
+
+- CO2 sensor
+- Noise pollution sensor
+- Heart rate sensor
+
+# Features
+
+## User Account Management
+
+- **Registration and Login**: Users can easily sign up and log in to access their personal dashboard.
+- **Security**: Passwords are hashed, and SQL queries are prepared to prevent injections and other security issues.
+
+## User Interface
+
+- **Interactive FAQ**: A dynamic FAQ section where users can ask questions and find answers.
+- **User Interaction Pages**: Engage with other users through leaderboards, friend activities, notifications, settings, and more.
+- **Profile Page**: View detailed graphs displaying sensor data, averages, and key information from the last trip. The profile also includes monthly averages and data from all previous trips.
+- **News Page**: View Cyclean's news and upcoming changes in the News page.
+
+## Sensor Data Visualization
+
+- **Graphs and Averages**: Visual representation of the data collected from CO2, noise pollution, and heart rate sensors.
+- **Last Trip Summary**: Important statistics and data from the most recent trip.
+- **Monthly Summary**: Averages and critical data points from the last month.
+- **Historical Data**: Access and review sensor information from all past trips.
+
+## Objectives
+
+Cyclean aims to:
+
+- Foster innovation in ecological transportation.
+- Build supportive communities that encourage bicycle use.
+- Provide insightful environmental data to users to promote healthier and more eco-friendly lifestyles.
+
+## Getting Started
+
+To set up Cyclean on your local machine, follow these steps:
+
+- **Clone the Repository**: Clone the Cyclean repository to your local machine using the following command on git bash : 
+```
+git clone https://github.com/your-username/cyclean.git
+```
+- **Install MAMP**: Download and install MAMP.
+- **Start Servers**: Open MAMP and start the servers. Ensure Apache is running on port 80 and MySQL on port 3015, making sure the Document Root is set in the repository's folder.
+- **Database Setup**: Open phpMyAdmin and create a new database called 'siteweb' for Cyclean. Import the database from the file 'siteweb_db.sql'.
+- **Configure Database Connection**: Update the database connection settings in your configuration file to match your local setup if need be.
+- **Access the Website**: Open your browser and go to 'http://localhost/Pages_Web/page_accueil.php' to access the visitor's page. Create an account or login for more information.
+
+To start using Cyclean, visit the website and create an account. Once logged in, you can access your profile, view sensor data, and interact with other users in the community.
+Contributing
+
+
+
 ## Screenshots : 
 ![1](https://github.com/BonelessCode/Cyclean-APP/assets/59204911/9886629e-62c5-4574-813d-ea987741a42b)
 ![2](https://github.com/BonelessCode/Cyclean-APP/assets/59204911/2a75c8fa-b90b-49c2-a6e3-b24ef3611d83)
